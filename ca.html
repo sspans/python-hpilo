@@ -1,0 +1,180 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Managing SSL certificates &mdash; python-hpilo 1.3 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.3',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="python-hpilo 1.3 documentation" href="index.html" />
+    <link rel="prev" title="hpilo_cli command-line tool" href="cli.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="cli.html" title="hpilo_cli command-line tool"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">python-hpilo 1.3 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="managing-ssl-certificates">
+<h1>Managing SSL certificates<a class="headerlink" href="#managing-ssl-certificates" title="Permalink to this headline">¶</a></h1>
+<p>When managing large amounts of iLO interfaces, the constant SSL warnings are a
+nuisance. Workarounds like <a class="reference external" href="https://github.com/seveas/sslhazard/">sslhazard for firefox</a> help, but it&#8217;s much better
+to hapve proper SSL certificates. This script will make that easy to do for you
+by taking care of all the CA work.</p>
+<p>First thing to do is configure the CA. Add something like the following to your
+<tt class="file docutils literal"><span class="pre">~/.ilo.conf</span></tt>:</p>
+<div class="highlight-python"><pre>[ca]
+path = ~/.hpilo_ca</pre>
+</div>
+<p>This path can point to an existing CA, the only requirement is that
+<tt class="file docutils literal"><span class="pre">openssl.cnf</span></tt> for this CA lives inside that directory. If the CA does not
+yet exist, you can create it as follows:</p>
+<div class="highlight-python"><pre>$ hpilo_ca init
+Generating RSA private key, 2048 bit long modulus
+.+++
+..................+++
+e is 65537 (0x10001)
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) [NL]:
+State or Province Name (full name) [Flevoland]:
+Locality Name (eg, city) [Lelystad]:
+Organization Name (eg, company) [Kaarsemaker.net]:
+Common Name (eg, your name or your servers hostname) [hpilo_ca]:</pre>
+</div>
+<p>This generates the needed directories, an openssl config and a self-signed
+certificate for your CA.</p>
+<p>When your CA is set up, you can start signing certificates. <tt class="file docutils literal"><span class="pre">hpilo_ca</span></tt>
+will check several things:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Firmware is upgraded if necessary</li>
+<li>The hostname is set to the name you use to connect to it, if needed</li>
+<li>iLO2 is configured to use FQDN&#8217;s for certificate signing requests</li>
+</ul>
+</div></blockquote>
+<p>It will then download the certificate signing request, sign it and upload the
+signed certificate. Here&#8217;s an example of it at work:</p>
+<div class="highlight-python"><pre>$ ./hpilo_ca sign example-server.int.kaarsemaker.net
+(1/5) Checking certificate config of example-server.int.kaarsemaker.net
+(2/5) Retrieving certificate signing request
+(3/5) Signing certificate
+Using configuration from /home/dennis/.hpilo_ca/openssl.cnf
+Check that the request matches the signature
+Signature ok
+Certificate Details:
+        Serial Number: 0 (0x0)
+        Validity
+            Not Before: Mar 10 13:38:11 2012 GMT
+            Not After : Mar  9 13:38:11 2017 GMT
+        Subject:
+            countryName               = US
+            stateOrProvinceName       = Texas
+            organizationName          = Hewlett-Packard Development Company
+            organizationalUnitName    = ISS
+            commonName                = example-server.int.kaarsemaker.net
+        X509v3 extensions:
+            X509v3 Basic Constraints:
+                CA:FALSE
+            X509v3 Subject Key Identifier:
+                85:7A:FB:A1:14:46:BA:EF:50:21:92:F9:36:E5:D4:F7:2D:97:F4:01
+            X509v3 Authority Key Identifier:
+                keyid:D5:C4:82:D2:92:28:D0:D9:39:0A:81:69:23:2C:76:4B:7D:2C:E2:2E
+
+            Netscape Comment:
+                Certificate generated by iLO CA
+Certificate is to be certified until Mar  9 13:38:11 2017 GMT (1825 days)
+
+Write out database with 1 new entries
+Data Base Updated
+(4/5) Uploading certificate
+(5/5) Resetting iLO</pre>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="cli.html"
+                        title="previous chapter">hpilo_cli command-line tool</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/ca.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="cli.html" title="hpilo_cli command-line tool"
+             >previous</a> |</li>
+        <li><a href="index.html">python-hpilo 1.3 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011-2012, Dennis Kaarsemaker.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
