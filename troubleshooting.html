@@ -1,0 +1,144 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Common issues &mdash; python-hpilo 1.3 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.3',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="python-hpilo 1.3 documentation" href="index.html" />
+    <link rel="prev" title="Managing SSL certificates" href="ca.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="ca.html" title="Managing SSL certificates"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">python-hpilo 1.3 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="common-issues">
+<h1>Common issues<a class="headerlink" href="#common-issues" title="Permalink to this headline">¶</a></h1>
+<p>The iLO interfaces aren&#8217;t the most helpful when they detect something
+erroneous. These are some common issues and their solutions. If you have a
+problem that is not listed here, or solved with these instructions, please file
+an issue at <a class="reference external" href="https://github.com/seveas/python-hpilo">https://github.com/seveas/python-hpilo</a></p>
+<div class="section" id="syntax-error-line-0">
+<h2>Syntax error: Line #0<a class="headerlink" href="#syntax-error-line-0" title="Permalink to this headline">¶</a></h2>
+<p>Occasionally you might see this error at the end of a traceback:</p>
+<div class="highlight-python"><pre>hpilo.IloError: Error communicating with iLO: Syntax error: Line #0: syntax error near "" in the line: ""</pre>
+</div>
+<p>This generaly means that you are trying to call a method that is not supported
+for your device or the firmware version you use. Get this information with:</p>
+<div class="highlight-python"><pre>hpilo_cli your.host.name.here get_fw_version</pre>
+</div>
+<p>And consult the HP sample XML files to find out whether this call is supported
+for your device and firmware version. If it is, please file a bug at
+<a class="reference external" href="https://github.com/seveas/python-hpilo">https://github.com/seveas/python-hpilo</a>.</p>
+<p>Note that for some calls (most notable mod_global_settings), support for the
+call may be there, but not all arguments are supported.</p>
+</div>
+<div class="section" id="elementtree-parseerror">
+<h2>ElementTree.ParseError<a class="headerlink" href="#elementtree-parseerror" title="Permalink to this headline">¶</a></h2>
+<p>Occasionally you might see either of these errors at the end of a traceback:</p>
+<div class="highlight-python"><pre>cElementTree.ParseError: not well-formed (invalid token): line 301, column 23
+xml.etree.ElementTree.ParseError: not well-formed (invalid token): line 301, column 23</pre>
+</div>
+<p>This means that the iLO interface is spewing invalid XML back at you.
+python-hpilo has some workarounds in place for common cases, and most other
+cases have been fixed in newer firmware versions. Please update your firmware version:</p>
+<div class="highlight-python"><pre>hpilo_cli your.host.name.here update_rib_firmware filename=latest</pre>
+</div>
+<p>and try again. If the problem persists, run the hpilo_cli command in debugging
+mode (-dd) and submit a bug with the resulting XML fragment.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Common issues</a><ul>
+<li><a class="reference internal" href="#syntax-error-line-0">Syntax error: Line #0</a></li>
+<li><a class="reference internal" href="#elementtree-parseerror">ElementTree.ParseError</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ca.html"
+                        title="previous chapter">Managing SSL certificates</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/troubleshooting.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="ca.html" title="Managing SSL certificates"
+             >previous</a> |</li>
+        <li><a href="index.html">python-hpilo 1.3 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011-2012, Dennis Kaarsemaker.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

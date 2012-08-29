@@ -57,11 +57,11 @@
 version is in use and will send the correct messages for that version. Its
 methods are divided into several categories below: getting information,
 changing settings and upgrading firmware.</p>
-<p>There are quite a few functions to get information about your server, its
+<p>There are quite a few methods to get information about your server, its
 enclosing chassis or the iLO board itself. To see what they return, please
 refer to the <a class="reference internal" href="output.html"><em>example output</em></a>.</p>
-<p>Functions that manipulate the iLO, such as setting the servers name, or
-changing a users password, do not have a return value.</p>
+<p>Methods that manipulate the iLO, such as setting the servers name, or changing
+a users password do not have a return value.</p>
 <p>The exception <tt class="xref py py-class docutils literal"><span class="pre">IloError</span></tt> is raised in case of errors that occur when
 communicating with the IlO. The subclass <tt class="xref py py-class docutils literal"><span class="pre">IloLoginFailed</span></tt> is raised for
 login failures.</p>
