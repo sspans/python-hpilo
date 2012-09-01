@@ -1,5 +1,6 @@
 
 
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -10,8 +11,9 @@
     
     <title>hpilo_cli command-line tool &mdash; python-hpilo 1.3 documentation</title>
     
-    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noticia+Text|Droid+Sans+Mono" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -25,11 +27,15 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="_static/cloud.js"></script>
     <link rel="top" title="python-hpilo 1.3 documentation" href="index.html" />
     <link rel="next" title="Managing SSL certificates" href="ca.html" />
     <link rel="prev" title="Example output of API calls" href="output.html" /> 
   </head>
   <body>
+    <div class="relbar-top">
+        
     <div class="related">
       <h3>Navigation</h3>
       <ul>
@@ -38,13 +44,16 @@
              accesskey="I">index</a></li>
         <li class="right" >
           <a href="ca.html" title="Managing SSL certificates"
-             accesskey="N">next</a> |</li>
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
         <li class="right" >
           <a href="output.html" title="Example output of API calls"
-             accesskey="P">previous</a> |</li>
-        <li><a href="index.html">python-hpilo 1.3 documentation</a> &raquo;</li> 
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">python-hpilo 1.3 documentation</a> &raquo;</li>
+ 
       </ul>
-    </div>  
+    </div>
+    </div>
+  
 
     <div class="document">
       <div class="documentwrapper">
@@ -87,7 +96,7 @@ that should look like this:</p>
 arguments. A full example config file is shipped with the hpilo distribution.</p>
 <p>To pass arguments to method calls, pass <tt class="xref py py-attr docutils literal"><span class="pre">key=value</span></tt> pairs on the
 command-line. These can reference arbitrary configuration variables using
-<tt class="xref py py-attr docutils literal"><span class="pre">key=$section.option</span></tt></p>
+<tt class="xref py py-attr docutils literal"><span class="pre">key='$section.option'</span></tt></p>
 <p>Some examples will make it clearer, so here are a few:</p>
 <p>Getting the status of the UID light:</p>
 <div class="highlight-python"><pre>$ hpilo_cli example-server.int.kaarsemaker.net get_uid_status
@@ -136,17 +145,15 @@ cen set an alternative path in the config, see the example config file.</p>
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
+        <p class="logo"><a href="index.html">
+          <img class="logo" src="_static/lightbulb.png" alt="Logo"/>
+        </a></p>
   <h4>Previous topic</h4>
   <p class="topless"><a href="output.html"
                         title="previous chapter">Example output of API calls</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="ca.html"
                         title="next chapter">Managing SSL certificates</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/cli.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
@@ -164,6 +171,8 @@ cen set an alternative path in the config, see the example config file.</p>
       </div>
       <div class="clearer"></div>
     </div>
+    <div class="relbar-bottom">
+        
     <div class="related">
       <h3>Navigation</h3>
       <ul>
@@ -172,16 +181,19 @@ cen set an alternative path in the config, see the example config file.</p>
              >index</a></li>
         <li class="right" >
           <a href="ca.html" title="Managing SSL certificates"
-             >next</a> |</li>
+             >next</a> &nbsp; &nbsp;</li>
         <li class="right" >
           <a href="output.html" title="Example output of API calls"
-             >previous</a> |</li>
-        <li><a href="index.html">python-hpilo 1.3 documentation</a> &raquo;</li> 
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">python-hpilo 1.3 documentation</a> &raquo;</li>
+ 
       </ul>
     </div>
+    </div>
+
     <div class="footer">
         &copy; Copyright 2011-2012, Dennis Kaarsemaker.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
     </div>
+    <!-- cloud_sptheme 1.4 -->
   </body>
 </html>
