@@ -9,7 +9,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>hpilo_cli command-line tool &mdash; python-hpilo 1.5 documentation</title>
+    <title>hpilo_cli command-line tool &mdash; python-hpilo 2.0 documentation</title>
     
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -18,7 +18,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '1.5',
+        VERSION:     '2.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -29,7 +29,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/jquery.cookie.js"></script>
     <script type="text/javascript" src="_static/cloud.js"></script>
-    <link rel="top" title="python-hpilo 1.5 documentation" href="index.html" />
+    <link rel="top" title="python-hpilo 2.0 documentation" href="index.html" />
     <link rel="next" title="Managing SSL certificates" href="ca.html" />
     <link rel="prev" title="Example output of API calls" href="output.html" /> 
   </head>
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="output.html" title="Example output of API calls"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">python-hpilo 1.5 documentation</a> &raquo;</li>
+    <li><a href="index.html">python-hpilo 2.0 documentation</a> &raquo;</li>
  
       </ul>
     </div>
@@ -99,6 +99,7 @@ arguments. A full example config file is shipped with the hpilo distribution.</p
 <p>To pass arguments to method calls, pass <tt class="xref py py-attr docutils literal"><span class="pre">key=value</span></tt> pairs on the
 command-line. These can reference arbitrary configuration variables using
 <tt class="xref py py-attr docutils literal"><span class="pre">key='$section.option'</span></tt></p>
+<p>You can also call multiple methds at once by separating them with a <tt class="xref py py-data docutils literal"><span class="pre">+</span></tt></p>
 <p>Some examples will make it clearer, so here are a few:</p>
 <p>Getting the status of the UID light:</p>
 <div class="highlight-python"><pre>$ hpilo_cli example-server.int.kaarsemaker.net get_uid_status
@@ -113,11 +114,19 @@ OFF</pre>
 <div class="highlight-python"><pre>$ hpilo_cli example-server.int.kaarsemaker.net set_server_name name=example-server</pre>
 </div>
 <p>Displaying help for the <tt class="xref py py-func docutils literal"><span class="pre">get_host_data()</span></tt> method:</p>
-<div class="highlight-python"><pre>$ hpilo --help get_host_data
+<div class="highlight-python"><pre>$ hpilo_cli --help get_host_data
 Ilo.get_host_data [decoded_only=True]:
 Get SMBIOS records that describe the host. By default only the ones
 where human readable information is available are returned. To get
 all records pass decoded_only=False</pre>
+</div>
+<p>Calling multiple methods:</p>
+<div class="highlight-python"><pre>$ hpilo_cli example-server.int.kaarsemaker.net get_uid_status + uid_control uid=No + get_uid_status
+&gt;&gt;&gt; print(my_ilo.get_uid_status())
+ON
+&gt;&gt;&gt; my_ilo.uid_control(uid="No")
+&gt;&gt;&gt; print(my_ilo.get_uid_status())
+OFF</pre>
 </div>
 <p>Setting a licence key defined in the config file:</p>
 <div class="highlight-python"><pre>$ cat ~/.ilo.conf
@@ -187,7 +196,7 @@ can set an alternative path in the config, see the example config file.</p>
         <li class="right" >
           <a href="output.html" title="Example output of API calls"
              >previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">python-hpilo 1.5 documentation</a> &raquo;</li>
+    <li><a href="index.html">python-hpilo 2.0 documentation</a> &raquo;</li>
  
       </ul>
     </div>

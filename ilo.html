@@ -9,7 +9,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Ilo obects &mdash; python-hpilo 1.5 documentation</title>
+    <title>Ilo obects &mdash; python-hpilo 2.0 documentation</title>
     
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -18,7 +18,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '1.5',
+        VERSION:     '2.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -29,7 +29,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/jquery.cookie.js"></script>
     <script type="text/javascript" src="_static/cloud.js"></script>
-    <link rel="top" title="python-hpilo 1.5 documentation" href="index.html" />
+    <link rel="top" title="python-hpilo 2.0 documentation" href="index.html" />
     <link rel="next" title="Example output of API calls" href="output.html" />
     <link rel="prev" title="Installing" href="install.html" /> 
   </head>
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="install.html" title="Installing"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">python-hpilo 1.5 documentation</a> &raquo;</li>
+    <li><a href="index.html">python-hpilo 2.0 documentation</a> &raquo;</li>
  
       </ul>
     </div>
@@ -76,14 +76,15 @@ communicating with the IlO. The subclass <tt class="xref py py-class docutils li
 login failures.</p>
 <dl class="class">
 <dt id="hpilo.Ilo">
-<em class="property">class </em><tt class="descclassname">hpilo.</tt><tt class="descname">Ilo</tt><big>(</big><em>hostname</em>, <em>login=None</em>, <em>password=None</em>, <em>timeout=60</em>, <em>port=443</em>, <em>protocol=None</em><big>)</big><a class="headerlink" href="#hpilo.Ilo" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">hpilo.</tt><tt class="descname">Ilo</tt><big>(</big><em>hostname</em>, <em>login=None</em>, <em>password=None</em>, <em>timeout=60</em>, <em>port=443</em>, <em>protocol=None</em>, <em>delayed=False</em><big>)</big><a class="headerlink" href="#hpilo.Ilo" title="Permalink to this definition">¶</a></dt>
 <dd><p>Represents an iLO/iLO2/iLO3/RILOE II management interface on a
 specific host. A new connection using the specified login, password and
 timeout will be made for each API call. The library will detect which
 protocol to use, but you can override this by setting protocol to
 ILO_RAW or ILO_HTTP. Use ILO_LOCAL to avoid using a network connection
 and use hponcfg instead. Username and password are ignored for ILO_LOCAL
-connections.</p>
+connections. Set delayed to True to make python-hpilo not send requests
+immediately, but group them together. See <a class="reference internal" href="#hpilo.Ilo.call_delayed" title="hpilo.Ilo.call_delayed"><tt class="xref py py-func docutils literal"><span class="pre">call_delayed()</span></tt></a></p>
 <dl class="method">
 <dt id="hpilo.Ilo.activate_license">
 <tt class="descname">activate_license</tt><big>(</big><em>key</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.activate_license" title="Permalink to this definition">¶</a></dt>
@@ -102,6 +103,21 @@ values.</p>
 <dt id="hpilo.Ilo.ahs_clear_data">
 <tt class="descname">ahs_clear_data</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.ahs_clear_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>FIXME: I have no relevant hardware. Please report sample output</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.call_delayed">
+<tt class="descname">call_delayed</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.call_delayed" title="Permalink to this definition">¶</a></dt>
+<dd><p>In delayed mode, calling a method on an iLO object will not cause an
+immediate callout to the iLO. Instead, the method and parameters are
+stored for future calls of this method. This method makes one
+connection to the iLO and sends all commands as one XML document.
+This speeds up applications that make many calls to the iLO by
+removing seconds of overhead per call.</p>
+<p>The return value of call_delayed is a list of return values for
+individual methods that don&#8217;t return None. This means that there may
+be fewer items returned than methods called as only <cite>get_*</cite> methods
+return data</p>
 </dd></dl>
 
 <dl class="method">
@@ -179,7 +195,7 @@ values.</p>
 <dl class="method">
 <dt id="hpilo.Ilo.get_ahs_status">
 <tt class="descname">get_ahs_status</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_ahs_status" title="Permalink to this definition">¶</a></dt>
-<dd><p>FIXME: I have no relevant hardware. Please report sample output</p>
+<dd><p>Get active health system  logging status</p>
 </dd></dl>
 
 <dl class="method">
@@ -445,6 +461,13 @@ use <a class="reference internal" href="#hpilo.Ilo.set_vm_status" title="hpilo.I
 </dd></dl>
 
 <dl class="method">
+<dt id="hpilo.Ilo.mod_dir_config">
+<tt class="descname">mod_dir_config</tt><big>(</big><em>dir_authentication_enabled=None</em>, <em>dir_local_user_acct=None</em>, <em>dir_server_address=None</em>, <em>dir_server_port=None</em>, <em>dir_object_dn=None</em>, <em>dir_object_password=None</em>, <em>dir_user_context_1=None</em>, <em>dir_user_context_2=None</em>, <em>dir_user_context_3=None</em>, <em>dir_user_context_4=None</em>, <em>dir_user_context_5=None</em>, <em>dir_user_context_6=None</em>, <em>dir_user_context_7=None</em>, <em>dir_user_context_8=None</em>, <em>dir_user_context_9=None</em>, <em>dir_user_context_10=None</em>, <em>dir_user_context_11=None</em>, <em>dir_user_context_12=None</em>, <em>dir_user_context_13=None</em>, <em>dir_user_context_14=None</em>, <em>dir_user_context_15=None</em>, <em>dir_enable_grp_acct=None</em>, <em>dir_kerberos_enabled=None</em>, <em>dir_kerberos_realm=None</em>, <em>dir_kerberos_kdc_address=None</em>, <em>dir_kerberos_kdc_port=None</em>, <em>dir_kerberos_keytab=None</em>, <em>dir_grpacct1_name=None</em>, <em>dir_grpacct1_sid=None</em>, <em>dir_grpacct1_priv=None</em>, <em>dir_grpacct2_name=None</em>, <em>dir_grpacct2_sid=None</em>, <em>dir_grpacct2_priv=None</em>, <em>dir_grpacct3_name=None</em>, <em>dir_grpacct3_sid=None</em>, <em>dir_grpacct3_priv=None</em>, <em>dir_grpacct4_name=None</em>, <em>dir_grpacct4_sid=None</em>, <em>dir_grpacct4_priv=None</em>, <em>dir_grpacct5_name=None</em>, <em>dir_grpacct5_sid=None</em>, <em>dir_grpacct5_priv=None</em>, <em>dir_grpacct6_name=None</em>, <em>dir_grpacct6_sid=None</em>, <em>dir_grpacct6_priv=None</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.mod_dir_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modify iLO directory configuration, only values that are specified
+will be changed.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="hpilo.Ilo.mod_global_settings">
 <tt class="descname">mod_global_settings</tt><big>(</big><em>session_timeout=None</em>, <em>f8_prompt_enabled=None</em>, <em>f8_login_required=None</em>, <em>lock_configuration=None</em>, <em>http_port=None</em>, <em>https_port=None</em>, <em>ssh_port=None</em>, <em>ssh_status=None</em>, <em>vmedia_disable=None</em>, <em>virtual_media_port=None</em>, <em>remote_console_port=None</em>, <em>min_password=None</em>, <em>enfoce_aes=None</em>, <em>authentication_failure_logging=None</em>, <em>rbsu_post_ip=None</em>, <em>remote_console_encryption=None</em>, <em>remote_keyboard_model=None</em>, <em>terminal_services_port=None</em>, <em>high_performance_mouse=None</em>, <em>shared_console_enable=None</em>, <em>shared_console_port=None</em>, <em>remote_console_acquire=None</em>, <em>brownout_recovery=None</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.mod_global_settings" title="Permalink to this definition">¶</a></dt>
 <dd><p>Modify iLO global settings, only values that are specified will be changed.</p>
@@ -634,7 +657,7 @@ download and use the latest firmware</p>
         <li class="right" >
           <a href="install.html" title="Installing"
              >previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">python-hpilo 1.5 documentation</a> &raquo;</li>
+    <li><a href="index.html">python-hpilo 2.0 documentation</a> &raquo;</li>
  
       </ul>
     </div>
