@@ -9,7 +9,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Installing &mdash; python-hpilo 2.1 documentation</title>
+    <title>Contributing guide &mdash; python-hpilo 2.1 documentation</title>
     
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -30,8 +30,7 @@
     <script type="text/javascript" src="_static/jquery.cookie.js"></script>
     <script type="text/javascript" src="_static/cloud.js"></script>
     <link rel="top" title="python-hpilo 2.1 documentation" href="index.html" />
-    <link rel="next" title="Ilo obects" href="ilo.html" />
-    <link rel="prev" title="Accessing HP iLO interfaces from python" href="index.html" /> 
+    <link rel="prev" title="Common issues" href="troubleshooting.html" /> 
   </head>
   <body>
     <div class="relbar-top">
@@ -43,10 +42,7 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="ilo.html" title="Ilo obects"
-             accesskey="N">next</a> &nbsp; &nbsp;</li>
-        <li class="right" >
-          <a href="index.html" title="Accessing HP iLO interfaces from python"
+          <a href="troubleshooting.html" title="Common issues"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="index.html">python-hpilo 2.1 documentation</a> &raquo;</li>
  
@@ -60,33 +56,29 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="installing">
-<h1>Installing<a class="headerlink" href="#installing" title="Permalink to this headline">¶</a></h1>
-<p>python-hpilo requires python 2.4 or newer, python 3 is supported as well.
-<tt class="file docutils literal"><span class="pre">hpilo_ca</span></tt> requires that you have OpenSSL installed. When using python
-2.4, installing cElementTree is required as well. 2.5 and newer have this
-library as part of the standard library.</p>
-<p>If you want to use the hpilo.LOCAL protocol, talking directly to the iLO via a
-kernel driver, you must install this driver and the relevant tools from hp.</p>
-<div class="section" id="installing-the-latest-release">
-<h2>Installing the latest release<a class="headerlink" href="#installing-the-latest-release" title="Permalink to this headline">¶</a></h2>
-<p>Installing the latest released version is as simple as:</p>
-<div class="highlight-python"><pre>pip install python-hpilo</pre>
-</div>
-<p>This downloads it from PyPI and installs it for you. Alternatively, you can
-download the tarball manually from
-<a class="reference external" href="http://pypi.python.org/packages/source/p/python-hpilo/">http://pypi.python.org/packages/source/p/python-hpilo/</a>, extract it and run:</p>
-<div class="highlight-python"><pre>python setup.py install</pre>
-</div>
-</div>
-<div class="section" id="installing-the-development-version">
-<h2>Installing the development version<a class="headerlink" href="#installing-the-development-version" title="Permalink to this headline">¶</a></h2>
-<p>If you want to tinker around with the source, or simply live on the bleeding
-edge of development, you can install the latest source from github:</p>
-<div class="highlight-python"><pre>git clone https://github.com/seveas/python-hpilo.git
-cd python-hpilo
-./hpilo_cli -h</pre>
-</div>
+  <div class="section" id="contributing-guide">
+<h1>Contributing guide<a class="headerlink" href="#contributing-guide" title="Permalink to this headline">¶</a></h1>
+<p>python-hpilo is maintained by Dennis Kaarsemaker on <a class="reference external" href="https://github.com/seveas/python-hpilo">GitHub</a>. If you have a
+problem with the software, that&#8217;s the place to file an issue. And if you want
+to contribute to the project, that&#8217;s the place to go to as well.</p>
+<p>Patches can be submitted as pull requests on github or mailed to
+<a class="reference external" href="mailto:dennis&#37;&#52;&#48;kaarsemaker&#46;net">dennis<span>&#64;</span>kaarsemaker<span>&#46;</span>net</a>. When you submit a patch, please make sure you test it
+too. The test tool is built into hpilo.py, read the comments for the _test
+function to find the details. When adding new methods, please add tests too.</p>
+<div class="section" id="coding-guidelines">
+<h2>Coding guidelines<a class="headerlink" href="#coding-guidelines" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>python-hpilo currently supports python 2.4 up to python 3.3. Any new code
+needs to be compatible with all these versions. That means no <cite>with</cite>
+statement, no <cite>sorted</cite> and using brackets for <cite>print()</cite>.</li>
+<li><a class="reference external" href="http://www.python.org/dev/peps/pep-0008/">pep 8</a> is to be followed, except for the maximum line length rule. Be
+reasonable with your line lengths though</li>
+<li>All methods call into <tt class="xref py py-func docutils literal"><span class="pre">_info_tag()</span></tt> or <tt class="xref py py-func docutils literal"><span class="pre">_control_tag()</span></tt>. Any
+new method must do so too, to be able to use it in <tt class="xref py py-meth docutils literal"><span class="pre">call_delayed()</span></tt>.</li>
+<li>All new methods must be documented. A docstring is mandatory and will appear
+in the docs. For methods that return data, sample output must be added to the
+documentation too.</li>
+</ul>
 </div>
 </div>
 
@@ -101,19 +93,15 @@ cd python-hpilo
         </a></p>
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Installing</a><ul>
-<li><a class="reference internal" href="#installing-the-latest-release">Installing the latest release</a></li>
-<li><a class="reference internal" href="#installing-the-development-version">Installing the development version</a></li>
+<li><a class="reference internal" href="#">Contributing guide</a><ul>
+<li><a class="reference internal" href="#coding-guidelines">Coding guidelines</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="index.html"
-                        title="previous chapter">Accessing HP iLO interfaces from python</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="ilo.html"
-                        title="next chapter">Ilo obects</a></p>
+  <p class="topless"><a href="troubleshooting.html"
+                        title="previous chapter">Common issues</a></p>
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
@@ -140,10 +128,7 @@ cd python-hpilo
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="ilo.html" title="Ilo obects"
-             >next</a> &nbsp; &nbsp;</li>
-        <li class="right" >
-          <a href="index.html" title="Accessing HP iLO interfaces from python"
+          <a href="troubleshooting.html" title="Common issues"
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="index.html">python-hpilo 2.1 documentation</a> &raquo;</li>
  
