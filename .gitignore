@@ -1,8 +1,0 @@
-*.pyc
-docs/_build
-build
-dist
-MANIFEST
-hp
-*.bin
-*.scexe
