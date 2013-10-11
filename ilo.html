@@ -720,19 +720,15 @@ Valid devices are floppy and cdrom</p>
 <dt id="hpilo.Ilo.update_rib_firmware">
 <tt class="descname">update_rib_firmware</tt><big>(</big><em>filename</em>, <em>progress=None</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.update_rib_firmware" title="Permalink to this definition">¶</a></dt>
 <dd><p>Upload new RIB firmware, use &#8220;latest&#8221; as filename to automatically
-download and use the latest firmware. As this function may take a</p>
-<blockquote>
-<div>while, you can get progress notifications by passing a callable in
+download and use the latest firmware. As this function may take a
+while, you can get progress notifications by passing a callable in
 the progress parameter. This callable will be called with progress
-messages. These messages either start with a carriage return (&#8216;</div></blockquote>
-<dl class="docutils">
-<dt>&#8216;)</dt>
-<dd>and an optional ANSI &#8216;clear line&#8217; sequence (&#8216;[K&#8217;), or without
+messages. These messages either start with a carriage return (&#8216;\r&#8217;)
+and an optional ANSI &#8216;clear line&#8217; sequence (&#8216;\033[K&#8217;), or without
 one. When printing to a terminal, append a newline only to the
 second type of string. When using the data outside a terminal
 environment, make sure you strip off the carriage return and ansi
-sequence</dd>
-</dl>
+sequence</p>
 </dd></dl>
 
 <dl class="method">
