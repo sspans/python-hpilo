@@ -9,7 +9,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Example output of API calls &mdash; python-hpilo 2.1 documentation</title>
+    <title>Example output of API calls &mdash; python-hpilo 2.3 documentation</title>
     
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -18,7 +18,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '2.1',
+        VERSION:     '2.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -29,7 +29,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/jquery.cookie.js"></script>
     <script type="text/javascript" src="_static/cloud.js"></script>
-    <link rel="top" title="python-hpilo 2.1 documentation" href="index.html" />
+    <link rel="top" title="python-hpilo 2.3 documentation" href="index.html" />
     <link rel="next" title="hpilo_cli command-line tool" href="cli.html" />
     <link rel="prev" title="Ilo obects" href="ilo.html" /> 
   </head>
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="ilo.html" title="Ilo obects"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">python-hpilo 2.1 documentation</a> &raquo;</li>
+    <li><a href="index.html">python-hpilo 2.3 documentation</a> &raquo;</li>
  
       </ul>
     </div>
@@ -80,6 +80,18 @@ originate from the same server. The data has also been anonymised.</p>
 
 <dl class="function">
 <dt>
+<tt class="descname">get_all_licenses</tt><big>(</big><big>)</big></dt>
+<dd><div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pprint</span><span class="p">(</span><span class="n">my_ilo</span><span class="o">.</span><span class="n">get_all_licenses</span><span class="p">())</span>
+<span class="go">[{&#39;license_class&#39;: &#39;FQL&#39;,</span>
+<span class="go">  &#39;license_install_date&#39;: &#39;Tue Oct  8 22:51:16 2013&#39;,</span>
+<span class="go">  &#39;license_key&#39;: &#39;XXXXX-XXXXX-XXXXX-XXXXX-XXXXX&#39;,</span>
+<span class="go">  &#39;license_type&#39;: &#39;iLO 4 Advanced&#39;}]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
 <tt class="descname">get_all_users</tt><big>(</big><big>)</big></dt>
 <dd><div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pprint</span><span class="p">(</span><span class="n">my_ilo</span><span class="o">.</span><span class="n">get_all_users</span><span class="p">())</span>
 <span class="go">[&#39;Administrator&#39;]</span>
@@ -98,6 +110,21 @@ originate from the same server. The data has also been anonymised.</p>
 <span class="go">                   &#39;user_login&#39;: &#39;Administrator&#39;,</span>
 <span class="go">                   &#39;user_name&#39;: &#39;Administrator&#39;,</span>
 <span class="go">                   &#39;virtual_media_priv&#39;: True}}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">get_asset_tag</tt><big>(</big><big>)</big></dt>
+<dd><div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pprint</span><span class="p">(</span><span class="n">my_ilo</span><span class="o">.</span><span class="n">get_asset_tag</span><span class="p">())</span>
+<span class="go">/home/dennis/code/python-hpilo/hpilo.py:459: IloWarning: No Asset Tag Information.</span>
+<span class="go">  warnings.warn(child.get(&#39;MESSAGE&#39;), IloWarning)</span>
+<span class="go">{&#39;asset_tag&#39;: None}</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pprint</span><span class="p">(</span><span class="n">my_ilo</span><span class="o">.</span><span class="n">get_asset_tag</span><span class="p">())</span>
+<span class="go">{&#39;asset_tag&#39;: &#39;NL00001&#39;}</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -163,6 +190,35 @@ originate from the same server. The data has also been anonymised.</p>
 <span class="go">                (Additional temperature readings removed from sample output)</span>
 <span class="go">                                           },</span>
 <span class="go"> &#39;vrm&#39;: None}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">get_ers_settings</tt><big>(</big><big>)</big></dt>
+<dd><div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pprint</span><span class="p">(</span><span class="n">my_ilo</span><span class="o">.</span><span class="n">get_ers_settings</span><span class="p">())</span>
+<span class="go">{&#39;ers_agent&#39;: &#39;&#39;,</span>
+<span class="go"> &#39;ers_collection_frequency&#39;: &#39;P30D&#39;,</span>
+<span class="go"> &#39;ers_connect_model&#39;: 0,</span>
+<span class="go"> &#39;ers_destination_port&#39;: 0,</span>
+<span class="go"> &#39;ers_destination_url&#39;: &#39;&#39;,</span>
+<span class="go"> &#39;ers_last_transmission_date&#39;: &#39;-&#39;,</span>
+<span class="go"> &#39;ers_last_transmission_errno&#39;: &#39;No error&#39;,</span>
+<span class="go"> &#39;ers_last_transmission_type&#39;: 0,</span>
+<span class="go"> &#39;ers_state&#39;: 0,</span>
+<span class="go"> &#39;ers_web_proxy_port&#39;: 0,</span>
+<span class="go"> &#39;ers_web_proxy_url&#39;: &#39;&#39;,</span>
+<span class="go"> &#39;ers_web_proxy_username&#39;: &#39;&#39;}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">get_fips_status</tt><big>(</big><big>)</big></dt>
+<dd><div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pprint</span><span class="p">(</span><span class="n">my_ilo</span><span class="o">.</span><span class="n">get_fips_status</span><span class="p">())</span>
+<span class="go">{&#39;fips_mode&#39;: &#39;Enabled&#39;}</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -371,6 +427,15 @@ originate from the same server. The data has also been anonymised.</p>
 
 <dl class="function">
 <dt>
+<tt class="descname">get_pers_mouse_keyboard_enabled</tt><big>(</big><big>)</big></dt>
+<dd><div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pprint</span><span class="p">(</span><span class="n">my_ilo</span><span class="o">.</span><span class="n">get_pers_mouse_keyboard_enabled</span><span class="p">())</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
 <tt class="descname">get_power_cap</tt><big>(</big><big>)</big></dt>
 <dd><div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">my_ilo</span><span class="o">.</span><span class="n">get_power_cap</span><span class="p">())</span>
 <span class="go">OFF</span>
@@ -397,6 +462,30 @@ originate from the same server. The data has also been anonymised.</p>
 <span class="go">{&#39;efficiency_mode&#39;: 2,</span>
 <span class="go"> &#39;get_host_power&#39;: {&#39;host_power&#39;: &#39;ON&#39;},</span>
 <span class="go"> &#39;pcap&#39;: {&#39;mode&#39;: &#39;OFF&#39;}}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">get_rack_settings</tt><big>(</big><big>)</big></dt>
+<dd><div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pprint</span><span class="p">(</span><span class="n">my_ilo</span><span class="o">.</span><span class="n">get_rack_settings</span><span class="p">())</span>
+<span class="go">{&#39;bay&#39;: 9,</span>
+<span class="go"> &#39;enclosure_name&#39;: &#39;CHASSIS-225&#39;,</span>
+<span class="go"> &#39;enclosure_sn&#39;: &#39;CZ1234ABCD&#39;,</span>
+<span class="go"> &#39;enclosure_type&#39;: &#39;BladeSystem c7000 Enclosure G2&#39;,</span>
+<span class="go"> &#39;enclosure_uuid&#39;: &#39;09CZ1234ABCD&#39;,</span>
+<span class="go"> &#39;rack_name&#39;: &#39;CHASSIS-225&#39;}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">get_security_msg</tt><big>(</big><big>)</big></dt>
+<dd><div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pprint</span><span class="p">(</span><span class="n">my_ilo</span><span class="o">.</span><span class="n">get_security_msg</span><span class="p">())</span>
+<span class="go">{&#39;security_msg&#39;: &#39;Enabled&#39;,</span>
+<span class="go"> &#39;security_msg_text&#39;: &#39;Time is an illusion. Lunchtime doubly so&#39;}</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -472,6 +561,30 @@ originate from the same server. The data has also been anonymised.</p>
 <span class="go"> &#39;snmp_address_3&#39;: &#39;&#39;,</span>
 <span class="go"> &#39;snmp_passthrough_status&#39;: True,</span>
 <span class="go"> &#39;web_agent_ip_address&#39;: &#39;example-server.int.kaarsemaker.net&#39;}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">get_spatial</tt><big>(</big><big>)</big></dt>
+<dd><div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pprint</span><span class="p">(</span><span class="n">my_ilo</span><span class="o">.</span><span class="n">get_spatial</span><span class="p">())</span>
+<span class="go">{&#39;bay&#39;: 9,</span>
+<span class="go"> &#39;cuuid&#39;: &#39;4dc3b42a-3d64-41c9-8832-fce93df1838b&#39;,</span>
+<span class="go"> &#39;discovery_data&#39;: &#39;Unknown data&#39;,</span>
+<span class="go"> &#39;discovery_rack&#39;: &#39;Not Supported&#39;,</span>
+<span class="go"> &#39;enclosure_cuuid&#39;: &#39;699b6ec0-d98c-4587-a633-58f33839455d&#39;m</span>
+<span class="go"> &#39;enclosure_sn&#39;: &#39;CZ1234ABCD&#39;,</span>
+<span class="go"> &#39;platform&#39;: &#39;BL&#39;,</span>
+<span class="go"> &#39;rack_description&#39;: 0,</span>
+<span class="go"> &#39;rack_id&#39;: 0,</span>
+<span class="go"> &#39;rack_id_pn&#39;: 0,</span>
+<span class="go"> &#39;rack_uheight&#39;: 0,</span>
+<span class="go"> &#39;tag_version&#39;: 0,</span>
+<span class="go"> &#39;uheight&#39;: 0,</span>
+<span class="go"> &#39;ulocation&#39;: 0,</span>
+<span class="go"> &#39;uoffset&#39;: 0,</span>
+<span class="go"> &#39;uposition&#39;: 0}</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -600,7 +713,7 @@ originate from the same server. The data has also been anonymised.</p>
         <li class="right" >
           <a href="ilo.html" title="Ilo obects"
              >previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">python-hpilo 2.1 documentation</a> &raquo;</li>
+    <li><a href="index.html">python-hpilo 2.3 documentation</a> &raquo;</li>
  
       </ul>
     </div>

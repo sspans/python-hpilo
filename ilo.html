@@ -9,7 +9,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Ilo obects &mdash; python-hpilo 2.1 documentation</title>
+    <title>Ilo obects &mdash; python-hpilo 2.3 documentation</title>
     
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -18,7 +18,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '2.1',
+        VERSION:     '2.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -29,7 +29,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/jquery.cookie.js"></script>
     <script type="text/javascript" src="_static/cloud.js"></script>
-    <link rel="top" title="python-hpilo 2.1 documentation" href="index.html" />
+    <link rel="top" title="python-hpilo 2.3 documentation" href="index.html" />
     <link rel="next" title="Example output of API calls" href="output.html" />
     <link rel="prev" title="Installing" href="install.html" /> 
   </head>
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="install.html" title="Installing"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">python-hpilo 2.1 documentation</a> &raquo;</li>
+    <li><a href="index.html">python-hpilo 2.3 documentation</a> &raquo;</li>
  
       </ul>
     </div>
@@ -102,7 +102,7 @@ values.</p>
 <dl class="method">
 <dt id="hpilo.Ilo.ahs_clear_data">
 <tt class="descname">ahs_clear_data</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.ahs_clear_data" title="Permalink to this definition">¶</a></dt>
-<dd><p>FIXME: I have no relevant hardware. Please report sample output</p>
+<dd><p>Clears Active Health System information log</p>
 </dd></dl>
 
 <dl class="method">
@@ -129,7 +129,7 @@ return data</p>
 
 <dl class="method">
 <dt id="hpilo.Ilo.certificate_signing_request">
-<tt class="descname">certificate_signing_request</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.certificate_signing_request" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">certificate_signing_request</tt><big>(</big><em>country=None</em>, <em>state=None</em>, <em>locality=None</em>, <em>organization=None</em>, <em>organizational_unit=None</em>, <em>common_name=None</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.certificate_signing_request" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a certificate signing request from the iLO</p>
 </dd></dl>
 
@@ -176,6 +176,12 @@ return data</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="hpilo.Ilo.disable_ers">
+<tt class="descname">disable_ers</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.disable_ers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disable Insight Remote Support functionality and unregister the server</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="hpilo.Ilo.eject_virtual_floppy">
 <tt class="descname">eject_virtual_floppy</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.eject_virtual_floppy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Eject the virtual floppy</p>
@@ -188,15 +194,29 @@ return data</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="hpilo.Ilo.ers_ahs_submit">
+<tt class="descname">ers_ahs_submit</tt><big>(</big><em>message_id</em>, <em>bb_days</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.ers_ahs_submit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Submity AHS dat to the insight remote support server</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="hpilo.Ilo.factory_defaults">
 <tt class="descname">factory_defaults</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.factory_defaults" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reset the iLO to factory default settings</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="hpilo.Ilo.fips_enable">
+<tt class="descname">fips_enable</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.fips_enable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable FIPS standard to enforce AES/3DES encryption, can only be
+reset with a call to factory_defaults. Resets Administrator password
+and license key</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="hpilo.Ilo.get_ahs_status">
 <tt class="descname">get_ahs_status</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_ahs_status" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get active health system  logging status</p>
+<dd><p>Get active health system logging status</p>
 </dd></dl>
 
 <dl class="method">
@@ -212,6 +232,12 @@ return data</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="hpilo.Ilo.get_all_licenses">
+<tt class="descname">get_all_licenses</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_all_licenses" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a list of all license types and licenses</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="hpilo.Ilo.get_all_user_info">
 <tt class="descname">get_all_user_info</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_all_user_info" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get basic and authorization info of all users</p>
@@ -221,6 +247,12 @@ return data</p>
 <dt id="hpilo.Ilo.get_all_users">
 <tt class="descname">get_all_users</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_all_users" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a list of all loginnames</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.get_asset_tag">
+<tt class="descname">get_asset_tag</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_asset_tag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the server asset tag</p>
 </dd></dl>
 
 <dl class="method">
@@ -251,6 +283,18 @@ return data</p>
 <dt id="hpilo.Ilo.get_enclosure_ip_settings">
 <tt class="descname">get_enclosure_ip_settings</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_enclosure_ip_settings" title="Permalink to this definition">¶</a></dt>
 <dd><p>FIXME: I have no relevant hardware. Please report sample output</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.get_ers_settings">
+<tt class="descname">get_ers_settings</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_ers_settings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the ERS Insight Remote Support settings</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.get_fips_status">
+<tt class="descname">get_fips_status</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_fips_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Is the FIPS-mandated AES/3DESencryption enforcement in place</p>
 </dd></dl>
 
 <dl class="method">
@@ -328,6 +372,12 @@ all records pass <tt class="xref py py-attr docutils literal"><span class="pre">
 </dd></dl>
 
 <dl class="method">
+<dt id="hpilo.Ilo.get_pers_mouse_keyboard_enabled">
+<tt class="descname">get_pers_mouse_keyboard_enabled</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_pers_mouse_keyboard_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns whether persistent mouse and keyboard are enabled</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="hpilo.Ilo.get_persistent_boot">
 <tt class="descname">get_persistent_boot</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_persistent_boot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the boot order of the host</p>
@@ -349,6 +399,18 @@ all records pass <tt class="xref py py-attr docutils literal"><span class="pre">
 <dt id="hpilo.Ilo.get_pwreg">
 <tt class="descname">get_pwreg</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_pwreg" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the power and power alert threshold settings</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.get_rack_settings">
+<tt class="descname">get_rack_settings</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_rack_settings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the rack settings for an iLO</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.get_security_msg">
+<tt class="descname">get_security_msg</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_security_msg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve the security message that is displayed on the login screen</p>
 </dd></dl>
 
 <dl class="method">
@@ -379,6 +441,12 @@ all records pass <tt class="xref py py-attr docutils literal"><span class="pre">
 <dt id="hpilo.Ilo.get_snmp_im_settings">
 <tt class="descname">get_snmp_im_settings</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_snmp_im_settings" title="Permalink to this definition">¶</a></dt>
 <dd><p>Where does the iLO send SNMP traps to and which traps does it send</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.get_spatial">
+<tt class="descname">get_spatial</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_spatial" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get location information</p>
 </dd></dl>
 
 <dl class="method">
@@ -470,19 +538,19 @@ will be changed.</p>
 
 <dl class="method">
 <dt id="hpilo.Ilo.mod_global_settings">
-<tt class="descname">mod_global_settings</tt><big>(</big><em>session_timeout=None</em>, <em>f8_prompt_enabled=None</em>, <em>f8_login_required=None</em>, <em>lock_configuration=None</em>, <em>http_port=None</em>, <em>https_port=None</em>, <em>ssh_port=None</em>, <em>ssh_status=None</em>, <em>vmedia_disable=None</em>, <em>virtual_media_port=None</em>, <em>remote_console_port=None</em>, <em>min_password=None</em>, <em>enfoce_aes=None</em>, <em>authentication_failure_logging=None</em>, <em>rbsu_post_ip=None</em>, <em>remote_console_encryption=None</em>, <em>remote_keyboard_model=None</em>, <em>terminal_services_port=None</em>, <em>high_performance_mouse=None</em>, <em>shared_console_enable=None</em>, <em>shared_console_port=None</em>, <em>remote_console_acquire=None</em>, <em>brownout_recovery=None</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.mod_global_settings" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">mod_global_settings</tt><big>(</big><em>session_timeout=None</em>, <em>f8_prompt_enabled=None</em>, <em>f8_login_required=None</em>, <em>lock_configuration=None</em>, <em>ilo_funct_enabled=None</em>, <em>serial_cli_status=None</em>, <em>serial_cli_speed=None</em>, <em>http_port=None</em>, <em>https_port=None</em>, <em>ssh_port=None</em>, <em>ssh_status=None</em>, <em>vmedia_disable=None</em>, <em>virtual_media_port=None</em>, <em>remote_console_port=None</em>, <em>snmp_access_enabled=None</em>, <em>snmp_port=None</em>, <em>snmp_trap_port=None</em>, <em>remote_syslog_enable=None</em>, <em>remote_syslog_server_address=None</em>, <em>remote_syslog_port=None</em>, <em>alertmail_enable=None</em>, <em>alertmail_email_address=None</em>, <em>alertmail_sender_domain=None</em>, <em>alertmail_smtp_server=None</em>, <em>min_password=None</em>, <em>enfoce_aes=None</em>, <em>authentication_failure_logging=None</em>, <em>rbsu_post_ip=None</em>, <em>remote_console_encryption=None</em>, <em>remote_keyboard_model=None</em>, <em>terminal_services_port=None</em>, <em>high_performance_mouse=None</em>, <em>shared_console_enable=None</em>, <em>shared_console_port=None</em>, <em>remote_console_acquire=None</em>, <em>brownout_recovery=None</em>, <em>ipmi_dmci_over_lan_enabled=None</em>, <em>vsp_log_enable=None</em>, <em>vsp_software_flow_control=None</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.mod_global_settings" title="Permalink to this definition">¶</a></dt>
 <dd><p>Modify iLO global settings, only values that are specified will be changed.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hpilo.Ilo.mod_network_settings">
-<tt class="descname">mod_network_settings</tt><big>(</big><em>enable_nic=None</em>, <em>reg_ddns_server=None</em>, <em>ping_gateway=None</em>, <em>dhcp_domain_name=None</em>, <em>speed_autoselect=None</em>, <em>nic_speed=None</em>, <em>full_duplex=None</em>, <em>dhcp_enable=None</em>, <em>ip_address=None</em>, <em>subnet_mask=None</em>, <em>gateway_ip_address=None</em>, <em>dns_name=None</em>, <em>domain_name=None</em>, <em>dhcp_gateway=None</em>, <em>dhcp_dns_server=None</em>, <em>dhcp_wins_server=None</em>, <em>dhcp_static_route=None</em>, <em>reg_wins_server=None</em>, <em>prim_dns_server=None</em>, <em>sec_dns_server=None</em>, <em>ter_dns_server=None</em>, <em>prim_wins_server=None</em>, <em>sec_wins_server=None</em>, <em>static_route_1=None</em>, <em>static_route_2=None</em>, <em>static_route_3=None</em>, <em>dhcp_sntp_settings=None</em>, <em>sntp_server1=None</em>, <em>sntp_server2=None</em>, <em>timezone=None</em>, <em>enclosure_ip_enable=None</em>, <em>web_agent_ip_address=None</em>, <em>shared_network_port=None</em>, <em>vlan_enabled=None</em>, <em>vlan_id=None</em>, <em>shared_network_port_vlan=None</em>, <em>shared_network_port_vlan_id=None</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.mod_network_settings" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">mod_network_settings</tt><big>(</big><em>enable_nic=None</em>, <em>reg_ddns_server=None</em>, <em>ping_gateway=None</em>, <em>dhcp_domain_name=None</em>, <em>speed_autoselect=None</em>, <em>nic_speed=None</em>, <em>full_duplex=None</em>, <em>dhcp_enable=None</em>, <em>ip_address=None</em>, <em>subnet_mask=None</em>, <em>gateway_ip_address=None</em>, <em>dns_name=None</em>, <em>domain_name=None</em>, <em>dhcp_gateway=None</em>, <em>dhcp_dns_server=None</em>, <em>dhcp_wins_server=None</em>, <em>dhcp_static_route=None</em>, <em>reg_wins_server=None</em>, <em>prim_dns_server=None</em>, <em>sec_dns_server=None</em>, <em>ter_dns_server=None</em>, <em>prim_wins_server=None</em>, <em>sec_wins_server=None</em>, <em>static_route_1=None</em>, <em>static_route_2=None</em>, <em>static_route_3=None</em>, <em>dhcp_sntp_settings=None</em>, <em>sntp_server1=None</em>, <em>sntp_server2=None</em>, <em>timezone=None</em>, <em>enclosure_ip_enable=None</em>, <em>web_agent_ip_address=None</em>, <em>shared_network_port=None</em>, <em>vlan_enabled=None</em>, <em>vlan_id=None</em>, <em>shared_network_port_vlan=None</em>, <em>shared_network_port_vlan_id=None</em>, <em>ipv6_address=None</em>, <em>ipv6_static_route_1=None</em>, <em>ipv6_static_route2=None</em>, <em>ipv6_static_route_3=None</em>, <em>ipv6_prim_dns_server=None</em>, <em>ipv6_sec_dns_server=None</em>, <em>ipv6_ter_dns_server=None</em>, <em>ipv6_default_gateway=None</em>, <em>ipv6_preferred_protocol=None</em>, <em>ipv6_addr_autocfg=None</em>, <em>ipv6_reg_ddns_server=None</em>, <em>dhcpv6_dns_server=None</em>, <em>dhcpv6_rapid_commit=None</em>, <em>dhcpv6_stateful_enable=None</em>, <em>dhcpv6_stateless_enable=None</em>, <em>dhcpv6_sntp_settings=None</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.mod_network_settings" title="Permalink to this definition">¶</a></dt>
 <dd><p>Configure the network settings for the iLO card</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hpilo.Ilo.mod_snmp_im_settings">
-<tt class="descname">mod_snmp_im_settings</tt><big>(</big><em>web_agent_ip_address=None</em>, <em>snmp_address_1=None</em>, <em>snmp_address_2=None</em>, <em>snmp_address_3=None</em>, <em>os_traps=None</em>, <em>snmp_passthrough_status=None</em>, <em>rib_traps=None</em>, <em>cim_security_mask=None</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.mod_snmp_im_settings" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">mod_snmp_im_settings</tt><big>(</big><em>snmp_access=None</em>, <em>web_agent_ip_address=None</em>, <em>snmp_address_1=None</em>, <em>snmp_address_1_rocommunity=None</em>, <em>snmp_address_1_trapcommunity=None</em>, <em>snmp_address_2=None</em>, <em>snmp_address_2_rocommunity=None</em>, <em>snmp_address_2_trapcommunity=None</em>, <em>snmp_address_3=None</em>, <em>snmp_address_3_rocommunity=None</em>, <em>snmp_address_3_trapcommunity=None</em>, <em>snmp_port=None</em>, <em>snmp_trap_port=None</em>, <em>snmp_v3_engine_id=None</em>, <em>snmp_passthrough_status=None</em>, <em>trap_source_identifier=None</em>, <em>os_traps=None</em>, <em>rib_traps=None</em>, <em>cold_start_trap_broadcast=None</em>, <em>snmp_v1_traps=None</em>, <em>cim_security_mask=None</em>, <em>snmp_sys_location=None</em>, <em>snmp_sys_contact=None</em>, <em>agentless_management_enable=None</em>, <em>snmp_system_role=None</em>, <em>snmp_system_role_detail=None</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.mod_snmp_im_settings" title="Permalink to this definition">¶</a></dt>
 <dd><p>Configure the SNMP and Insight Manager integration settings</p>
 </dd></dl>
 
@@ -497,6 +565,18 @@ All arguments except user_name and password should be boolean</p>
 <dt id="hpilo.Ilo.press_pwr_btn">
 <tt class="descname">press_pwr_btn</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.press_pwr_btn" title="Permalink to this definition">¶</a></dt>
 <dd><p>Press the power button</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.profile_apply_get_results">
+<tt class="descname">profile_apply_get_results</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.profile_apply_get_results" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve the results of the last profile_apply</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.profile_list">
+<tt class="descname">profile_list</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.profile_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>List all profile descriptors</p>
 </dd></dl>
 
 <dl class="method">
@@ -518,6 +598,18 @@ All arguments except user_name and password should be boolean</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="hpilo.Ilo.set_asset_tag">
+<tt class="descname">set_asset_tag</tt><big>(</big><em>asset_tag</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.set_asset_tag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the server asset tag</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.set_ers_irs_connect">
+<tt class="descname">set_ers_irs_connect</tt><big>(</big><em>ers_destination_url</em>, <em>ers_destination_port</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.set_ers_irs_connect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Connect to an Insight Remote Support server</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="hpilo.Ilo.set_host_power">
 <tt class="descname">set_host_power</tt><big>(</big><em>host_power=True</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.set_host_power" title="Permalink to this definition">¶</a></dt>
 <dd><p>Turn host power on or off</p>
@@ -532,13 +624,24 @@ All arguments except user_name and password should be boolean</p>
 <dl class="method">
 <dt id="hpilo.Ilo.set_language">
 <tt class="descname">set_language</tt><big>(</big><em>lang_id</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.set_language" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the default language</p>
+<dd><p>Set the default language. Only EN, JA and ZH are supported</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hpilo.Ilo.set_one_time_boot">
 <tt class="descname">set_one_time_boot</tt><big>(</big><em>device</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.set_one_time_boot" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set one time boot device</p>
+<dd><p>Set one time boot device, device should be one of normal, floppy,
+cdrom, hdd, usb, rbsu or network. Ilo 4 also supports EMB-MENU
+(Displays the default boot menu), EMB-ACU (Boots into ACU),
+EMB-HPSUM-AUTO (Boots HPSUM in automatic update mode), EMB-DIAGS
+(Launches Insight Diagnostics for Linux in interactive mode) and
+RBSU (Boots into the system RBSU)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.set_pers_mouse_keyboard_enabled">
+<tt class="descname">set_pers_mouse_keyboard_enabled</tt><big>(</big><em>enabled</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.set_pers_mouse_keyboard_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable/disable persistent mouse and keyboard</p>
 </dd></dl>
 
 <dl class="method">
@@ -557,6 +660,12 @@ All arguments except user_name and password should be boolean</p>
 <dt id="hpilo.Ilo.set_pwreg">
 <tt class="descname">set_pwreg</tt><big>(</big><em>type</em>, <em>threshold=None</em>, <em>duration=None</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.set_pwreg" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the power alert threshold</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.set_security_msg">
+<tt class="descname">set_security_msg</tt><big>(</big><em>security_msg</em>, <em>security_msg_text=''</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.set_security_msg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enables/disables the security message on the iLO login screen and sets its value</p>
 </dd></dl>
 
 <dl class="method">
@@ -590,6 +699,18 @@ Valid devices are floppy and cdrom</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="hpilo.Ilo.trigger_l2_collection">
+<tt class="descname">trigger_l2_collection</tt><big>(</big><em>message_id</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.trigger_l2_collection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initiate an L2 data collection submission to the Insight Remote Support server.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.trigger_test_event">
+<tt class="descname">trigger_test_event</tt><big>(</big><em>message_id</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.trigger_test_event" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trigger a test service event submission to the Insight Remote Support server.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="hpilo.Ilo.uid_control">
 <tt class="descname">uid_control</tt><big>(</big><em>uid='No'</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.uid_control" title="Permalink to this definition">¶</a></dt>
 <dd><p>Turn the UID light on (&#8220;Yes&#8221;) or off (&#8220;No&#8221;)</p>
@@ -599,7 +720,19 @@ Valid devices are floppy and cdrom</p>
 <dt id="hpilo.Ilo.update_rib_firmware">
 <tt class="descname">update_rib_firmware</tt><big>(</big><em>filename</em>, <em>progress=None</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.update_rib_firmware" title="Permalink to this definition">¶</a></dt>
 <dd><p>Upload new RIB firmware, use &#8220;latest&#8221; as filename to automatically
-download and use the latest firmware</p>
+download and use the latest firmware. As this function may take a</p>
+<blockquote>
+<div>while, you can get progress notifications by passing a callable in
+the progress parameter. This callable will be called with progress
+messages. These messages either start with a carriage return (&#8216;</div></blockquote>
+<dl class="docutils">
+<dt>&#8216;)</dt>
+<dd>and an optional ANSI &#8216;clear line&#8217; sequence (&#8216;[K&#8217;), or without
+one. When printing to a terminal, append a newline only to the
+second type of string. When using the data outside a terminal
+environment, make sure you strip off the carriage return and ansi
+sequence</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -658,7 +791,7 @@ download and use the latest firmware</p>
         <li class="right" >
           <a href="install.html" title="Installing"
              >previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">python-hpilo 2.1 documentation</a> &raquo;</li>
+    <li><a href="index.html">python-hpilo 2.3 documentation</a> &raquo;</li>
  
       </ul>
     </div>
