@@ -22,7 +22,7 @@ import os
 from pprint import pprint
 import sys
 
-ilo_methods = sorted([x for x in dir(hpilo.Ilo) if not x.startswith('_') and x.islower()])
+ilo_methods = sorted([x for x in dir(hpilo.Ilo) if not x.startswith('_') and x.islower() and callable(getattr(hpilo.Ilo, x))])
 
 def main():
     usage = """%prog [options] hostname method [args...]"""
