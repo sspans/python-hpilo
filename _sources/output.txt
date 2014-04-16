@@ -127,6 +127,15 @@ return something.
    'ers_web_proxy_url': '',
    'ers_web_proxy_username': ''}
 
+.. function:: get_federation_multicast()
+  :noindex:
+
+  >>> pprint(my_ilo.get_federation_multicast())
+  {'ipv6_multicast_scope': 'Site',
+   'multicast_announcement_interval': 'Disabled',
+   'multicast_discovery_enabled': 'No',
+   'multicast_ttl': 5}
+
 .. function:: get_fips_status()
   :noindex:
 
@@ -377,6 +386,12 @@ return something.
     'initial_update': '05/05/2011 00:25',
     'last_update': '05/05/2011 00:25',
     'severity': 'Caution'}]
+
+.. function:: get_server_fqdn()
+  :noindex:
+
+  >>> pprint(my_ilo.get_server_fqdn())
+  example-server.int.kaarsemaker.net
 
 .. function:: get_server_name()
   :noindex:

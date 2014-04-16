@@ -13,7 +13,7 @@
     
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noticia+Text|Droid+Sans+Mono" type="text/css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -32,6 +32,7 @@
     <link rel="top" title="python-hpilo 2.5 documentation" href="index.html" />
     <link rel="next" title="Managing SSL certificates" href="ca.html" />
     <link rel="prev" title="Example output of API calls" href="output.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
     <div class="relbar-top">
@@ -99,7 +100,7 @@ that should look like this:</p>
 arguments. A full example config file is shipped with the hpilo distribution.</p>
 <p>To pass arguments to method calls, pass <tt class="xref py py-attr docutils literal"><span class="pre">key=value</span></tt> pairs on the
 command-line. These can reference arbitrary configuration variables using
-<tt class="xref py py-attr docutils literal"><span class="pre">key='$section.option'</span></tt></p>
+<tt class="xref py py-attr docutils literal"><span class="pre">key='$section.option'</span></tt>.</p>
 <p>You can also call multiple methds at once by separating them with a <tt class="xref py py-data docutils literal"><span class="pre">+</span></tt></p>
 <p>Some examples will make it clearer, so here are a few:</p>
 <p>Getting the status of the UID light:</p>
@@ -120,6 +121,10 @@ Ilo.get_host_data [decoded_only=True]:
 Get SMBIOS records that describe the host. By default only the ones
 where human readable information is available are returned. To get
 all records pass decoded_only=False</pre>
+</div>
+<p>Methods like <tt class="xref py py-func docutils literal"><span class="pre">mod_network_data()</span></tt> method require hashes as arguments, you
+can use the following syntax:</p>
+<div class="highlight-python"><pre>$ hpilo_cli example-server.int.kaarsemaker.net mod_network_settings static_route_1.dest=1.2.3.4 static_route_1.gateway=10.10.10.254</pre>
 </div>
 <p>Calling multiple methods:</p>
 <div class="highlight-python"><pre>$ hpilo_cli example-server.int.kaarsemaker.net get_uid_status + uid_control uid=No + get_uid_status
