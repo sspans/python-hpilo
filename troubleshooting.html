@@ -1,6 +1,5 @@
 
 
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -9,16 +8,16 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Common issues &mdash; python-hpilo 2.6.1 documentation</title>
+    <title>Common issues &mdash; python-hpilo 2.6.2 documentation</title>
     
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '2.6.1',
+        URL_ROOT:    './',
+        VERSION:     '2.6.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,9 +26,8 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/jquery.cookie.js"></script>
     <script type="text/javascript" src="_static/cloud.js"></script>
-    <link rel="top" title="python-hpilo 2.6.1 documentation" href="index.html" />
+    <link rel="top" title="python-hpilo 2.6.2 documentation" href="index.html" />
     <link rel="next" title="Contributing guide" href="contributing.html" />
     <link rel="prev" title="Managing SSL certificates" href="ca.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -49,7 +47,7 @@
         <li class="right" >
           <a href="ca.html" title="Managing SSL certificates"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">python-hpilo 2.6.1 documentation</a> &raquo;</li>
+    <li><a href="index.html">python-hpilo 2.6.2 documentation</a> &raquo;</li>
  
       </ul>
     </div>
@@ -70,11 +68,13 @@ an issue at <a class="reference external" href="https://github.com/seveas/python
 <div class="section" id="syntax-error-line-0">
 <h2>Syntax error: Line #0<a class="headerlink" href="#syntax-error-line-0" title="Permalink to this headline">¶</a></h2>
 <p>Occasionally you might see this error at the end of a traceback:</p>
-<div class="highlight-python"><pre>hpilo.IloError: Error communicating with iLO: Syntax error: Line #0: syntax error near "" in the line: ""</pre>
+<div class="highlight-python"><div class="highlight"><pre>hpilo.IloError: Error communicating with iLO: Syntax error: Line #0: syntax error near &quot;&quot; in the line: &quot;&quot;
+</pre></div>
 </div>
 <p>This generaly means that you are trying to call a method that is not supported
 for your device or the firmware version you use. Get this information with:</p>
-<div class="highlight-python"><pre>hpilo_cli your.host.name.here get_fw_version</pre>
+<div class="highlight-python"><div class="highlight"><pre>hpilo_cli your.host.name.here get_fw_version
+</pre></div>
 </div>
 <p>And consult the HP sample XML files to find out whether this call is supported
 for your device and firmware version. If it is, please file a bug at
@@ -85,13 +85,15 @@ call may be there, but not all arguments are supported.</p>
 <div class="section" id="elementtree-parseerror">
 <h2>ElementTree.ParseError<a class="headerlink" href="#elementtree-parseerror" title="Permalink to this headline">¶</a></h2>
 <p>Occasionally you might see either of these errors at the end of a traceback:</p>
-<div class="highlight-python"><pre>cElementTree.ParseError: not well-formed (invalid token): line 301, column 23
-xml.etree.ElementTree.ParseError: not well-formed (invalid token): line 301, column 23</pre>
+<div class="highlight-python"><div class="highlight"><pre>cElementTree.ParseError: not well-formed (invalid token): line 301, column 23
+xml.etree.ElementTree.ParseError: not well-formed (invalid token): line 301, column 23
+</pre></div>
 </div>
 <p>This means that the iLO interface is spewing invalid XML back at you.
 python-hpilo has some workarounds in place for common cases, and most other
 cases have been fixed in newer firmware versions. Please update your firmware version:</p>
-<div class="highlight-python"><pre>hpilo_cli your.host.name.here update_rib_firmware filename=latest</pre>
+<div class="highlight-python"><div class="highlight"><pre>hpilo_cli your.host.name.here update_rib_firmware filename=latest
+</pre></div>
 </div>
 <p>and try again. If the problem persists, run the hpilo_cli command in debugging
 mode (-dd) and submit a bug with the resulting XML fragment.</p>
@@ -110,12 +112,11 @@ state and recover.</p>
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-        <p class="logo"><a href="index.html">
+        <p class="logo"><a href="index.html" title="index">
           <img class="logo" src="_static/lightbulb.png" alt="Logo"/>
-        </a></p>
-  <div class="sphinxlocaltoc">
-  <h3><a href="index.html">Table Of Contents</a></h3>
-  <ul>
+        </a></p><div class="sphinxlocaltoc">
+    <h3><a href="index.html">Page contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">Common issues</a><ul>
 <li><a class="reference internal" href="#syntax-error-line-0">Syntax error: Line #0</a></li>
 <li><a class="reference internal" href="#elementtree-parseerror">ElementTree.ParseError</a></li>
@@ -125,12 +126,16 @@ state and recover.</p>
 </ul>
 
   </div>
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="ca.html"
-                        title="previous chapter">Managing SSL certificates</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="contributing.html"
-                        title="next chapter">Contributing guide</a></p>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="ca.html"
+                          title="Previous page">&larr; Managing SSL certificates</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="contributing.html"
+                          title="Next page">&rarr; Contributing guide</a></p>
+  </div>
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
@@ -162,7 +167,7 @@ state and recover.</p>
         <li class="right" >
           <a href="ca.html" title="Managing SSL certificates"
              >previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">python-hpilo 2.6.1 documentation</a> &raquo;</li>
+    <li><a href="index.html">python-hpilo 2.6.2 documentation</a> &raquo;</li>
  
       </ul>
     </div>

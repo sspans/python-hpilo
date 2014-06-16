@@ -1,6 +1,5 @@
 
 
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -9,16 +8,16 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Managing SSL certificates &mdash; python-hpilo 2.6.1 documentation</title>
+    <title>Managing SSL certificates &mdash; python-hpilo 2.6.2 documentation</title>
     
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '2.6.1',
+        URL_ROOT:    './',
+        VERSION:     '2.6.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,9 +26,8 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/jquery.cookie.js"></script>
     <script type="text/javascript" src="_static/cloud.js"></script>
-    <link rel="top" title="python-hpilo 2.6.1 documentation" href="index.html" />
+    <link rel="top" title="python-hpilo 2.6.2 documentation" href="index.html" />
     <link rel="next" title="Common issues" href="troubleshooting.html" />
     <link rel="prev" title="hpilo_cli command-line tool" href="cli.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -49,7 +47,7 @@
         <li class="right" >
           <a href="cli.html" title="hpilo_cli command-line tool"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">python-hpilo 2.6.1 documentation</a> &raquo;</li>
+    <li><a href="index.html">python-hpilo 2.6.2 documentation</a> &raquo;</li>
  
       </ul>
     </div>
@@ -69,13 +67,14 @@ to hapve proper SSL certificates. This script will make that easy to do for you
 by taking care of all the CA work.</p>
 <p>First thing to do is configure the CA. Add something like the following to your
 <tt class="file docutils literal"><span class="pre">~/.ilo.conf</span></tt>:</p>
-<div class="highlight-python"><pre>[ca]
-path = ~/.hpilo_ca</pre>
+<div class="highlight-python"><div class="highlight"><pre>[ca]
+path = ~/.hpilo_ca
+</pre></div>
 </div>
 <p>This path can point to an existing CA, the only requirement is that
 <tt class="file docutils literal"><span class="pre">openssl.cnf</span></tt> for this CA lives inside that directory. If the CA does not
 yet exist, you can create it as follows:</p>
-<div class="highlight-python"><pre>$ hpilo_ca init
+<div class="highlight-python"><div class="highlight"><pre>$ hpilo_ca init
 Generating RSA private key, 2048 bit long modulus
 .+++
 ..................+++
@@ -85,13 +84,14 @@ into your certificate request.
 What you are about to enter is what is called a Distinguished Name or a DN.
 There are quite a few fields but you can leave some blank
 For some fields there will be a default value,
-If you enter '.', the field will be left blank.
+If you enter &#39;.&#39;, the field will be left blank.
 -----
 Country Name (2 letter code) [NL]:
 State or Province Name (full name) [Flevoland]:
 Locality Name (eg, city) [Lelystad]:
 Organization Name (eg, company) [Kaarsemaker.net]:
-Common Name (eg, your name or your servers hostname) [hpilo_ca]:</pre>
+Common Name (eg, your name or your servers hostname) [hpilo_ca]:
+</pre></div>
 </div>
 <p>This generates the needed directories, an openssl config and a self-signed
 certificate for your CA.</p>
@@ -106,7 +106,7 @@ will check several things:</p>
 </div></blockquote>
 <p>It will then download the certificate signing request, sign it and upload the
 signed certificate. Here&#8217;s an example of it at work:</p>
-<div class="highlight-python"><pre>$ ./hpilo_ca sign example-server.int.kaarsemaker.net
+<div class="highlight-python"><div class="highlight"><pre>$ ./hpilo_ca sign example-server.int.kaarsemaker.net
 (1/5) Checking certificate config of example-server.int.kaarsemaker.net
 (2/5) Retrieving certificate signing request
 (3/5) Signing certificate
@@ -139,7 +139,8 @@ Certificate is to be certified until Mar  9 13:38:11 2017 GMT (1825 days)
 Write out database with 1 new entries
 Data Base Updated
 (4/5) Uploading certificate
-(5/5) Resetting iLO</pre>
+(5/5) Resetting iLO
+</pre></div>
 </div>
 </div>
 
@@ -149,15 +150,19 @@ Data Base Updated
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-        <p class="logo"><a href="index.html">
+        <p class="logo"><a href="index.html" title="index">
           <img class="logo" src="_static/lightbulb.png" alt="Logo"/>
         </a></p>
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="cli.html"
-                        title="previous chapter">hpilo_cli command-line tool</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="troubleshooting.html"
-                        title="next chapter">Common issues</a></p>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="cli.html"
+                          title="Previous page">&larr; hpilo_cli command-line tool</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="troubleshooting.html"
+                          title="Next page">&rarr; Common issues</a></p>
+  </div>
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
@@ -189,7 +194,7 @@ Data Base Updated
         <li class="right" >
           <a href="cli.html" title="hpilo_cli command-line tool"
              >previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">python-hpilo 2.6.1 documentation</a> &raquo;</li>
+    <li><a href="index.html">python-hpilo 2.6.2 documentation</a> &raquo;</li>
  
       </ul>
     </div>
