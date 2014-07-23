@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Ilo objects &mdash; python-hpilo 2.6.2 documentation</title>
+    <title>Ilo objects &mdash; python-hpilo 2.7 documentation</title>
     
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '2.6.2',
+        VERSION:     '2.7',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,7 +27,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/cloud.js"></script>
-    <link rel="top" title="python-hpilo 2.6.2 documentation" href="index.html" />
+    <link rel="top" title="python-hpilo 2.7 documentation" href="index.html" />
     <link rel="next" title="Example output of API calls" href="output.html" />
     <link rel="prev" title="Installing" href="install.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -47,7 +47,7 @@
         <li class="right" >
           <a href="install.html" title="Installing"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">python-hpilo 2.6.2 documentation</a> &raquo;</li>
+    <li><a href="index.html">python-hpilo 2.7 documentation</a> &raquo;</li>
  
       </ul>
     </div>
@@ -742,17 +742,15 @@ Valid devices are floppy and cdrom</p>
 
 <dl class="method">
 <dt id="hpilo.Ilo.update_rib_firmware">
-<tt class="descname">update_rib_firmware</tt><big>(</big><em>filename</em>, <em>progress=None</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.update_rib_firmware" title="Permalink to this definition">¶</a></dt>
-<dd><p>Upload new RIB firmware, use &#8220;latest&#8221; as filename to automatically
-download and use the latest firmware. As this function may take a
-while, you can get progress notifications by passing a callable in
-the progress parameter. This callable will be called with progress
-messages. These messages either start with a carriage return (&#8216;\r&#8217;)
-and an optional ANSI &#8216;clear line&#8217; sequence (&#8216;\033[K&#8217;), or without
-one. When printing to a terminal, append a newline only to the
-second type of string. When using the data outside a terminal
-environment, make sure you strip off the carriage return and ansi
-sequence</p>
+<tt class="descname">update_rib_firmware</tt><big>(</big><em>filename=None</em>, <em>version=None</em>, <em>progress=None</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.update_rib_firmware" title="Permalink to this definition">¶</a></dt>
+<dd><p>Upload new RIB firmware, either specified by filename (.bin or
+.scexe) or version number. Use &#8220;latest&#8221; as version number to
+download and use the latest available firmware.</p>
+<p>API note:</p>
+<p>As this function may take a while, you can choose to receive
+progress messages by passing a callable in the progress parameter.
+This callable will be called many times to inform you about upload
+and flash progress.</p>
 </dd></dl>
 
 <dl class="method">
@@ -822,7 +820,7 @@ unauthenticated URL</p>
         <li class="right" >
           <a href="install.html" title="Installing"
              >previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">python-hpilo 2.6.2 documentation</a> &raquo;</li>
+    <li><a href="index.html">python-hpilo 2.7 documentation</a> &raquo;</li>
  
       </ul>
     </div>
