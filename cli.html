@@ -28,7 +28,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/cloud.js"></script>
     <link rel="top" title="python-hpilo 2.7 documentation" href="index.html" />
-    <link rel="next" title="Managing SSL certificates" href="ca.html" />
+    <link rel="next" title="Dealing with iLO firmware updates" href="firmware.html" />
     <link rel="prev" title="Example output of API calls" href="output.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
@@ -42,7 +42,7 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="ca.html" title="Managing SSL certificates"
+          <a href="firmware.html" title="Dealing with iLO firmware updates"
              accesskey="N">next</a> &nbsp; &nbsp;</li>
         <li class="right" >
           <a href="output.html" title="Example output of API calls"
@@ -64,7 +64,9 @@
 <p>The commandline interface allows you to make calls from your shell or scripts
 written in another language than python. It supports all methods that the
 library has and is used as follows:</p>
-<div class="highlight-python"><div class="highlight"><pre>Usage: hpilo_cli [options] hostname method [args...]
+<div class="highlight-python"><div class="highlight"><pre>Usage:
+  hpilo_cli [options] hostname method [args...]
+  hpilo_cli download_rib_firmware ilotype version [version...] &quot;&quot;&quot;
 
 Options:
   -l LOGIN, --login=LOGIN
@@ -180,8 +182,8 @@ can set an alternative path in the config, see the example config file.</p>
   </div>
   <div class="sphinxnext">
     <h4>Next page</h4>
-    <p class="topless"><a href="ca.html"
-                          title="Next page">&rarr; Managing SSL certificates</a></p>
+    <p class="topless"><a href="firmware.html"
+                          title="Next page">&rarr; Dealing with iLO firmware updates</a></p>
   </div>
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
@@ -209,7 +211,7 @@ can set an alternative path in the config, see the example config file.</p>
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="ca.html" title="Managing SSL certificates"
+          <a href="firmware.html" title="Dealing with iLO firmware updates"
              >next</a> &nbsp; &nbsp;</li>
         <li class="right" >
           <a href="output.html" title="Example output of API calls"
