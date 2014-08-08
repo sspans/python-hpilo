@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Ilo objects &mdash; python-hpilo 2.7 documentation</title>
+    <title>Ilo objects &mdash; python-hpilo 2.8 documentation</title>
     
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '2.7',
+        VERSION:     '2.8',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,7 +27,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/cloud.js"></script>
-    <link rel="top" title="python-hpilo 2.7 documentation" href="index.html" />
+    <link rel="top" title="python-hpilo 2.8 documentation" href="index.html" />
     <link rel="next" title="Example output of API calls" href="output.html" />
     <link rel="prev" title="Installing" href="install.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -47,7 +47,7 @@
         <li class="right" >
           <a href="install.html" title="Installing"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">python-hpilo 2.7 documentation</a> &raquo;</li>
+    <li><a href="index.html">python-hpilo 2.8 documentation</a> &raquo;</li>
  
       </ul>
     </div>
@@ -88,6 +88,12 @@ immediately, but group them together. See <a class="reference internal" href="#h
 <dt id="hpilo.Ilo.activate_license">
 <tt class="descname">activate_license</tt><big>(</big><em>key</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.activate_license" title="Permalink to this definition">¶</a></dt>
 <dd><p>Activate an iLO advanced license</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.add_federation_group">
+<tt class="descname">add_federation_group</tt><big>(</big><em>group_name</em>, <em>group_key</em>, <em>admin_priv=False</em>, <em>remote_cons_priv=True</em>, <em>reset_server_priv=False</em>, <em>virtual_media_priv=False</em>, <em>config_ilo_priv=True</em>, <em>login_priv=False</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.add_federation_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a new federation group</p>
 </dd></dl>
 
 <dl class="method">
@@ -163,6 +169,12 @@ return data</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="hpilo.Ilo.delete_federation_group">
+<tt class="descname">delete_federation_group</tt><big>(</big><em>group_name</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.delete_federation_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete the specified federation group membership</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="hpilo.Ilo.delete_ssh_key">
 <tt class="descname">delete_ssh_key</tt><big>(</big><em>user_login</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.delete_ssh_key" title="Permalink to this definition">¶</a></dt>
 <dd><p>Delete a users SSH key</p>
@@ -195,7 +207,7 @@ return data</p>
 <dl class="method">
 <dt id="hpilo.Ilo.ers_ahs_submit">
 <tt class="descname">ers_ahs_submit</tt><big>(</big><em>message_id</em>, <em>bb_days</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.ers_ahs_submit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Submity AHS dat to the insight remote support server</p>
+<dd><p>Submity AHS data to the insight remote support server</p>
 </dd></dl>
 
 <dl class="method">
@@ -216,12 +228,6 @@ and license key</p>
 <dt id="hpilo.Ilo.get_ahs_status">
 <tt class="descname">get_ahs_status</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_ahs_status" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get active health system logging status</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="hpilo.Ilo.get_all_cables_status">
-<tt class="descname">get_all_cables_status</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_all_cables_status" title="Permalink to this definition">¶</a></dt>
-<dd><p>FIXME: I have no relevant hardware. Please report sample output</p>
 </dd></dl>
 
 <dl class="method">
@@ -261,9 +267,9 @@ and license key</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="hpilo.Ilo.get_diagport">
-<tt class="descname">get_diagport</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_diagport" title="Permalink to this definition">¶</a></dt>
-<dd><p>FIXME: I have no relevant hardware. Please report sample output</p>
+<dt id="hpilo.Ilo.get_current_boot_mode">
+<tt class="descname">get_current_boot_mode</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_current_boot_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current boot mode (legaci or uefi)</p>
 </dd></dl>
 
 <dl class="method">
@@ -279,15 +285,33 @@ and license key</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="hpilo.Ilo.get_enclosure_ip_settings">
-<tt class="descname">get_enclosure_ip_settings</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_enclosure_ip_settings" title="Permalink to this definition">¶</a></dt>
-<dd><p>FIXME: I have no relevant hardware. Please report sample output</p>
+<dt id="hpilo.Ilo.get_encrypt_settings">
+<tt class="descname">get_encrypt_settings</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_encrypt_settings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the iLO encryption settings</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hpilo.Ilo.get_ers_settings">
 <tt class="descname">get_ers_settings</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_ers_settings" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the ERS Insight Remote Support settings</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.get_federation_all_groups">
+<tt class="descname">get_federation_all_groups</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_federation_all_groups" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all federation group names</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.get_federation_all_groups_info">
+<tt class="descname">get_federation_all_groups_info</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_federation_all_groups_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all federation group names and associated privileges</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.get_federation_group">
+<tt class="descname">get_federation_group</tt><big>(</big><em>group_name</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_federation_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get privileges for a specific federation group</p>
 </dd></dl>
 
 <dl class="method">
@@ -305,7 +329,7 @@ and license key</p>
 <dl class="method">
 <dt id="hpilo.Ilo.get_fw_version">
 <tt class="descname">get_fw_version</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_fw_version" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the iLO firmware version</p>
+<dd><p>Get the iLO type and firmware version, use get_product_name to get the server model</p>
 </dd></dl>
 
 <dl class="method">
@@ -320,12 +344,6 @@ and license key</p>
 <dd><p>Get SMBIOS records that describe the host. By default only the ones
 where human readable information is available are returned. To get
 all records pass <tt class="xref py py-attr docutils literal"><span class="pre">decoded_only=False</span></tt></p>
-</dd></dl>
-
-<dl class="method">
-<dt id="hpilo.Ilo.get_host_power_reg_info">
-<tt class="descname">get_host_power_reg_info</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_host_power_reg_info" title="Permalink to this definition">¶</a></dt>
-<dd><p>FIXME: I have no relevant hardware. Please report sample output</p>
 </dd></dl>
 
 <dl class="method">
@@ -377,6 +395,12 @@ all records pass <tt class="xref py py-attr docutils literal"><span class="pre">
 </dd></dl>
 
 <dl class="method">
+<dt id="hpilo.Ilo.get_pending_boot_mode">
+<tt class="descname">get_pending_boot_mode</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_pending_boot_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the pending boot mode (legaci or uefi)</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="hpilo.Ilo.get_pers_mouse_keyboard_enabled">
 <tt class="descname">get_pers_mouse_keyboard_enabled</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_pers_mouse_keyboard_enabled" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns whether persistent mouse and keyboard are enabled</p>
@@ -398,6 +422,12 @@ all records pass <tt class="xref py py-attr docutils literal"><span class="pre">
 <dt id="hpilo.Ilo.get_power_readings">
 <tt class="descname">get_power_readings</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_power_readings" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get current, min, max and average power readings</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.get_product_name">
+<tt class="descname">get_product_name</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_product_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the model name of the server, use get_fw_version to get the iLO model</p>
 </dd></dl>
 
 <dl class="method">
@@ -449,6 +479,12 @@ all records pass <tt class="xref py py-attr docutils literal"><span class="pre">
 </dd></dl>
 
 <dl class="method">
+<dt id="hpilo.Ilo.get_smh_fqdn">
+<tt class="descname">get_smh_fqdn</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_smh_fqdn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the fqdn of the HP System Management Homepage</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="hpilo.Ilo.get_snmp_im_settings">
 <tt class="descname">get_snmp_im_settings</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_snmp_im_settings" title="Permalink to this definition">¶</a></dt>
 <dd><p>Where does the iLO send SNMP traps to and which traps does it send</p>
@@ -467,9 +503,9 @@ all records pass <tt class="xref py py-attr docutils literal"><span class="pre">
 </dd></dl>
 
 <dl class="method">
-<dt id="hpilo.Ilo.get_topology">
-<tt class="descname">get_topology</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_topology" title="Permalink to this definition">¶</a></dt>
-<dd><p>FIXME: I have no relevant hardware. Please report sample output</p>
+<dt id="hpilo.Ilo.get_tpm_status">
+<tt class="descname">get_tpm_status</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_tpm_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the status of the Trusted Platform Module</p>
 </dd></dl>
 
 <dl class="method">
@@ -491,21 +527,9 @@ all records pass <tt class="xref py py-attr docutils literal"><span class="pre">
 </dd></dl>
 
 <dl class="method">
-<dt id="hpilo.Ilo.get_vf_status">
-<tt class="descname">get_vf_status</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_vf_status" title="Permalink to this definition">¶</a></dt>
-<dd><p>FIXME: I have no relevant hardware. Please report sample output</p>
-</dd></dl>
-
-<dl class="method">
 <dt id="hpilo.Ilo.get_vm_status">
 <tt class="descname">get_vm_status</tt><big>(</big><em>device='CDROM'</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_vm_status" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the status of virtual media devices. Valid devices are FLOPPY and CDROM</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="hpilo.Ilo.get_vpb_capable_status">
-<tt class="descname">get_vpb_capable_status</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_vpb_capable_status" title="Permalink to this definition">¶</a></dt>
-<dd><p>FIXME: I have no relevant hardware. Please report sample output</p>
 </dd></dl>
 
 <dl class="method">
@@ -548,6 +572,14 @@ will be changed.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="hpilo.Ilo.mod_federation_group">
+<tt class="descname">mod_federation_group</tt><big>(</big><em>group_name</em>, <em>new_group_name=None</em>, <em>group_key=None</em>, <em>admin_priv=None</em>, <em>remote_cons_priv=None</em>, <em>reset_server_priv=None</em>, <em>virtual_media_priv=None</em>, <em>config_ilo_priv=None</em>, <em>login_priv=None</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.mod_federation_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set attributes for a federation group, only specified arguments will
+be changed.  All arguments except group_name, new_group_name and
+group_key should be boolean</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="hpilo.Ilo.mod_global_settings">
 <tt class="descname">mod_global_settings</tt><big>(</big><em>session_timeout=None</em>, <em>f8_prompt_enabled=None</em>, <em>f8_login_required=None</em>, <em>lock_configuration=None</em>, <em>ilo_funct_enabled=None</em>, <em>serial_cli_status=None</em>, <em>serial_cli_speed=None</em>, <em>http_port=None</em>, <em>https_port=None</em>, <em>ssh_port=None</em>, <em>ssh_status=None</em>, <em>vmedia_disable=None</em>, <em>virtual_media_port=None</em>, <em>remote_console_port=None</em>, <em>snmp_access_enabled=None</em>, <em>snmp_port=None</em>, <em>snmp_trap_port=None</em>, <em>remote_syslog_enable=None</em>, <em>remote_syslog_server_address=None</em>, <em>remote_syslog_port=None</em>, <em>alertmail_enable=None</em>, <em>alertmail_email_address=None</em>, <em>alertmail_sender_domain=None</em>, <em>alertmail_smtp_server=None</em>, <em>alertmail_smtp_port=None</em>, <em>min_password=None</em>, <em>enforce_aes=None</em>, <em>authentication_failure_logging=None</em>, <em>rbsu_post_ip=None</em>, <em>remote_console_encryption=None</em>, <em>remote_keyboard_model=None</em>, <em>terminal_services_port=None</em>, <em>high_performance_mouse=None</em>, <em>shared_console_enable=None</em>, <em>shared_console_port=None</em>, <em>remote_console_acquire=None</em>, <em>brownout_recovery=None</em>, <em>ipmi_dcmi_over_lan_enabled=None</em>, <em>vsp_log_enable=None</em>, <em>vsp_software_flow_control=None</em>, <em>propagate_time_to_host=None</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.mod_global_settings" title="Permalink to this definition">¶</a></dt>
 <dd><p>Modify iLO global settings, only values that are specified will be changed.</p>
@@ -580,9 +612,27 @@ All arguments except user_name and password should be boolean</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="hpilo.Ilo.profile_apply">
+<tt class="descname">profile_apply</tt><big>(</big><em>desc_name</em>, <em>action</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.profile_apply" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply a deployment profile</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="hpilo.Ilo.profile_apply_get_results">
 <tt class="descname">profile_apply_get_results</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.profile_apply_get_results" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieve the results of the last profile_apply</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.profile_delete">
+<tt class="descname">profile_delete</tt><big>(</big><em>desc_name</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.profile_delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delet the specified deployment profile</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.profile_desc_download">
+<tt class="descname">profile_desc_download</tt><big>(</big><em>desc_name</em>, <em>name</em>, <em>description</em>, <em>blob_namespace=None</em>, <em>blob_name=None</em>, <em>url=None</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.profile_desc_download" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make the iLO download a blob and create a deployment profile</p>
 </dd></dl>
 
 <dl class="method">
@@ -616,9 +666,23 @@ All arguments except user_name and password should be boolean</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="hpilo.Ilo.set_ers_direct_connect">
+<tt class="descname">set_ers_direct_connect</tt><big>(</big><em>user_id</em>, <em>password</em>, <em>proxy_host=None</em>, <em>proxy_port=None</em>, <em>proxy_username=None</em>, <em>proxy_password=None</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.set_ers_direct_connect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register your iLO with HP Insigt Online using Direct Connect. Note
+that you must also call dc_registration_complete</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="hpilo.Ilo.set_ers_irs_connect">
 <tt class="descname">set_ers_irs_connect</tt><big>(</big><em>ers_destination_url</em>, <em>ers_destination_port</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.set_ers_irs_connect" title="Permalink to this definition">¶</a></dt>
 <dd><p>Connect to an Insight Remote Support server</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.set_ers_web_proxy">
+<tt class="descname">set_ers_web_proxy</tt><big>(</big><em>proxy_host</em>, <em>proxy_port</em>, <em>proxy_username=None</em>, <em>proxy_password=None</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.set_ers_web_proxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register your iLO with HP Insigt Online using Direct Connect. Note
+that you must also call dc_registration_complete</p>
 </dd></dl>
 
 <dl class="method">
@@ -654,6 +718,12 @@ cdrom, hdd, usb, rbsu or network. Ilo 4 also supports EMB-MENU
 EMB-HPSUM-AUTO (Boots HPSUM in automatic update mode), EMB-DIAGS
 (Launches Insight Diagnostics for Linux in interactive mode) and
 RBSU (Boots into the system RBSU)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.set_pending_boot_mode">
+<tt class="descname">set_pending_boot_mode</tt><big>(</big><em>boot_mode</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.set_pending_boot_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the boot mode for the next boot to UEFI or legacy</p>
 </dd></dl>
 
 <dl class="method">
@@ -820,14 +890,14 @@ unauthenticated URL</p>
         <li class="right" >
           <a href="install.html" title="Installing"
              >previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">python-hpilo 2.7 documentation</a> &raquo;</li>
+    <li><a href="index.html">python-hpilo 2.8 documentation</a> &raquo;</li>
  
       </ul>
     </div>
     </div>
 
     <div class="footer">
-        &copy; Copyright 2011-2013, Dennis Kaarsemaker.
+        &copy; Copyright 2011-2014, Dennis Kaarsemaker.
     </div>
     <!-- cloud_sptheme 1.4 -->
   </body>
