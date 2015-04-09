@@ -1,0 +1,493 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>General server and iLO information &mdash; python-hpilo 2.12.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.12.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/cloud.js"></script>
+    <link rel="top" title="python-hpilo 2.12.1 documentation" href="index.html" />
+    <link rel="next" title="Network settings" href="networksettings.html" />
+    <link rel="prev" title="Access from the shell" href="shell.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="relbar-top">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="networksettings.html" title="Network settings"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="shell.html" title="Access from the shell"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">python-hpilo 2.12.1 documentation</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="general-server-and-ilo-information">
+<h1>General server and iLO information<a class="headerlink" href="#general-server-and-ilo-information" title="Permalink to this headline">¶</a></h1>
+<p>Many iLO methods allow you to retrieve information about the iLO and the server
+it is built into and to manipulate basic configuration settings. This document
+describes all the ones that do not fit under a more specific subject, such as
+authentication or power.</p>
+<dl class="class">
+<dt>
+<em class="property">class </em><tt class="descclassname">hpilo.</tt><tt class="descname">Ilo</tt></dt>
+<dd><dl class="method">
+<dt id="hpilo.Ilo.factory_defaults">
+<tt class="descname">factory_defaults</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.factory_defaults" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset the iLO to factory default settings</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.get_product_name">
+<tt class="descname">get_product_name</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_product_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the model name of the server, use get_fw_version to get the iLO model</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_product_name</span><span class="p">()</span>
+<span class="go">ProLiant BL460c Gen8</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.get_fw_version">
+<tt class="descname">get_fw_version</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_fw_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the iLO type and firmware version, use get_product_name to get the server model</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_fw_version</span><span class="p">()</span>
+<span class="go">{&#39;firmware_date&#39;: &#39;Jan 15 2015&#39;,</span>
+<span class="go"> &#39;firmware_version&#39;: &#39;2.10&#39;,</span>
+<span class="go"> &#39;license_type&#39;: &#39;iLO 4 Advanced&#39;,</span>
+<span class="go"> &#39;management_processor&#39;: &#39;iLO4&#39;}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.get_host_data">
+<tt class="descname">get_host_data</tt><big>(</big><em>decoded_only=True</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_host_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get SMBIOS records that describe the host. By default only the ones
+where human readable information is available are returned. To get
+all records pass <tt class="xref py py-attr docutils literal"><span class="pre">decoded_only=False</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_host_data</span><span class="p">()</span>
+<span class="go">[{&#39;Date&#39;: &#39;08/02/2014&#39;,</span>
+<span class="go">  &#39;Family&#39;: &#39;I31&#39;,</span>
+<span class="go">  &#39;b64_data&#39;: &#39;ABgAAAECAPADf4DayX0AAAAAAwf//wEzSFAASTMxADA4LzAyLzIwMTQAAA==&#39;,</span>
+<span class="go">  &#39;type&#39;: 0},</span>
+<span class="go"> {&#39;Product Name&#39;: &#39;ProLiant BL460c Gen8&#39;,</span>
+<span class="go">  &#39;Serial Number&#39;: &#39;CZ3415448C      &#39;,</span>
+<span class="go">  &#39;UUID&#39;: &#39;641016CZ3415448C&#39;,</span>
+<span class="go">  &#39;b64_data&#39;: &#39;ARsAAQQFAAE2NDEwMTZDWjM0MTU0NDhDBgIDQ1ozNDE1NDQ4QyAgICAgIAA2NDEwMTYtQjIxICAgICAgAFByb0xpYW50AEhQAFByb0xpYW50IEJMNDYwYyBHZW44ACAgICAgICAgICAgICAASFAAUHJvTGlhbnQgV1M0NjBjIEdlbjggV1MgQmxhZGUAAA==&#39;,</span>
+<span class="go">  &#39;cUUID&#39;: &#39;30313436-3631-5A43-3334-313534343843&#39;,</span>
+<span class="go">  &#39;type&#39;: 1},</span>
+<span class="go"> {&#39;Execution Technology&#39;: &#39;6 of 6 cores; 12 threads&#39;,</span>
+<span class="go">  &#39;Label&#39;: &#39;Proc 1&#39;,</span>
+<span class="go">  &#39;Memory Technology&#39;: &#39;64-bit Capable&#39;,</span>
+<span class="go">  &#39;Speed&#39;: &#39;2500 MHz&#39;,</span>
+<span class="go">  &#39;b64_data&#39;: &#39;BCoABAEDswLXBgIA//vrvwOOZADAEsQJQSYQByAHMAcAAAAGBgwEALMAUHJvYyAxAEludGVsACBJbnRlbChSKSBYZW9uKFIpIENQVSBFNS0yNjQwIDAgQCAyLjUwR0h6ICAgICAgIAAA&#39;,</span>
+<span class="go">  &#39;type&#39;: 4},</span>
+<span class="go"> {&#39;Execution Technology&#39;: &#39;6 of 6 cores; 12 threads&#39;,</span>
+<span class="go">  &#39;Label&#39;: &#39;Proc 2&#39;,</span>
+<span class="go">  &#39;Memory Technology&#39;: &#39;64-bit Capable&#39;,</span>
+<span class="go">  &#39;Speed&#39;: &#39;2500 MHz&#39;,</span>
+<span class="go">  &#39;b64_data&#39;: &#39;BCoBBAEDswLXBgIA//vrvwOOZADAEsQJRCYWByYHNgcAAAAGBgwEALMAUHJvYyAyAEludGVsACBJbnRlbChSKSBYZW9uKFIpIENQVSBFNS0yNjQwIDAgQCAyLjUwR0h6ICAgICAgIAAA&#39;,</span>
+<span class="go">  &#39;type&#39;: 4},</span>
+<span class="go"> {&#39;Label&#39;: &#39;PROC  1 DIMM  1 &#39;,</span>
+<span class="go">  &#39;Size&#39;: &#39;16384 MB&#39;,</span>
+<span class="go">  &#39;Speed&#39;: &#39;1600 MHz&#39;,</span>
+<span class="go">  &#39;b64_data&#39;: &#39;ESgAEQAQ/v9IAEAAAEAJAAEAGIAgQAYCAAADAgAAAAA1BdwF3AXcBVBST0MgIDEgRElNTSAgMSAASFAgICAgIAA2NzI2MTItMDgxICAgICAgICAgIAAA&#39;,</span>
+<span class="go">  &#39;type&#39;: 17},</span>
+<span class="go"> {&#39;Label&#39;: &#39;PROC  1 DIMM  2 &#39;,</span>
+<span class="go">  &#39;Size&#39;: &#39;not installed&#39;,</span>
+<span class="go">  &#39;b64_data&#39;: &#39;ESgBEQAQ/v9IAEAAAAAJAQEAGIAAAAACAAADAAAAAAAAAAAAAAAAAFBST0MgIDEgRElNTSAgMiAAVU5LTk9XTgBOT1QgQVZBSUxBQkxFICAgICAgIAAA&#39;,</span>
+<span class="go">  &#39;type&#39;: 17},</span>
+<span class="go"> {&#39;Label&#39;: &#39;PROC  1 DIMM  3 &#39;,</span>
+<span class="go">  &#39;Size&#39;: &#39;16384 MB&#39;,</span>
+<span class="go">  &#39;Speed&#39;: &#39;1600 MHz&#39;,</span>
+<span class="go">  &#39;b64_data&#39;: &#39;ESgCEQAQ/v9IAEAAAEAJAgEAGIAgQAYCAAADAgAAAAA1BdwF3AXcBVBST0MgIDEgRElNTSAgMyAASFAgICAgIAA2NzI2MTItMDgxICAgICAgICAgIAAA&#39;,</span>
+<span class="go">  &#39;type&#39;: 17},</span>
+<span class="go"> {&#39;Label&#39;: &#39;PROC  1 DIMM  4 &#39;,</span>
+<span class="go">  &#39;Size&#39;: &#39;not installed&#39;,</span>
+<span class="go">  &#39;b64_data&#39;: &#39;ESgDEQAQ/v9IAEAAAAAJAwEAGIAAAAACAAADAAAAAAAAAAAAAAAAAFBST0MgIDEgRElNTSAgNCAAVU5LTk9XTgBOT1QgQVZBSUxBQkxFICAgICAgIAAA&#39;,</span>
+<span class="go">  &#39;type&#39;: 17},</span>
+<span class="go"> {&#39;Label&#39;: &#39;PROC  1 DIMM  5 &#39;,</span>
+<span class="go">  &#39;Size&#39;: &#39;not installed&#39;,</span>
+<span class="go">  &#39;b64_data&#39;: &#39;ESgEEQAQ/v9IAEAAAAAJBAEAGIAAAAACAAADAAAAAAAAAAAAAAAAAFBST0MgIDEgRElNTSAgNSAAVU5LTk9XTgBOT1QgQVZBSUxBQkxFICAgICAgIAAA&#39;,</span>
+<span class="go">  &#39;type&#39;: 17},</span>
+<span class="go"> {&#39;Label&#39;: &#39;PROC  1 DIMM  6 &#39;,</span>
+<span class="go">  &#39;Size&#39;: &#39;not installed&#39;,</span>
+<span class="go">  &#39;b64_data&#39;: &#39;ESgFEQAQ/v9IAEAAAAAJBQEAGIAAAAACAAADAAAAAAAAAAAAAAAAAFBST0MgIDEgRElNTSAgNiAAVU5LTk9XTgBOT1QgQVZBSUxBQkxFICAgICAgIAAA&#39;,</span>
+<span class="go">  &#39;type&#39;: 17},</span>
+<span class="go"> {&#39;Label&#39;: &#39;PROC  1 DIMM  7 &#39;,</span>
+<span class="go">  &#39;Size&#39;: &#39;not installed&#39;,</span>
+<span class="go">  &#39;b64_data&#39;: &#39;ESgGEQAQ/v9IAEAAAAAJBgEAGIAAAAACAAADAAAAAAAAAAAAAAAAAFBST0MgIDEgRElNTSAgNyAAVU5LTk9XTgBOT1QgQVZBSUxBQkxFICAgICAgIAAA&#39;,</span>
+<span class="go">  &#39;type&#39;: 17},</span>
+<span class="go"> {&#39;Label&#39;: &#39;PROC  1 DIMM  8 &#39;,</span>
+<span class="go">  &#39;Size&#39;: &#39;16384 MB&#39;,</span>
+<span class="go">  &#39;Speed&#39;: &#39;1600 MHz&#39;,</span>
+<span class="go">  &#39;b64_data&#39;: &#39;ESgHEQAQ/v9IAEAAAEAJBwEAGIAgQAYCAAADAgAAAAA1BdwF3AXcBVBST0MgIDEgRElNTSAgOCAASFAgICAgIAA2NzI2MTItMDgxICAgICAgICAgIAAA&#39;,</span>
+<span class="go">  &#39;type&#39;: 17},</span>
+<span class="go"> {&#39;Label&#39;: &#39;PROC  2 DIMM  1 &#39;,</span>
+<span class="go">  &#39;Size&#39;: &#39;16384 MB&#39;,</span>
+<span class="go">  &#39;Speed&#39;: &#39;1600 MHz&#39;,</span>
+<span class="go">  &#39;b64_data&#39;: &#39;ESgIEQEQ/v9IAEAAAEAJCAEAGIAgQAYCAAADAgAAAAA1BdwF3AXcBVBST0MgIDIgRElNTSAgMSAASFAgICAgIAA2NzI2MTItMDgxICAgICAgICAgIAAA&#39;,</span>
+<span class="go">  &#39;type&#39;: 17},</span>
+<span class="go"> {&#39;Label&#39;: &#39;PROC  2 DIMM  2 &#39;,</span>
+<span class="go">  &#39;Size&#39;: &#39;not installed&#39;,</span>
+<span class="go">  &#39;b64_data&#39;: &#39;ESgJEQEQ/v9IAEAAAAAJCQEAGIAAAAACAAADAAAAAAAAAAAAAAAAAFBST0MgIDIgRElNTSAgMiAAVU5LTk9XTgBOT1QgQVZBSUxBQkxFICAgICAgIAAA&#39;,</span>
+<span class="go">  &#39;type&#39;: 17},</span>
+<span class="go"> {&#39;Label&#39;: &#39;PROC  2 DIMM  3 &#39;,</span>
+<span class="go">  &#39;Size&#39;: &#39;16384 MB&#39;,</span>
+<span class="go">  &#39;Speed&#39;: &#39;1600 MHz&#39;,</span>
+<span class="go">  &#39;b64_data&#39;: &#39;ESgKEQEQ/v9IAEAAAEAJCgEAGIAgQAYCAAADAgAAAAA1BdwF3AXcBVBST0MgIDIgRElNTSAgMyAASFAgICAgIAA2NzI2MTItMDgxICAgICAgICAgIAAA&#39;,</span>
+<span class="go">  &#39;type&#39;: 17},</span>
+<span class="go"> {&#39;Label&#39;: &#39;PROC  2 DIMM  4 &#39;,</span>
+<span class="go">  &#39;Size&#39;: &#39;not installed&#39;,</span>
+<span class="go">  &#39;b64_data&#39;: &#39;ESgLEQEQ/v9IAEAAAAAJCwEAGIAAAAACAAADAAAAAAAAAAAAAAAAAFBST0MgIDIgRElNTSAgNCAAVU5LTk9XTgBOT1QgQVZBSUxBQkxFICAgICAgIAAA&#39;,</span>
+<span class="go">  &#39;type&#39;: 17},</span>
+<span class="go"> {&#39;Label&#39;: &#39;PROC  2 DIMM  5 &#39;,</span>
+<span class="go">  &#39;Size&#39;: &#39;not installed&#39;,</span>
+<span class="go">  &#39;b64_data&#39;: &#39;ESgMEQEQ/v9IAEAAAAAJDAEAGIAAAAACAAADAAAAAAAAAAAAAAAAAFBST0MgIDIgRElNTSAgNSAAVU5LTk9XTgBOT1QgQVZBSUxBQkxFICAgICAgIAAA&#39;,</span>
+<span class="go">  &#39;type&#39;: 17},</span>
+<span class="go"> {&#39;Label&#39;: &#39;PROC  2 DIMM  6 &#39;,</span>
+<span class="go">  &#39;Size&#39;: &#39;not installed&#39;,</span>
+<span class="go">  &#39;b64_data&#39;: &#39;ESgNEQEQ/v9IAEAAAAAJDQEAGIAAAAACAAADAAAAAAAAAAAAAAAAAFBST0MgIDIgRElNTSAgNiAAVU5LTk9XTgBOT1QgQVZBSUxBQkxFICAgICAgIAAA&#39;,</span>
+<span class="go">  &#39;type&#39;: 17},</span>
+<span class="go"> {&#39;Label&#39;: &#39;PROC  2 DIMM  7 &#39;,</span>
+<span class="go">  &#39;Size&#39;: &#39;not installed&#39;,</span>
+<span class="go">  &#39;b64_data&#39;: &#39;ESgOEQEQ/v9IAEAAAAAJDgEAGIAAAAACAAADAAAAAAAAAAAAAAAAAFBST0MgIDIgRElNTSAgNyAAVU5LTk9XTgBOT1QgQVZBSUxBQkxFICAgICAgIAAA&#39;,</span>
+<span class="go">  &#39;type&#39;: 17},</span>
+<span class="go"> {&#39;Label&#39;: &#39;PROC  2 DIMM  8 &#39;,</span>
+<span class="go">  &#39;Size&#39;: &#39;16384 MB&#39;,</span>
+<span class="go">  &#39;Speed&#39;: &#39;1600 MHz&#39;,</span>
+<span class="go">  &#39;b64_data&#39;: &#39;ESgPEQEQ/v9IAEAAAEAJDwEAGIAgQAYCAAADAgAAAAA1BdwF3AXcBVBST0MgIDIgRElNTSAgOCAASFAgICAgIAA2NzI2MTItMDgxICAgICAgICAgIAAA&#39;,</span>
+<span class="go">  &#39;type&#39;: 17},</span>
+<span class="go"> {&#39;b64_data&#39;: &#39;0RQA0QAE/BW0Cp1YAQT8FbQKnVwAAA==&#39;,</span>
+<span class="go">  &#39;fields&#39;: [{&#39;name&#39;: &#39;Port&#39;, &#39;value&#39;: 1},</span>
+<span class="go">             {&#39;name&#39;: &#39;MAC&#39;, &#39;value&#39;: &#39;FC-15-B4-0A-9D-58&#39;},</span>
+<span class="go">             {&#39;name&#39;: &#39;Port&#39;, &#39;value&#39;: 2},</span>
+<span class="go">             {&#39;name&#39;: &#39;MAC&#39;, &#39;value&#39;: &#39;FC-15-B4-0A-9D-5C&#39;},</span>
+<span class="go">             {&#39;name&#39;: &#39;Port&#39;, &#39;value&#39;: &#39;iLO&#39;},</span>
+<span class="go">             {&#39;name&#39;: &#39;MAC&#39;, &#39;value&#39;: &#39;9C-B6-54-8E-4B-7C&#39;}],</span>
+<span class="go">  &#39;type&#39;: 209},</span>
+<span class="go"> {&#39;Serial Number&#39;: &#39;CZ3415448C      &#39;,</span>
+<span class="go">  &#39;b64_data&#39;: &#39;4hUA4jY0MTAxNkNaMzQxNTQ0OEMBQ1ozNDE1NDQ4QyAgICAgIAAA&#39;,</span>
+<span class="go">  &#39;cUUID&#39;: &#39;30313436-3631-5A43-3334-313534343843&#39;,</span>
+<span class="go">  &#39;type&#39;: 226}]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.get_global_settings">
+<tt class="descname">get_global_settings</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_global_settings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get global iLO settings</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_global_settings</span><span class="p">()</span>
+<span class="go">{&#39;alertmail_email_address&#39;: &#39;&#39;,</span>
+<span class="go"> &#39;alertmail_enable&#39;: False,</span>
+<span class="go"> &#39;alertmail_sender_domain&#39;: &#39;&#39;,</span>
+<span class="go"> &#39;alertmail_smtp_port&#39;: 25,</span>
+<span class="go"> &#39;alertmail_smtp_server&#39;: &#39;&#39;,</span>
+<span class="go"> &#39;authentication_failure_logging&#39;: &#39;Enabled-every 3rd failure&#39;,</span>
+<span class="go"> &#39;enforce_aes&#39;: False,</span>
+<span class="go"> &#39;f8_login_required&#39;: False,</span>
+<span class="go"> &#39;f8_prompt_enabled&#39;: True,</span>
+<span class="go"> &#39;http_port&#39;: 80,</span>
+<span class="go"> &#39;https_port&#39;: 443,</span>
+<span class="go"> &#39;ipmi_dcmi_over_lan_enabled&#39;: True,</span>
+<span class="go"> &#39;lock_configuration&#39;: False,</span>
+<span class="go"> &#39;min_password&#39;: 8,</span>
+<span class="go"> &#39;propagate_time_to_host&#39;: True,</span>
+<span class="go"> &#39;rbsu_post_ip&#39;: True,</span>
+<span class="go"> &#39;remote_console_port&#39;: 23,</span>
+<span class="go"> &#39;remote_syslog_enable&#39;: True,</span>
+<span class="go"> &#39;remote_syslog_port&#39;: 514,</span>
+<span class="go"> &#39;remote_syslog_server_address&#39;: &#39;10.42.128.3&#39;,</span>
+<span class="go"> &#39;serial_cli_speed&#39;: 9600,</span>
+<span class="go"> &#39;serial_cli_status&#39;: &#39;Enabled-Authentication Required&#39;,</span>
+<span class="go"> &#39;session_timeout&#39;: 30,</span>
+<span class="go"> &#39;snmp_access_enabled&#39;: True,</span>
+<span class="go"> &#39;snmp_port&#39;: 161,</span>
+<span class="go"> &#39;snmp_trap_port&#39;: 162,</span>
+<span class="go"> &#39;ssh_port&#39;: 22,</span>
+<span class="go"> &#39;ssh_status&#39;: True,</span>
+<span class="go"> &#39;virtual_media_port&#39;: 17988,</span>
+<span class="go"> &#39;vsp_log_enable&#39;: False}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.mod_global_settings">
+<tt class="descname">mod_global_settings</tt><big>(</big><em>session_timeout=None</em>, <em>f8_prompt_enabled=None</em>, <em>f8_login_required=None</em>, <em>lock_configuration=None</em>, <em>ilo_funct_enabled=None</em>, <em>serial_cli_status=None</em>, <em>serial_cli_speed=None</em>, <em>http_port=None</em>, <em>https_port=None</em>, <em>ssh_port=None</em>, <em>ssh_status=None</em>, <em>vmedia_disable=None</em>, <em>virtual_media_port=None</em>, <em>remote_console_port=None</em>, <em>snmp_access_enabled=None</em>, <em>snmp_port=None</em>, <em>snmp_trap_port=None</em>, <em>remote_syslog_enable=None</em>, <em>remote_syslog_server_address=None</em>, <em>remote_syslog_port=None</em>, <em>alertmail_enable=None</em>, <em>alertmail_email_address=None</em>, <em>alertmail_sender_domain=None</em>, <em>alertmail_smtp_server=None</em>, <em>alertmail_smtp_port=None</em>, <em>min_password=None</em>, <em>enforce_aes=None</em>, <em>authentication_failure_logging=None</em>, <em>rbsu_post_ip=None</em>, <em>remote_console_encryption=None</em>, <em>remote_keyboard_model=None</em>, <em>terminal_services_port=None</em>, <em>high_performance_mouse=None</em>, <em>shared_console_enable=None</em>, <em>shared_console_port=None</em>, <em>remote_console_acquire=None</em>, <em>brownout_recovery=None</em>, <em>ipmi_dcmi_over_lan_enabled=None</em>, <em>vsp_log_enable=None</em>, <em>vsp_software_flow_control=None</em>, <em>propagate_time_to_host=None</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.mod_global_settings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modify iLO global settings, only values that are specified will be changed.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.get_server_name">
+<tt class="descname">get_server_name</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_server_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the name of the server this iLO is managing</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_server_name</span><span class="p">()</span>
+<span class="go">example-server.int.kaarsemaker.net</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.set_server_name">
+<tt class="descname">set_server_name</tt><big>(</big><em>name</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.set_server_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the name of the server</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.get_server_fqdn">
+<tt class="descname">get_server_fqdn</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_server_fqdn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the fqdn of the server this iLO is managing</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_server_fqdn</span><span class="p">()</span>
+<span class="go">example-server.int.kaarsemaker.net</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.set_server_fqdn">
+<tt class="descname">set_server_fqdn</tt><big>(</big><em>fqdn</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.set_server_fqdn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the fqdn of the server</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.get_smh_fqdn">
+<tt class="descname">get_smh_fqdn</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_smh_fqdn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the fqdn of the HP System Management Homepage</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_smh_fqdn</span><span class="p">()</span>
+<span class="go">example-server.int.kaarsemaker.net</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.get_oa_info">
+<tt class="descname">get_oa_info</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_oa_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get information about the Onboard Administrator of the enclosing chassis</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_oa_info</span><span class="p">()</span>
+<span class="go">{&#39;encl&#39;: &#39;chassis-25&#39;,</span>
+<span class="go"> &#39;ipaddress&#39;: &#39;10.42.128.101&#39;,</span>
+<span class="go"> &#39;location&#39;: 1,</span>
+<span class="go"> &#39;macaddress&#39;: &#39;68:b5:99:bb:dc:85&#39;,</span>
+<span class="go"> &#39;rack&#39;: &#39;chassis-25&#39;,</span>
+<span class="go"> &#39;system_health&#39;: 0,</span>
+<span class="go"> &#39;uidstatus&#39;: &#39;Off&#39;}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.get_asset_tag">
+<tt class="descname">get_asset_tag</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_asset_tag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the server asset tag</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_asset_tag</span><span class="p">()</span>
+<span class="go">/home/dennis/code/python-hpilo/hpilo.py:459: IloWarning: No Asset Tag Information.</span>
+<span class="go">  warnings.warn(child.get(&#39;MESSAGE&#39;), IloWarning)</span>
+<span class="go">{&#39;asset_tag&#39;: None}</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_asset_tag</span><span class="p">()</span>
+<span class="go">{&#39;asset_tag&#39;: &#39;NL00001&#39;}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.set_asset_tag">
+<tt class="descname">set_asset_tag</tt><big>(</big><em>asset_tag</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.set_asset_tag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the server asset tag</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.get_uid_status">
+<tt class="descname">get_uid_status</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_uid_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the status of the UID light</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_uid_status</span><span class="p">()</span>
+<span class="go">OFF</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.uid_control">
+<tt class="descname">uid_control</tt><big>(</big><em>uid='No'</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.uid_control" title="Permalink to this definition">¶</a></dt>
+<dd><p>Turn the UID light on (&#8220;Yes&#8221;) or off (&#8220;No&#8221;)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.get_all_languages">
+<tt class="descname">get_all_languages</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_all_languages" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the list of installed languages - broken because iLO returns invalid XML</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_all_languages</span><span class="p">()</span>
+<span class="go">{&#39;language_selection&#39;: {&#39;lang_id&#39;: &#39;en&#39;, &#39;language&#39;: &#39;English&#39;}}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.get_language">
+<tt class="descname">get_language</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_language" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the default language set</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_language</span><span class="p">()</span>
+<span class="go">{&#39;lang_id&#39;: &#39;en&#39;, &#39;language&#39;: &#39;English&#39;}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.set_language">
+<tt class="descname">set_language</tt><big>(</big><em>lang_id</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.set_language" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the default language. Only EN, JA and ZH are supported</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.get_rack_settings">
+<tt class="descname">get_rack_settings</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_rack_settings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the rack settings for an iLO</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_rack_settings</span><span class="p">()</span>
+<span class="go">{&#39;bay&#39;: 9,</span>
+<span class="go"> &#39;enclosure_name&#39;: &#39;CHASSIS-225&#39;,</span>
+<span class="go"> &#39;enclosure_sn&#39;: &#39;CZ1234ABCD&#39;,</span>
+<span class="go"> &#39;enclosure_type&#39;: &#39;BladeSystem c7000 Enclosure G2&#39;,</span>
+<span class="go"> &#39;enclosure_uuid&#39;: &#39;09CZ1234ABCD&#39;,</span>
+<span class="go"> &#39;rack_name&#39;: &#39;CHASSIS-225&#39;}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.get_spatial">
+<tt class="descname">get_spatial</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_spatial" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get location information</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_spatial</span><span class="p">()</span>
+<span class="go">{&#39;bay&#39;: 4,</span>
+<span class="go"> &#39;cuuid&#39;: &#39;30313436-3631-5A43-3334-313534343843&#39;,</span>
+<span class="go"> &#39;discovery_data&#39;: &#39;Unknown data&#39;,</span>
+<span class="go"> &#39;discovery_rack&#39;: &#39;Not Supported&#39;,</span>
+<span class="go"> &#39;enclosure_cuuid&#39;: &#39;42473930-3038-3430-4850-523000000000&#39;,</span>
+<span class="go"> &#39;enclosure_sn&#39;: &#39;GB8004HPR0&#39;,</span>
+<span class="go"> &#39;platform&#39;: &#39;BL&#39;,</span>
+<span class="go"> &#39;rack_description&#39;: 0,</span>
+<span class="go"> &#39;rack_id&#39;: 0,</span>
+<span class="go"> &#39;rack_id_pn&#39;: 0,</span>
+<span class="go"> &#39;rack_uheight&#39;: 0,</span>
+<span class="go"> &#39;tag_version&#39;: 0,</span>
+<span class="go"> &#39;uheight&#39;: 0,</span>
+<span class="go"> &#39;ulocation&#39;: 0,</span>
+<span class="go"> &#39;uoffset&#39;: 0,</span>
+<span class="go"> &#39;uposition&#39;: 0}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+        <p class="logo"><a href="index.html" title="index">
+          <img class="logo" src="_static/python-hpilo.png" alt="Logo"/>
+        </a></p>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="shell.html"
+                          title="Previous page">&larr; Access from the shell</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="networksettings.html"
+                          title="Next page">&rarr; Network settings</a></p>
+  </div>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="networksettings.html" title="Network settings"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="shell.html" title="Access from the shell"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">python-hpilo 2.12.1 documentation</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2011-2015, Dennis Kaarsemaker.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Installing &mdash; python-hpilo 2.12.1 documentation</title>
+    <title>Installing python-hpilo &mdash; python-hpilo 2.12.1 documentation</title>
     
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -28,8 +28,8 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/cloud.js"></script>
     <link rel="top" title="python-hpilo 2.12.1 documentation" href="index.html" />
-    <link rel="next" title="Ilo objects" href="ilo.html" />
-    <link rel="prev" title="Accessing HP iLO interfaces from python" href="index.html" /> 
+    <link rel="next" title="Access from Python" href="python.html" />
+    <link rel="prev" title="iLO automation from python or shell" href="index.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
@@ -42,10 +42,13 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="ilo.html" title="Ilo objects"
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="python.html" title="Access from Python"
              accesskey="N">next</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="index.html" title="Accessing HP iLO interfaces from python"
+          <a href="index.html" title="iLO automation from python or shell"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="index.html">python-hpilo 2.12.1 documentation</a> &raquo;</li>
  
@@ -59,45 +62,47 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="installing">
-<h1>Installing<a class="headerlink" href="#installing" title="Permalink to this headline">¶</a></h1>
-<p>python-hpilo requires python 2.4 or newer, python 3 is supported as well.
-<tt class="file docutils literal"><span class="pre">hpilo_ca</span></tt> requires that you have OpenSSL installed. When using python
-2.4, installing cElementTree is required as well. 2.5 and newer have this
-library as part of the standard library.</p>
-<p>If you want to use the hpilo.LOCAL protocol, talking directly to the iLO via a
-kernel driver, you must install this driver and the relevant tools from hp.</p>
+  <div class="section" id="installing-python-hpilo">
+<h1>Installing python-hpilo<a class="headerlink" href="#installing-python-hpilo" title="Permalink to this headline">¶</a></h1>
+<p>This module is easy to install and has very few extra dependencies. For the
+convenience of users of major linux distributions, I also ship packages that
+you can install with the standard package manager.</p>
+<div class="section" id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<p>Always needed:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://www.python.org">Python</a> 2.4 or newer, up to python 3.4</li>
+<li>When using python 2.4, you need to install the <a class="reference external" href="http://effbot.org/zone/celementtree.htm">cElementTree</a> library
+separately. Python 2.5 or newer already include this library.</li>
+</ul>
+<p>Sometimes needed:</p>
+<ul class="simple">
+<li>If you want to use the <tt class="docutils literal"><span class="pre">LOCAL</span></tt> protocol, talking to the iLO from the server
+it is installed in via a kernel driver, you need to install this driver and
+the <tt class="docutils literal"><span class="pre">hponcfg</span></tt> tool from <a class="reference external" href="http://www.hp.com/go/ilo">hp</a></li>
+<li>Some example applications require additional software. More details about
+these requirements can be found in the documentation of those examples.</li>
+</ul>
+</div>
 <div class="section" id="installing-the-latest-release">
 <h2>Installing the latest release<a class="headerlink" href="#installing-the-latest-release" title="Permalink to this headline">¶</a></h2>
-<p>Installing the latest released version is as simple as:</p>
-<div class="highlight-python"><div class="highlight"><pre>pip install python-hpilo
+<p>When using Ubuntu, Debian, Fedora, CentOS or RHEL, it is advisable to use the
+deb or rpm packages I create for every release, so you get automatic updates
+whenever a new release is issued.</p>
+<p>Users of Ubuntu releases that Canonical still supports can use my launchpad
+PPA:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> sudo add-apt-repository ppa:dennis/python
+<span class="gp">$</span> sudo apt-get update
+<span class="gp">$</span> sudo apt-get install python-hpilo
 </pre></div>
 </div>
-<p>This downloads it from PyPI and installs it for you. Alternatively, you can
-download the tarball manually from
-<a class="reference external" href="http://pypi.python.org/packages/source/p/python-hpilo/">http://pypi.python.org/packages/source/p/python-hpilo/</a>, extract it and run:</p>
-<div class="highlight-python"><div class="highlight"><pre>python setup.py install
-</pre></div>
-</div>
-<p>If you use RHEL/Centos, Fedora, Debian or Ubuntu, you can also use my pre-built
-binary packages from Launchpad or Openbuildservice.</p>
-<p>Ubuntu users can do the following:</p>
-<div class="highlight-python"><div class="highlight"><pre>sudo add-apt-repository ppa:dennis/python
-sudo apt-get update
-sudo apt-get install python-hpilo
-</pre></div>
-</div>
-<p>Others can follow the instructions on <a class="reference external" href="http://software.opensuse.org/download.html?project=home%3Aseveas%3Apython&amp;package=python-hpilo">the openbuildservice site</a>.</p>
-</div>
-<div class="section" id="installing-the-development-version">
-<h2>Installing the development version<a class="headerlink" href="#installing-the-development-version" title="Permalink to this headline">¶</a></h2>
-<p>If you want to tinker around with the source, or simply live on the bleeding
-edge of development, you can install the latest source from github:</p>
-<div class="highlight-python"><div class="highlight"><pre>git clone https://github.com/seveas/python-hpilo.git
-cd python-hpilo
-./hpilo_cli -h
-</pre></div>
-</div>
+<p>Users of other Ubuntu releases, Debian, Fedora, CentOS or RHEL can use the
+repositories on OpenBuildService, instructions can be found on the <a class="reference external" href="http://software.opensuse.org/download.html?project=home%3Aseveas%3Apython&amp;package=python-hpilo">obs site</a></p>
+<p>If you can not, or do not want to use these packages (for example, if you use
+windows or osx, or if you want to install into a virtualenv) you can download
+the package from <a class="reference external" href="http://pypi.python.org/packages/source/p/python-hpilo/,extractitandrun">PyPI</a> and install it manually like any other application by
+unpacking it and running <tt class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">install</span></tt>. Or use <tt class="docutils literal"><span class="pre">pip</span></tt> to install
+it: <tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">python-hpilo</span></tt></p>
 </div>
 </div>
 
@@ -108,13 +113,13 @@ cd python-hpilo
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
         <p class="logo"><a href="index.html" title="index">
-          <img class="logo" src="_static/lightbulb.png" alt="Logo"/>
+          <img class="logo" src="_static/python-hpilo.png" alt="Logo"/>
         </a></p><div class="sphinxlocaltoc">
     <h3><a href="index.html">Page contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#">Installing</a><ul>
+<li><a class="reference internal" href="#">Installing python-hpilo</a><ul>
+<li><a class="reference internal" href="#dependencies">Dependencies</a></li>
 <li><a class="reference internal" href="#installing-the-latest-release">Installing the latest release</a></li>
-<li><a class="reference internal" href="#installing-the-development-version">Installing the development version</a></li>
 </ul>
 </li>
 </ul>
@@ -123,12 +128,12 @@ cd python-hpilo
   <div class="sphinxprev">
     <h4>Previous page</h4>
     <p class="topless"><a href="index.html"
-                          title="Previous page">&larr; Accessing HP iLO interfaces from python</a></p>
+                          title="Previous page">&larr; iLO automation from python or shell</a></p>
   </div>
   <div class="sphinxnext">
     <h4>Next page</h4>
-    <p class="topless"><a href="ilo.html"
-                          title="Next page">&rarr; Ilo objects</a></p>
+    <p class="topless"><a href="python.html"
+                          title="Next page">&rarr; Access from Python</a></p>
   </div>
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
@@ -156,10 +161,13 @@ cd python-hpilo
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="ilo.html" title="Ilo objects"
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="python.html" title="Access from Python"
              >next</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="index.html" title="Accessing HP iLO interfaces from python"
+          <a href="index.html" title="iLO automation from python or shell"
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="index.html">python-hpilo 2.12.1 documentation</a> &raquo;</li>
  

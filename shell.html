@@ -1,0 +1,304 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Access from the shell &mdash; python-hpilo 2.12.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.12.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/cloud.js"></script>
+    <link rel="top" title="python-hpilo 2.12.1 documentation" href="index.html" />
+    <link rel="next" title="General server and iLO information" href="info.html" />
+    <link rel="prev" title="Access from Python" href="python.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="relbar-top">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="info.html" title="General server and iLO information"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="python.html" title="Access from Python"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">python-hpilo 2.12.1 documentation</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="access-from-the-shell">
+<h1>Access from the shell<a class="headerlink" href="#access-from-the-shell" title="Permalink to this headline">¶</a></h1>
+<p>The commandline interface, <strong class="program">hpilo_cli</strong>,  allows you to make calls from
+your shell or scripts written in another language than python. It supports all
+methods that the library has.</p>
+<div class="section" id="hpilo-cli-usage">
+<h2><tt class="docutils literal"><span class="pre">hpilo_cli</span></tt> usage<a class="headerlink" href="#hpilo-cli-usage" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-console"><div class="highlight"><pre><span class="go">hpilo_cli [options] hostname method [args...] [ + method [args...]...]</span>
+<span class="go">hpilo_cli download_rib_firmware ilotype version [version...]</span>
+</pre></div>
+</div>
+<p>Contacts the iLO, calls one or more methods and displays the output as if you
+were using a python console.</p>
+<dl class="docutils">
+<dt>Options:</dt>
+<dd><table class="first last docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-l <var>LOGIN</var></span>, <span class="option">--login=<var>LOGIN</var></span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>Username to access the iLO</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-p <var>PASSWORD</var></span>, <span class="option">--password=<var>PASSWORD</var></span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>Password to access the iLO</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-i</span>, <span class="option">--interactive</span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>Prompt for username and/or password if they are not
+specified.</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-c <var>FILE</var></span>, <span class="option">--config=<var>FILE</var></span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>File containing authentication and config details</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-t <var>TIMEOUT</var></span>, <span class="option">--timeout=<var>TIMEOUT</var></span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>Timeout for iLO connections</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-j</span>, <span class="option">--json</span></kbd></td>
+<td>Output a json document instead of a python dict</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-y</span>, <span class="option">--yaml</span></kbd></td>
+<td>Output a yaml document instead of a python dict</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-P <var>PROTOCOL</var></span>, <span class="option">--protocol=<var>PROTOCOL</var></span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>Use the specified protocol instead of autodetecting</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-d</span>, <span class="option">--debug</span></kbd></td>
+<td>Output debug information, repeat to see all XML data</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-o <var>PORT</var></span>, <span class="option">--port=<var>PORT</var></span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>SSL port to connect to</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--untested</span></kbd></td>
+<td>Allow untested methods</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-h</span>, <span class="option">--help</span></kbd></td>
+<td>show this help message or help for a method</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-H</span>, <span class="option">--help-methods</span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>show all supported methods</td></tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<p><strong class="program">hpilo_cli</strong> will read a config file (by default <tt class="file docutils literal"><span class="pre">~/.ilo.conf</span></tt>)
+to find login information and any other variable you wish to set. This config
+file is a simple ini file that should look like this</p>
+<div class="highlight-ini"><div class="highlight"><pre><span class="k">[ilo]</span>
+<span class="na">login</span> <span class="o">=</span> <span class="s">Administrator</span>
+<span class="na">password</span> <span class="o">=</span> <span class="s">AdminPassword</span>
+</pre></div>
+</div>
+<p>Using such a file is recommended over using the login/password commandline
+arguments.</p>
+<p>Many methods that can be called requier arguments. These arguments must be
+specified as <tt class="xref py py-data docutils literal"><span class="pre">key=value</span></tt> pairs on the command-line. These parameters can
+also point to arbitrary configuration variables using the
+<tt class="xref py py-attr docutils literal"><span class="pre">key='$section.option'</span></tt> syntax.</p>
+<p>Finally, you can also call multiple methds at once by separating them with a
+<tt class="xref py py-data docutils literal"><span class="pre">+</span></tt></p>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>As you can see, the <strong class="program">hpilo_cli</strong> program is quite versatile. Some
+examples will make it clearer how to use this application properly.</p>
+<p>Getting the status of the UID light:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> hpilo_cli example-server.int.kaarsemaker.net get_uid_status
+<span class="gp">&gt;</span>&gt;&gt; print<span class="o">(</span>my_ilo.get_uid_status<span class="o">())</span>
+<span class="go">OFF</span>
+</pre></div>
+</div>
+<p>Getting virtual cdrom status in JSON format:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> hpilo_cli example-server.int.kaarsemaker.net get_vm_status --json
+<span class="go">{&quot;write_protect&quot;: &quot;NO&quot;, &quot;vm_applet&quot;: &quot;DISCONNECTED&quot;, &quot;image_url&quot;: &quot;&quot;, &quot;boot_option&quot;: &quot;NO_BOOT&quot;, &quot;device&quot;: &quot;CDROM&quot;, &quot;image_inserted&quot;: &quot;NO&quot;}</span>
+</pre></div>
+</div>
+<p>Setting the name of the server:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> hpilo_cli example-server.int.kaarsemaker.net set_server_name <span class="nv">name</span><span class="o">=</span>example-server
+</pre></div>
+</div>
+<p>Displaying help for the <tt class="xref py py-func docutils literal"><span class="pre">get_host_data()</span></tt> method:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> hpilo_cli --help get_host_data
+<span class="go">Ilo.get_host_data [decoded_only=True]:</span>
+<span class="go">Get SMBIOS records that describe the host. By default only the ones</span>
+<span class="go">where human readable information is available are returned. To get</span>
+<span class="go">all records pass decoded_only=False</span>
+</pre></div>
+</div>
+<p>Methods like <tt class="xref py py-func docutils literal"><span class="pre">mod_network_data()</span></tt> method require dicts for some arguments
+(e.g. <tt class="xref py py-data docutils literal"><span class="pre">static_route_</span></tt>), you can use the following syntax:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> hpilo_cli example-server.int.kaarsemaker.net mod_network_settings static_route_1.dest<span class="o">=</span>1.2.3.4 static_route_1.gateway<span class="o">=</span>10.10.10.254
+</pre></div>
+</div>
+<p>Calling multiple methods:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> hpilo_cli example-server.int.kaarsemaker.net get_uid_status + uid_control <span class="nv">uid</span><span class="o">=</span>No + get_uid_status
+<span class="gp">&gt;</span>&gt;&gt; print<span class="o">(</span>my_ilo.get_uid_status<span class="o">())</span>
+<span class="go">ON</span>
+<span class="gp">&gt;</span>&gt;&gt; my_ilo.uid_control<span class="o">(</span><span class="nv">uid</span><span class="o">=</span><span class="s2">&quot;No&quot;</span><span class="o">)</span>
+<span class="gp">&gt;</span>&gt;&gt; print<span class="o">(</span>my_ilo.get_uid_status<span class="o">())</span>
+<span class="go">OFF</span>
+</pre></div>
+</div>
+<p>Setting a licence key defined in the config file:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> cat ~/.ilo.conf
+<span class="go">[ilo]</span>
+<span class="go">login = Administrator</span>
+<span class="go">password = AdminPass</span>
+
+<span class="go">[license]</span>
+<span class="go">ilo3_advanced = FAKEL-ICENS-EFORH-PILO3-XXXXX</span>
+
+<span class="gp">$</span> hpilo_cli example-server.int.kaarsemaker.net activate_license <span class="nv">key</span><span class="o">=</span><span class="s1">&#39;$license.ilo3_advanced&#39;</span>
+</pre></div>
+</div>
+<p>Using hponcfg to talk to the local iLO device to reset the password without knowing it:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> hpilo_cli -P <span class="nb">local </span>localhost mod_user <span class="nv">user_login</span><span class="o">=</span>Administrator <span class="nv">password</span><span class="o">=</span>NewPassword
+</pre></div>
+</div>
+<p><tt class="docutils literal"><span class="pre">-P</span> <span class="pre">local</span></tt> is optional when specifying localhost as hostname, so this works too:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> hpilo_cli localhost mod_user <span class="nv">user_login</span><span class="o">=</span>Administrator <span class="nv">password</span><span class="o">=</span>NewPassword
+</pre></div>
+</div>
+<p>If hponcfg is not in the default install location and not in your <tt class="xref py py-data docutils literal"><span class="pre">$PATH</span></tt>
+or <tt class="xref py py-data docutils literal"><span class="pre">%PATH%</span></tt>, you can set an alternative path in the configuration file.</p>
+<div class="highlight-ini"><div class="highlight"><pre><span class="k">[ilo]</span>
+<span class="na">hponcfg</span> <span class="o">=</span> <span class="s">/usr/local/bin/hponcfg</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="available-methods">
+<h2>Available methods<a class="headerlink" href="#available-methods" title="Permalink to this headline">¶</a></h2>
+<p>All methods available to the python API are also available to the command line.
+These methods are documented separately in further pages here and in the <a class="reference external" href="http://www.hp.com/support/ilo4_cli_gde_en">ilo
+scripting guide</a> published by HP.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+        <p class="logo"><a href="index.html" title="index">
+          <img class="logo" src="_static/python-hpilo.png" alt="Logo"/>
+        </a></p><div class="sphinxlocaltoc">
+    <h3><a href="index.html">Page contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Access from the shell</a><ul>
+<li><a class="reference internal" href="#hpilo-cli-usage"><tt class="docutils literal"><span class="pre">hpilo_cli</span></tt> usage</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+<li><a class="reference internal" href="#available-methods">Available methods</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="python.html"
+                          title="Previous page">&larr; Access from Python</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="info.html"
+                          title="Next page">&rarr; General server and iLO information</a></p>
+  </div>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="info.html" title="General server and iLO information"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="python.html" title="Access from Python"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">python-hpilo 2.12.1 documentation</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2011-2015, Dennis Kaarsemaker.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

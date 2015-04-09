@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Contributing guide &mdash; python-hpilo 2.12.1 documentation</title>
+    <title>Deployment profiles &mdash; python-hpilo 2.12.1 documentation</title>
     
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -28,7 +28,8 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/cloud.js"></script>
     <link rel="top" title="python-hpilo 2.12.1 documentation" href="index.html" />
-    <link rel="prev" title="Common issues" href="troubleshooting.html" /> 
+    <link rel="next" title="Managing SSL certificates" href="ca.html" />
+    <link rel="prev" title="Active Health System and Insight Remote Support" href="ahs.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
@@ -44,7 +45,10 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="troubleshooting.html" title="Common issues"
+          <a href="ca.html" title="Managing SSL certificates"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="ahs.html" title="Active Health System and Insight Remote Support"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="index.html">python-hpilo 2.12.1 documentation</a> &raquo;</li>
  
@@ -58,30 +62,45 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="contributing-guide">
-<h1>Contributing guide<a class="headerlink" href="#contributing-guide" title="Permalink to this headline">¶</a></h1>
-<p>python-hpilo is maintained by Dennis Kaarsemaker on <a class="reference external" href="https://github.com/seveas/python-hpilo">GitHub</a>. If you have a
-problem with the software, that&#8217;s the place to file an issue. And if you want
-to contribute to the project, that&#8217;s the place to go to as well.</p>
-<p>Patches can be submitted as pull requests on github or mailed to
-<a class="reference external" href="mailto:dennis&#37;&#52;&#48;kaarsemaker&#46;net">dennis<span>&#64;</span>kaarsemaker<span>&#46;</span>net</a>. When you submit a patch, please make sure you test it
-too. The test tool is built into hpilo.py, read the comments for the _test
-function to find the details. When adding new methods, please add tests too.</p>
-<div class="section" id="coding-guidelines">
-<h2>Coding guidelines<a class="headerlink" href="#coding-guidelines" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li>python-hpilo currently supports python 2.4 up to python 3.3. Any new code
-needs to be compatible with all these versions. That means no <cite>with</cite>
-statement, no <cite>sorted</cite> and using brackets for <cite>print()</cite>.</li>
-<li><a class="reference external" href="http://www.python.org/dev/peps/pep-0008/">pep 8</a> is to be followed, except for the maximum line length rule. Be
-reasonable with your line lengths though</li>
-<li>All methods call into <tt class="xref py py-func docutils literal"><span class="pre">_info_tag()</span></tt> or <tt class="xref py py-func docutils literal"><span class="pre">_control_tag()</span></tt>. Any
-new method must do so too, to be able to use it in <tt class="xref py py-meth docutils literal"><span class="pre">call_delayed()</span></tt>.</li>
-<li>All new methods must be documented. A docstring is mandatory and will appear
-in the docs. For methods that return data, sample output must be added to the
-documentation too.</li>
-</ul>
-</div>
+  <div class="section" id="deployment-profiles">
+<h1>Deployment profiles<a class="headerlink" href="#deployment-profiles" title="Permalink to this headline">¶</a></h1>
+<p>It is possible to automate iLO configurations with deployment profiles. With
+the following methods you can manage and apply such profiles.</p>
+<dl class="class">
+<dt>
+<em class="property">class </em><tt class="descclassname">hpilo.</tt><tt class="descname">Ilo</tt></dt>
+<dd><dl class="method">
+<dt id="hpilo.Ilo.profile_desc_download">
+<tt class="descname">profile_desc_download</tt><big>(</big><em>desc_name</em>, <em>name</em>, <em>description</em>, <em>blob_namespace=None</em>, <em>blob_name=None</em>, <em>url=None</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.profile_desc_download" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make the iLO download a blob and create a deployment profile</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.profile_list">
+<tt class="descname">profile_list</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.profile_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>List all profile descriptors</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.profile_delete">
+<tt class="descname">profile_delete</tt><big>(</big><em>desc_name</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.profile_delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delet the specified deployment profile</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.profile_apply">
+<tt class="descname">profile_apply</tt><big>(</big><em>desc_name</em>, <em>action</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.profile_apply" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply a deployment profile</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.profile_apply_get_results">
+<tt class="descname">profile_apply_get_results</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.profile_apply_get_results" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve the results of the last profile_apply</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 
 
@@ -92,20 +111,16 @@ documentation too.</li>
         <div class="sphinxsidebarwrapper">
         <p class="logo"><a href="index.html" title="index">
           <img class="logo" src="_static/python-hpilo.png" alt="Logo"/>
-        </a></p><div class="sphinxlocaltoc">
-    <h3><a href="index.html">Page contents</a></h3>
-    <ul>
-<li><a class="reference internal" href="#">Contributing guide</a><ul>
-<li><a class="reference internal" href="#coding-guidelines">Coding guidelines</a></li>
-</ul>
-</li>
-</ul>
-
-  </div>
+        </a></p>
   <div class="sphinxprev">
     <h4>Previous page</h4>
-    <p class="topless"><a href="troubleshooting.html"
-                          title="Previous page">&larr; Common issues</a></p>
+    <p class="topless"><a href="ahs.html"
+                          title="Previous page">&larr; Active Health System and Insight Remote Support</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="ca.html"
+                          title="Next page">&rarr; Managing SSL certificates</a></p>
   </div>
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
@@ -136,7 +151,10 @@ documentation too.</li>
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="troubleshooting.html" title="Common issues"
+          <a href="ca.html" title="Managing SSL certificates"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="ahs.html" title="Active Health System and Insight Remote Support"
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="index.html">python-hpilo 2.12.1 documentation</a> &raquo;</li>
  

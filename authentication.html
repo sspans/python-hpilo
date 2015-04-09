@@ -1,0 +1,311 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Authentication settings &mdash; python-hpilo 2.12.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.12.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/cloud.js"></script>
+    <link rel="top" title="python-hpilo 2.12.1 documentation" href="index.html" />
+    <link rel="next" title="Security and SSL settings" href="security.html" />
+    <link rel="prev" title="iLO licensing" href="license.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="relbar-top">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="security.html" title="Security and SSL settings"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="license.html" title="iLO licensing"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">python-hpilo 2.12.1 documentation</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="authentication-settings">
+<h1>Authentication settings<a class="headerlink" href="#authentication-settings" title="Permalink to this headline">¶</a></h1>
+<p>By default, an iLO has only one user account: Administrator. But via the API
+you can create more users and manipulate them. It&#8217;s also possible to import SSH
+keys, configure kerberos settings and configure single-sign on. Some methods
+accept a lot of arguments, for details on what these arguments mean, I will
+refer to the <a class="reference external" href="http://www.hp.com/support/ilo4_cli_gde_en">ilo scripting guide</a>.</p>
+<dl class="class">
+<dt>
+<em class="property">class </em><tt class="descclassname">hpilo.</tt><tt class="descname">Ilo</tt></dt>
+<dd><dl class="method">
+<dt id="hpilo.Ilo.get_all_users">
+<tt class="descname">get_all_users</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_all_users" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a list of all loginnames</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_all_users</span><span class="p">()</span>
+<span class="go">[&#39;Administrator&#39;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.get_all_user_info">
+<tt class="descname">get_all_user_info</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_all_user_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get basic and authorization info of all users</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_all_user_info</span><span class="p">()</span>
+<span class="go">{&#39;Administrator&#39;: {&#39;admin_priv&#39;: True,</span>
+<span class="go">                   &#39;config_ilo_priv&#39;: True,</span>
+<span class="go">                   &#39;remote_cons_priv&#39;: True,</span>
+<span class="go">                   &#39;reset_server_priv&#39;: True,</span>
+<span class="go">                   &#39;user_login&#39;: &#39;Administrator&#39;,</span>
+<span class="go">                   &#39;user_name&#39;: &#39;Administrator&#39;,</span>
+<span class="go">                   &#39;virtual_media_priv&#39;: True}}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.get_user">
+<tt class="descname">get_user</tt><big>(</big><em>user_login</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get user info about a specific user</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_user</span><span class="p">(</span><span class="n">user_login</span><span class="o">=</span><span class="s">&#39;Administrator&#39;</span><span class="p">)</span>
+<span class="go">{&#39;admin_priv&#39;: True,</span>
+<span class="go"> &#39;config_ilo_priv&#39;: True,</span>
+<span class="go"> &#39;remote_cons_priv&#39;: True,</span>
+<span class="go"> &#39;reset_server_priv&#39;: True,</span>
+<span class="go"> &#39;user_login&#39;: &#39;Administrator&#39;,</span>
+<span class="go"> &#39;user_name&#39;: &#39;Administrator&#39;,</span>
+<span class="go"> &#39;virtual_media_priv&#39;: True}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.add_user">
+<tt class="descname">add_user</tt><big>(</big><em>user_login</em>, <em>user_name</em>, <em>password</em>, <em>admin_priv=False</em>, <em>remote_cons_priv=True</em>, <em>reset_server_priv=False</em>, <em>virtual_media_priv=False</em>, <em>config_ilo_priv=True</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.add_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a new user to the iLO interface with the specified name,
+password and permissions. Permission attributes should be boolean
+values.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.mod_user">
+<tt class="descname">mod_user</tt><big>(</big><em>user_login</em>, <em>user_name=None</em>, <em>password=None</em>, <em>admin_priv=None</em>, <em>remote_cons_priv=None</em>, <em>reset_server_priv=None</em>, <em>virtual_media_priv=None</em>, <em>config_ilo_priv=None</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.mod_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set attributes for a user, only specified arguments will be changed.
+All arguments except user_name and password should be boolean</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.delete_user">
+<tt class="descname">delete_user</tt><big>(</big><em>user_login</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.delete_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete the specified user from the ilo</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.import_ssh_key">
+<tt class="descname">import_ssh_key</tt><big>(</big><em>user_login</em>, <em>ssh_key</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.import_ssh_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Imports an SSH key for the specified user. The value of ssh_key
+should be the content of an id_dsa.pub file</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.delete_ssh_key">
+<tt class="descname">delete_ssh_key</tt><big>(</big><em>user_login</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.delete_ssh_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a users SSH key</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.get_dir_config">
+<tt class="descname">get_dir_config</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_dir_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get directory authentication configuration</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_dir_config</span><span class="p">()</span>
+<span class="go">{&#39;dir_authentication_enabled&#39;: False,</span>
+<span class="go"> &#39;dir_enable_grp_acct&#39;: False,</span>
+<span class="go"> &#39;dir_grpacct1_name&#39;: &#39;Administrators&#39;,</span>
+<span class="go"> &#39;dir_grpacct1_priv&#39;: &#39;1,2,3,4,5,6&#39;,</span>
+<span class="go"> &#39;dir_grpacct1_sid&#39;: &#39;&#39;,</span>
+<span class="go"> &#39;dir_grpacct2_name&#39;: &#39;Authenticated Users&#39;,</span>
+<span class="go"> &#39;dir_grpacct2_priv&#39;: 6,</span>
+<span class="go"> &#39;dir_grpacct2_sid&#39;: &#39;S-1-5-11&#39;,</span>
+<span class="go"> &#39;dir_kerberos_enabled&#39;: False,</span>
+<span class="go"> &#39;dir_kerberos_kdc_address&#39;: &#39;&#39;,</span>
+<span class="go"> &#39;dir_kerberos_kdc_port&#39;: 88,</span>
+<span class="go"> &#39;dir_kerberos_realm&#39;: &#39;&#39;,</span>
+<span class="go"> &#39;dir_local_user_acct&#39;: True,</span>
+<span class="go"> &#39;dir_object_dn&#39;: &#39;&#39;,</span>
+<span class="go"> &#39;dir_server_address&#39;: &#39;&#39;,</span>
+<span class="go"> &#39;dir_server_port&#39;: 636,</span>
+<span class="go"> &#39;dir_user_context_1&#39;: &#39;&#39;,</span>
+<span class="go"> &#39;dir_user_context_10&#39;: &#39;&#39;,</span>
+<span class="go"> &#39;dir_user_context_11&#39;: &#39;&#39;,</span>
+<span class="go"> &#39;dir_user_context_12&#39;: &#39;&#39;,</span>
+<span class="go"> &#39;dir_user_context_13&#39;: &#39;&#39;,</span>
+<span class="go"> &#39;dir_user_context_14&#39;: &#39;&#39;,</span>
+<span class="go"> &#39;dir_user_context_15&#39;: &#39;&#39;,</span>
+<span class="go"> &#39;dir_user_context_2&#39;: &#39;&#39;,</span>
+<span class="go"> &#39;dir_user_context_3&#39;: &#39;&#39;,</span>
+<span class="go"> &#39;dir_user_context_4&#39;: &#39;&#39;,</span>
+<span class="go"> &#39;dir_user_context_5&#39;: &#39;&#39;,</span>
+<span class="go"> &#39;dir_user_context_6&#39;: &#39;&#39;,</span>
+<span class="go"> &#39;dir_user_context_7&#39;: &#39;&#39;,</span>
+<span class="go"> &#39;dir_user_context_8&#39;: &#39;&#39;,</span>
+<span class="go"> &#39;dir_user_context_9&#39;: &#39;&#39;}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.mod_dir_config">
+<tt class="descname">mod_dir_config</tt><big>(</big><em>dir_authentication_enabled=None</em>, <em>dir_local_user_acct=None</em>, <em>dir_server_address=None</em>, <em>dir_server_port=None</em>, <em>dir_object_dn=None</em>, <em>dir_object_password=None</em>, <em>dir_user_context_1=None</em>, <em>dir_user_context_2=None</em>, <em>dir_user_context_3=None</em>, <em>dir_user_context_4=None</em>, <em>dir_user_context_5=None</em>, <em>dir_user_context_6=None</em>, <em>dir_user_context_7=None</em>, <em>dir_user_context_8=None</em>, <em>dir_user_context_9=None</em>, <em>dir_user_context_10=None</em>, <em>dir_user_context_11=None</em>, <em>dir_user_context_12=None</em>, <em>dir_user_context_13=None</em>, <em>dir_user_context_14=None</em>, <em>dir_user_context_15=None</em>, <em>dir_enable_grp_acct=None</em>, <em>dir_kerberos_enabled=None</em>, <em>dir_kerberos_realm=None</em>, <em>dir_kerberos_kdc_address=None</em>, <em>dir_kerberos_kdc_port=None</em>, <em>dir_kerberos_keytab=None</em>, <em>dir_grpacct1_name=None</em>, <em>dir_grpacct1_sid=None</em>, <em>dir_grpacct1_priv=None</em>, <em>dir_grpacct2_name=None</em>, <em>dir_grpacct2_sid=None</em>, <em>dir_grpacct2_priv=None</em>, <em>dir_grpacct3_name=None</em>, <em>dir_grpacct3_sid=None</em>, <em>dir_grpacct3_priv=None</em>, <em>dir_grpacct4_name=None</em>, <em>dir_grpacct4_sid=None</em>, <em>dir_grpacct4_priv=None</em>, <em>dir_grpacct5_name=None</em>, <em>dir_grpacct5_sid=None</em>, <em>dir_grpacct5_priv=None</em>, <em>dir_grpacct6_name=None</em>, <em>dir_grpacct6_sid=None</em>, <em>dir_grpacct6_priv=None</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.mod_dir_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modify iLO directory configuration, only values that are specified
+will be changed.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.get_sso_settings">
+<tt class="descname">get_sso_settings</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_sso_settings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the HP SIM Single Sign-On settings</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_sso_settings</span><span class="p">()</span>
+<span class="go">{&#39;administrator_role&#39;: {&#39;admin_priv&#39;: True,</span>
+<span class="go">                        &#39;cfg_ilo_priv&#39;: True,</span>
+<span class="go">                        &#39;login_priv&#39;: True,</span>
+<span class="go">                        &#39;remote_cons_priv&#39;: True,</span>
+<span class="go">                        &#39;reset_server_priv&#39;: True,</span>
+<span class="go">                        &#39;virtual_media_priv&#39;: True},</span>
+<span class="go"> &#39;operator_role&#39;: {&#39;admin_priv&#39;: False,</span>
+<span class="go">                   &#39;cfg_ilo_priv&#39;: False,</span>
+<span class="go">                   &#39;login_priv&#39;: True,</span>
+<span class="go">                   &#39;remote_cons_priv&#39;: True,</span>
+<span class="go">                   &#39;reset_server_priv&#39;: True,</span>
+<span class="go">                   &#39;virtual_media_priv&#39;: True},</span>
+<span class="go"> &#39;trust_mode&#39;: &#39;DISABLED&#39;,</span>
+<span class="go"> &#39;user_role&#39;: {&#39;admin_priv&#39;: False,</span>
+<span class="go">               &#39;cfg_ilo_priv&#39;: False,</span>
+<span class="go">               &#39;login_priv&#39;: True,</span>
+<span class="go">               &#39;remote_cons_priv&#39;: False,</span>
+<span class="go">               &#39;reset_server_priv&#39;: False,</span>
+<span class="go">               &#39;virtual_media_priv&#39;: False}}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.mod_sso_settings">
+<tt class="descname">mod_sso_settings</tt><big>(</big><em>trust_mode=None</em>, <em>user_remote_cons_priv=None</em>, <em>user_reset_server_priv=None</em>, <em>user_virtual_media_priv=None</em>, <em>user_config_ilo_priv=None</em>, <em>user_admin_priv=None</em>, <em>operator_login_priv=None</em>, <em>operator_remote_cons_priv=None</em>, <em>operator_reset_server_priv=None</em>, <em>operator_virtual_media_priv=None</em>, <em>operator_config_ilo_priv=None</em>, <em>operator_admin_priv=None</em>, <em>administrator_login_priv=None</em>, <em>administrator_remote_cons_priv=None</em>, <em>administrator_reset_server_priv=None</em>, <em>administrator_virtual_media_priv=None</em>, <em>administrator_config_ilo_priv=None</em>, <em>administrator_admin_priv=None</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.mod_sso_settings" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.get_twofactor_settings">
+<tt class="descname">get_twofactor_settings</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_twofactor_settings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get two-factor authentication settings</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_twofactor_settings</span><span class="p">()</span>
+<span class="go">{&#39;auth_twofactor_enable&#39;: False,</span>
+<span class="go"> &#39;cert_owner_subject&#39;: None,</span>
+<span class="go"> &#39;cert_revocation_check&#39;: False}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+        <p class="logo"><a href="index.html" title="index">
+          <img class="logo" src="_static/python-hpilo.png" alt="Logo"/>
+        </a></p>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="license.html"
+                          title="Previous page">&larr; iLO licensing</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="security.html"
+                          title="Next page">&rarr; Security and SSL settings</a></p>
+  </div>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="security.html" title="Security and SSL settings"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="license.html" title="iLO licensing"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">python-hpilo 2.12.1 documentation</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2011-2015, Dennis Kaarsemaker.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

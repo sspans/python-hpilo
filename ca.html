@@ -28,8 +28,8 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/cloud.js"></script>
     <link rel="top" title="python-hpilo 2.12.1 documentation" href="index.html" />
-    <link rel="next" title="Common issues" href="troubleshooting.html" />
-    <link rel="prev" title="Dealing with iLO firmware updates" href="firmware.html" /> 
+    <link rel="next" title="iLO information search" href="elasticsearch.html" />
+    <link rel="prev" title="Deployment profiles" href="profile.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
@@ -42,10 +42,13 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="troubleshooting.html" title="Common issues"
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="elasticsearch.html" title="iLO information search"
              accesskey="N">next</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="firmware.html" title="Dealing with iLO firmware updates"
+          <a href="profile.html" title="Deployment profiles"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="index.html">python-hpilo 2.12.1 documentation</a> &raquo;</li>
  
@@ -62,9 +65,9 @@
   <div class="section" id="managing-ssl-certificates">
 <h1>Managing SSL certificates<a class="headerlink" href="#managing-ssl-certificates" title="Permalink to this headline">¶</a></h1>
 <p>When managing large amounts of iLO interfaces, the constant SSL warnings are a
-nuisance. Workarounds like <a class="reference external" href="https://github.com/seveas/sslhazard/">sslhazard for firefox</a> help, but it&#8217;s much better
-to hapve proper SSL certificates. This script will make that easy to do for you
-by taking care of all the CA work.</p>
+nuisance, so let&#8217;s make sure we have proper SSL certificates. This script will
+make that easy to do for you by taking care of all the CA work. All you need to
+do is add the CA&#8217;s certificate to your browsers trusted CA list.</p>
 <p>First thing to do is configure the CA. Add something like the following to your
 <tt class="file docutils literal"><span class="pre">~/.ilo.conf</span></tt>:</p>
 <div class="highlight-python"><div class="highlight"><pre>[ca]
@@ -151,17 +154,17 @@ Data Base Updated
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
         <p class="logo"><a href="index.html" title="index">
-          <img class="logo" src="_static/lightbulb.png" alt="Logo"/>
+          <img class="logo" src="_static/python-hpilo.png" alt="Logo"/>
         </a></p>
   <div class="sphinxprev">
     <h4>Previous page</h4>
-    <p class="topless"><a href="firmware.html"
-                          title="Previous page">&larr; Dealing with iLO firmware updates</a></p>
+    <p class="topless"><a href="profile.html"
+                          title="Previous page">&larr; Deployment profiles</a></p>
   </div>
   <div class="sphinxnext">
     <h4>Next page</h4>
-    <p class="topless"><a href="troubleshooting.html"
-                          title="Next page">&rarr; Common issues</a></p>
+    <p class="topless"><a href="elasticsearch.html"
+                          title="Next page">&rarr; iLO information search</a></p>
   </div>
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
@@ -189,10 +192,13 @@ Data Base Updated
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="troubleshooting.html" title="Common issues"
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="elasticsearch.html" title="iLO information search"
              >next</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="firmware.html" title="Dealing with iLO firmware updates"
+          <a href="profile.html" title="Deployment profiles"
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="index.html">python-hpilo 2.12.1 documentation</a> &raquo;</li>
  

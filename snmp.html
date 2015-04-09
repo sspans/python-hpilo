@@ -1,0 +1,185 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>SNMP settings &mdash; python-hpilo 2.12.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.12.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/cloud.js"></script>
+    <link rel="top" title="python-hpilo 2.12.1 documentation" href="index.html" />
+    <link rel="next" title="Dealing with iLO firmware updates" href="firmware.html" />
+    <link rel="prev" title="Keyboard and mouse settings" href="input.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="relbar-top">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="firmware.html" title="Dealing with iLO firmware updates"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="input.html" title="Keyboard and mouse settings"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">python-hpilo 2.12.1 documentation</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="snmp-settings">
+<h1>SNMP settings<a class="headerlink" href="#snmp-settings" title="Permalink to this headline">¶</a></h1>
+<p>Besides looking at the <a class="reference internal" href="health.html"><em>health data</em></a> via this API, you can also
+monitor the iLO using the standard SNMP protocol. It can even forward SNMP
+requests to the host. With these functions you can tell the iLO what to do for
+SNMP.</p>
+<dl class="class">
+<dt>
+<em class="property">class </em><tt class="descclassname">hpilo.</tt><tt class="descname">Ilo</tt></dt>
+<dd><dl class="method">
+<dt id="hpilo.Ilo.get_snmp_im_settings">
+<tt class="descname">get_snmp_im_settings</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_snmp_im_settings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Where does the iLO send SNMP traps to and which traps does it send</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_snmp_im_settings</span><span class="p">()</span>
+<span class="go">{&#39;agentless_management_enable&#39;: True,</span>
+<span class="go"> &#39;cim_security_mask&#39;: 3,</span>
+<span class="go"> &#39;cold_start_trap_broadcast&#39;: True,</span>
+<span class="go"> &#39;os_traps&#39;: True,</span>
+<span class="go"> &#39;rib_traps&#39;: True,</span>
+<span class="go"> &#39;snmp_access&#39;: &#39;Enable&#39;,</span>
+<span class="go"> &#39;snmp_address_1&#39;: &#39;&#39;,</span>
+<span class="go"> &#39;snmp_address_1_rocommunity&#39;: &#39;&#39;,</span>
+<span class="go"> &#39;snmp_address_1_trapcommunity&#39;: &#39;&#39;,</span>
+<span class="go"> &#39;snmp_address_2&#39;: &#39;&#39;,</span>
+<span class="go"> &#39;snmp_address_2_rocommunity&#39;: &#39;&#39;,</span>
+<span class="go"> &#39;snmp_address_2_trapcommunity&#39;: &#39;&#39;,</span>
+<span class="go"> &#39;snmp_address_3&#39;: &#39;&#39;,</span>
+<span class="go"> &#39;snmp_address_3_rocommunity&#39;: &#39;&#39;,</span>
+<span class="go"> &#39;snmp_address_3_trapcommunity&#39;: &#39;&#39;,</span>
+<span class="go"> &#39;snmp_passthrough_status&#39;: False,</span>
+<span class="go"> &#39;snmp_port&#39;: 161,</span>
+<span class="go"> &#39;snmp_sys_contact&#39;: &#39;&#39;,</span>
+<span class="go"> &#39;snmp_sys_location&#39;: &#39;&#39;,</span>
+<span class="go"> &#39;snmp_system_role&#39;: &#39;&#39;,</span>
+<span class="go"> &#39;snmp_system_role_detail&#39;: &#39;&#39;,</span>
+<span class="go"> &#39;snmp_trap_port&#39;: 162,</span>
+<span class="go"> &#39;snmp_v1_traps&#39;: True,</span>
+<span class="go"> &#39;snmp_v3_engine_id&#39;: &#39;&#39;,</span>
+<span class="go"> &#39;trap_source_identifier&#39;: &#39;iLO Hostname&#39;,</span>
+<span class="go"> &#39;web_agent_ip_address&#39;: &#39;example-server.int.kaarsemaker.net&#39;}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.mod_snmp_im_settings">
+<tt class="descname">mod_snmp_im_settings</tt><big>(</big><em>snmp_access=None</em>, <em>web_agent_ip_address=None</em>, <em>snmp_address_1=None</em>, <em>snmp_address_1_rocommunity=None</em>, <em>snmp_address_1_trapcommunity=None</em>, <em>snmp_address_2=None</em>, <em>snmp_address_2_rocommunity=None</em>, <em>snmp_address_2_trapcommunity=None</em>, <em>snmp_address_3=None</em>, <em>snmp_address_3_rocommunity=None</em>, <em>snmp_address_3_trapcommunity=None</em>, <em>snmp_port=None</em>, <em>snmp_trap_port=None</em>, <em>snmp_v3_engine_id=None</em>, <em>snmp_passthrough_status=None</em>, <em>trap_source_identifier=None</em>, <em>os_traps=None</em>, <em>rib_traps=None</em>, <em>cold_start_trap_broadcast=None</em>, <em>snmp_v1_traps=None</em>, <em>cim_security_mask=None</em>, <em>snmp_sys_location=None</em>, <em>snmp_sys_contact=None</em>, <em>agentless_management_enable=None</em>, <em>snmp_system_role=None</em>, <em>snmp_system_role_detail=None</em>, <em>snmp_user_profile_1=None</em>, <em>snmp_user_profile_2=None</em>, <em>snmp_user_profile_3=None</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.mod_snmp_im_settings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configure the SNMP and Insight Manager integration settings. The
+trapcommunity settings must be dicts with keys value (the name of
+the community) and version (1 or 2c)</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+        <p class="logo"><a href="index.html" title="index">
+          <img class="logo" src="_static/python-hpilo.png" alt="Logo"/>
+        </a></p>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="input.html"
+                          title="Previous page">&larr; Keyboard and mouse settings</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="firmware.html"
+                          title="Next page">&rarr; Dealing with iLO firmware updates</a></p>
+  </div>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="firmware.html" title="Dealing with iLO firmware updates"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="input.html" title="Keyboard and mouse settings"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">python-hpilo 2.12.1 documentation</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2011-2015, Dennis Kaarsemaker.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

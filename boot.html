@@ -1,0 +1,238 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Boot settings and rebooting &mdash; python-hpilo 2.12.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.12.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/cloud.js"></script>
+    <link rel="top" title="python-hpilo 2.12.1 documentation" href="index.html" />
+    <link rel="next" title="Virtual media" href="media.html" />
+    <link rel="prev" title="Power manipulation" href="power.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="relbar-top">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="media.html" title="Virtual media"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="power.html" title="Power manipulation"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">python-hpilo 2.12.1 documentation</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="boot-settings-and-rebooting">
+<h1>Boot settings and rebooting<a class="headerlink" href="#boot-settings-and-rebooting" title="Permalink to this headline">¶</a></h1>
+<p>HP servers can boot in various ways and from many devices. The functions in
+this section let you manipulate bootup settings and reboot the server and the
+iLO. If you need to power off the server hard, take a look at the
+<a class="reference internal" href="power.html"><em>power documentation</em></a>.</p>
+<dl class="class">
+<dt>
+<em class="property">class </em><tt class="descclassname">hpilo.</tt><tt class="descname">Ilo</tt></dt>
+<dd><dl class="method">
+<dt id="hpilo.Ilo.reset_rib">
+<tt class="descname">reset_rib</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.reset_rib" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset the iLO/RILOE board</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.reset_server">
+<tt class="descname">reset_server</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.reset_server" title="Permalink to this definition">¶</a></dt>
+<dd><p>Power cycle the server</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.cold_boot_server">
+<tt class="descname">cold_boot_server</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.cold_boot_server" title="Permalink to this definition">¶</a></dt>
+<dd><p>Force a cold boot of the server</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.warm_boot_server">
+<tt class="descname">warm_boot_server</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.warm_boot_server" title="Permalink to this definition">¶</a></dt>
+<dd><p>Force a warm boot of the server</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.get_one_time_boot">
+<tt class="descname">get_one_time_boot</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_one_time_boot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the one time boot state of the host</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_one_time_boot</span><span class="p">()</span>
+<span class="go">normal</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.set_one_time_boot">
+<tt class="descname">set_one_time_boot</tt><big>(</big><em>device</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.set_one_time_boot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set one time boot device, device should be one of normal, floppy,
+cdrom, hdd, usb, rbsu or network. Ilo 4 also supports EMB-MENU
+(Displays the default boot menu), EMB-ACU (Boots into ACU),
+EMB-HPSUM-AUTO (Boots HPSUM in automatic update mode), EMB-DIAGS
+(Launches Insight Diagnostics for Linux in interactive mode) and
+RBSU (Boots into the system RBSU)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.get_persistent_boot">
+<tt class="descname">get_persistent_boot</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_persistent_boot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the boot order of the host</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_persistent_boot</span><span class="p">()</span>
+<span class="go">[&#39;cdrom&#39;, &#39;floppy&#39;, &#39;usb&#39;, &#39;hdd&#39;, &#39;network&#39;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.set_persistent_boot">
+<tt class="descname">set_persistent_boot</tt><big>(</big><em>devices</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.set_persistent_boot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set persistent boot order, devices should be comma-separated</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.get_supported_boot_mode">
+<tt class="descname">get_supported_boot_mode</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_supported_boot_mode" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_supported_boot_mode</span><span class="p">()</span>
+<span class="go">LEGACY_ONLY</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.get_current_boot_mode">
+<tt class="descname">get_current_boot_mode</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_current_boot_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current boot mode (legaci or uefi)</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_current_boot_mode</span><span class="p">()</span>
+<span class="go">LEGACY</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.get_pending_boot_mode">
+<tt class="descname">get_pending_boot_mode</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_pending_boot_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the pending boot mode (legaci or uefi)</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_pending_boot_mode</span><span class="p">()</span>
+<span class="go">LEGACY</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.set_pending_boot_mode">
+<tt class="descname">set_pending_boot_mode</tt><big>(</big><em>boot_mode</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.set_pending_boot_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the boot mode for the next boot to UEFI or legacy</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+        <p class="logo"><a href="index.html" title="index">
+          <img class="logo" src="_static/python-hpilo.png" alt="Logo"/>
+        </a></p>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="power.html"
+                          title="Previous page">&larr; Power manipulation</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="media.html"
+                          title="Next page">&rarr; Virtual media</a></p>
+  </div>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="media.html" title="Virtual media"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="power.html" title="Power manipulation"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">python-hpilo 2.12.1 documentation</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2011-2015, Dennis Kaarsemaker.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

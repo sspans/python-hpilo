@@ -1,0 +1,175 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Keyboard and mouse settings &mdash; python-hpilo 2.12.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.12.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/cloud.js"></script>
+    <link rel="top" title="python-hpilo 2.12.1 documentation" href="index.html" />
+    <link rel="next" title="SNMP settings" href="snmp.html" />
+    <link rel="prev" title="Virtual media" href="media.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="relbar-top">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="snmp.html" title="SNMP settings"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="media.html" title="Virtual media"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">python-hpilo 2.12.1 documentation</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="keyboard-and-mouse-settings">
+<h1>Keyboard and mouse settings<a class="headerlink" href="#keyboard-and-mouse-settings" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt>
+<em class="property">class </em><tt class="descclassname">hpilo.</tt><tt class="descname">Ilo</tt></dt>
+<dd><dl class="method">
+<dt id="hpilo.Ilo.get_hotkey_config">
+<tt class="descname">get_hotkey_config</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_hotkey_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve hotkeys available for use in remote console sessions</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_hotkey_config</span><span class="p">()</span>
+<span class="go">{&#39;ctrl_t&#39;: &#39;NONE,NONE,NONE,NONE,NONE&#39;,</span>
+<span class="go"> &#39;ctrl_u&#39;: &#39;NONE,NONE,NONE,NONE,NONE&#39;,</span>
+<span class="go"> &#39;ctrl_v&#39;: &#39;NONE,NONE,NONE,NONE,NONE&#39;,</span>
+<span class="go"> &#39;ctrl_w&#39;: &#39;NONE,NONE,NONE,NONE,NONE&#39;,</span>
+<span class="go"> &#39;ctrl_x&#39;: &#39;NONE,NONE,NONE,NONE,NONE&#39;,</span>
+<span class="go"> &#39;ctrl_y&#39;: &#39;NONE,NONE,NONE,NONE,NONE&#39;}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.hotkey_config">
+<tt class="descname">hotkey_config</tt><big>(</big><em>ctrl_t=None</em>, <em>ctrl_u=None</em>, <em>ctrl_v=None</em>, <em>ctrl_w=None</em>, <em>ctrl_x=None</em>, <em>ctrl_y=None</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.hotkey_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change remote console hotkeys</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.get_pers_mouse_keyboard_enabled">
+<tt class="descname">get_pers_mouse_keyboard_enabled</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_pers_mouse_keyboard_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns whether persistent mouse and keyboard are enabled</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_pers_mouse_keyboard_enabled</span><span class="p">()</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.set_pers_mouse_keyboard_enabled">
+<tt class="descname">set_pers_mouse_keyboard_enabled</tt><big>(</big><em>enabled</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.set_pers_mouse_keyboard_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable/disable persistent mouse and keyboard</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+        <p class="logo"><a href="index.html" title="index">
+          <img class="logo" src="_static/python-hpilo.png" alt="Logo"/>
+        </a></p>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="media.html"
+                          title="Previous page">&larr; Virtual media</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="snmp.html"
+                          title="Next page">&rarr; SNMP settings</a></p>
+  </div>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="snmp.html" title="SNMP settings"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="media.html" title="Virtual media"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">python-hpilo 2.12.1 documentation</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2011-2015, Dennis Kaarsemaker.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

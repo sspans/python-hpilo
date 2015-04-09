@@ -1,0 +1,222 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Network settings &mdash; python-hpilo 2.12.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.12.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/cloud.js"></script>
+    <link rel="top" title="python-hpilo 2.12.1 documentation" href="index.html" />
+    <link rel="next" title="iLO licensing" href="license.html" />
+    <link rel="prev" title="General server and iLO information" href="info.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="relbar-top">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="license.html" title="iLO licensing"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="info.html" title="General server and iLO information"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">python-hpilo 2.12.1 documentation</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="network-settings">
+<h1>Network settings<a class="headerlink" href="#network-settings" title="Permalink to this headline">¶</a></h1>
+<p>By default, iLO interfaces will try to use DHCP for network configuration. With
+these functions you can inspect the network configuration and, if DHCP doesn&#8217;t
+quite do the right thing for you, make manual adjustments.</p>
+<dl class="class">
+<dt>
+<em class="property">class </em><tt class="descclassname">hpilo.</tt><tt class="descname">Ilo</tt></dt>
+<dd><dl class="method">
+<dt id="hpilo.Ilo.get_network_settings">
+<tt class="descname">get_network_settings</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_network_settings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the iLO network settings</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_network_settings</span><span class="p">()</span>
+<span class="go">{&#39;dhcp_dns_server&#39;: True,</span>
+<span class="go"> &#39;dhcp_domain_name&#39;: True,</span>
+<span class="go"> &#39;dhcp_enable&#39;: True,</span>
+<span class="go"> &#39;dhcp_gateway&#39;: True,</span>
+<span class="go"> &#39;dhcp_sntp_settings&#39;: True,</span>
+<span class="go"> &#39;dhcp_static_route&#39;: True,</span>
+<span class="go"> &#39;dhcp_wins_server&#39;: True,</span>
+<span class="go"> &#39;dhcpv6_dns_server&#39;: True,</span>
+<span class="go"> &#39;dhcpv6_domain_name&#39;: False,</span>
+<span class="go"> &#39;dhcpv6_rapid_commit&#39;: False,</span>
+<span class="go"> &#39;dhcpv6_sntp_settings&#39;: True,</span>
+<span class="go"> &#39;dhcpv6_stateful_enable&#39;: True,</span>
+<span class="go"> &#39;dhcpv6_stateless_enable&#39;: True,</span>
+<span class="go"> &#39;dns_name&#39;: &#39;example-server&#39;,</span>
+<span class="go"> &#39;domain_name&#39;: &#39;int.kaarsemaker.net&#39;,</span>
+<span class="go"> &#39;enable_nic&#39;: True,</span>
+<span class="go"> &#39;full_duplex&#39;: &#39;Automatic&#39;,</span>
+<span class="go"> &#39;gateway_ip_address&#39;: &#39;10.42.128.254&#39;,</span>
+<span class="go"> &#39;ilo_nic_auto_select&#39;: &#39;DISABLED&#39;,</span>
+<span class="go"> &#39;ip_address&#39;: &#39;10.42.128.100&#39;,</span>
+<span class="go"> &#39;ipv6_addr_autocfg&#39;: True,</span>
+<span class="go"> &#39;ipv6_address&#39;: &#39;fe80::9eb6:54ff:fe8e:4b7c&#39;,</span>
+<span class="go"> &#39;ipv6_default_gateway&#39;: &#39;::&#39;,</span>
+<span class="go"> &#39;ipv6_preferred_protocol&#39;: True,</span>
+<span class="go"> &#39;ipv6_prim_dns_server&#39;: &#39;::&#39;,</span>
+<span class="go"> &#39;ipv6_reg_ddns_server&#39;: True,</span>
+<span class="go"> &#39;ipv6_sec_dns_server&#39;: &#39;::&#39;,</span>
+<span class="go"> &#39;ipv6_static_route_1&#39;: {&#39;addr_status&#39;: &#39;INACTIVE&#39;,</span>
+<span class="go">                         &#39;ipv6_dest&#39;: &#39;::&#39;,</span>
+<span class="go">                         &#39;ipv6_gateway&#39;: &#39;::&#39;,</span>
+<span class="go">                         &#39;prefixlen&#39;: 0},</span>
+<span class="go"> &#39;ipv6_static_route_2&#39;: {&#39;addr_status&#39;: &#39;INACTIVE&#39;,</span>
+<span class="go">                         &#39;ipv6_dest&#39;: &#39;::&#39;,</span>
+<span class="go">                         &#39;ipv6_gateway&#39;: &#39;::&#39;,</span>
+<span class="go">                         &#39;prefixlen&#39;: 0},</span>
+<span class="go"> &#39;ipv6_static_route_3&#39;: {&#39;addr_status&#39;: &#39;INACTIVE&#39;,</span>
+<span class="go">                         &#39;ipv6_dest&#39;: &#39;::&#39;,</span>
+<span class="go">                         &#39;ipv6_gateway&#39;: &#39;::&#39;,</span>
+<span class="go">                         &#39;prefixlen&#39;: 0},</span>
+<span class="go"> &#39;ipv6_ter_dns_server&#39;: &#39;::&#39;,</span>
+<span class="go"> &#39;mac_address&#39;: &#39;9c:b6:54:8e:4b:7c&#39;,</span>
+<span class="go"> &#39;nic_speed&#39;: &#39;Automatic&#39;,</span>
+<span class="go"> &#39;ping_gateway&#39;: True,</span>
+<span class="go"> &#39;prim_dns_server&#39;: &#39;10.42.128.1&#39;,</span>
+<span class="go"> &#39;prim_wins_server&#39;: &#39;0.0.0.0&#39;,</span>
+<span class="go"> &#39;reg_ddns_server&#39;: True,</span>
+<span class="go"> &#39;reg_wins_server&#39;: True,</span>
+<span class="go"> &#39;sec_dns_server&#39;: &#39;0.0.0.0&#39;,</span>
+<span class="go"> &#39;sec_wins_server&#39;: &#39;0.0.0.0&#39;,</span>
+<span class="go"> &#39;sntp_server1&#39;: &#39;10.42.128.1&#39;,</span>
+<span class="go"> &#39;sntp_server2&#39;: &#39;10.42.128.2&#39;,</span>
+<span class="go"> &#39;speed_autoselect&#39;: True,</span>
+<span class="go"> &#39;static_route_1&#39;: {&#39;dest&#39;: &#39;0.0.0.0&#39;,</span>
+<span class="go">                    &#39;gateway&#39;: &#39;0.0.0.0&#39;,</span>
+<span class="go">                    &#39;mask&#39;: &#39;0.0.0.0&#39;},</span>
+<span class="go"> &#39;static_route_2&#39;: {&#39;dest&#39;: &#39;0.0.0.0&#39;,</span>
+<span class="go">                    &#39;gateway&#39;: &#39;0.0.0.0&#39;,</span>
+<span class="go">                    &#39;mask&#39;: &#39;0.0.0.0&#39;},</span>
+<span class="go"> &#39;static_route_3&#39;: {&#39;dest&#39;: &#39;0.0.0.0&#39;,</span>
+<span class="go">                    &#39;gateway&#39;: &#39;0.0.0.0&#39;,</span>
+<span class="go">                    &#39;mask&#39;: &#39;0.0.0.0&#39;},</span>
+<span class="go"> &#39;subnet_mask&#39;: &#39;255.255.255.0&#39;,</span>
+<span class="go"> &#39;ter_dns_server&#39;: &#39;0.0.0.0&#39;,</span>
+<span class="go"> &#39;timezone&#39;: &#39;Atlantic/Reykjavik&#39;}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="hpilo.Ilo.mod_network_settings">
+<tt class="descname">mod_network_settings</tt><big>(</big><em>enable_nic=None</em>, <em>reg_ddns_server=None</em>, <em>ping_gateway=None</em>, <em>dhcp_domain_name=None</em>, <em>speed_autoselect=None</em>, <em>nic_speed=None</em>, <em>full_duplex=None</em>, <em>dhcp_enable=None</em>, <em>ip_address=None</em>, <em>subnet_mask=None</em>, <em>gateway_ip_address=None</em>, <em>dns_name=None</em>, <em>domain_name=None</em>, <em>dhcp_gateway=None</em>, <em>dhcp_dns_server=None</em>, <em>dhcp_wins_server=None</em>, <em>dhcp_static_route=None</em>, <em>reg_wins_server=None</em>, <em>prim_dns_server=None</em>, <em>sec_dns_server=None</em>, <em>ter_dns_server=None</em>, <em>prim_wins_server=None</em>, <em>sec_wins_server=None</em>, <em>static_route_1=None</em>, <em>static_route_2=None</em>, <em>static_route_3=None</em>, <em>dhcp_sntp_settings=None</em>, <em>sntp_server1=None</em>, <em>sntp_server2=None</em>, <em>timezone=None</em>, <em>enclosure_ip_enable=None</em>, <em>web_agent_ip_address=None</em>, <em>shared_network_port=None</em>, <em>vlan_enabled=None</em>, <em>vlan_id=None</em>, <em>shared_network_port_vlan=None</em>, <em>shared_network_port_vlan_id=None</em>, <em>ipv6_address=None</em>, <em>ipv6_static_route_1=None</em>, <em>ipv6_static_route2=None</em>, <em>ipv6_static_route_3=None</em>, <em>ipv6_prim_dns_server=None</em>, <em>ipv6_sec_dns_server=None</em>, <em>ipv6_ter_dns_server=None</em>, <em>ipv6_default_gateway=None</em>, <em>ipv6_preferred_protocol=None</em>, <em>ipv6_addr_autocfg=None</em>, <em>ipv6_reg_ddns_server=None</em>, <em>dhcpv6_dns_server=None</em>, <em>dhcpv6_rapid_commit=None</em>, <em>dhcpv6_stateful_enable=None</em>, <em>dhcpv6_stateless_enable=None</em>, <em>dhcpv6_sntp_settings=None</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.mod_network_settings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configure the network settings for the iLO card. The static route arguments require
+dicts as arguments. The necessary keys in these dicts are dest,
+gateway and mask all in dotted-quad form</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+        <p class="logo"><a href="index.html" title="index">
+          <img class="logo" src="_static/python-hpilo.png" alt="Logo"/>
+        </a></p>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="info.html"
+                          title="Previous page">&larr; General server and iLO information</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="license.html"
+                          title="Next page">&rarr; iLO licensing</a></p>
+  </div>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="license.html" title="iLO licensing"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="info.html" title="General server and iLO information"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">python-hpilo 2.12.1 documentation</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2011-2015, Dennis Kaarsemaker.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

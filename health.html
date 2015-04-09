@@ -1,0 +1,627 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Server health &mdash; python-hpilo 2.12.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.12.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/cloud.js"></script>
+    <link rel="top" title="python-hpilo 2.12.1 documentation" href="index.html" />
+    <link rel="next" title="Power manipulation" href="power.html" />
+    <link rel="prev" title="Security and SSL settings" href="security.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="relbar-top">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="power.html" title="Power manipulation"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="security.html" title="Security and SSL settings"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">python-hpilo 2.12.1 documentation</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="server-health">
+<h1>Server health<a class="headerlink" href="#server-health" title="Permalink to this headline">¶</a></h1>
+<p>The iLO knows a lot about your server&#8217;s physical health. The
+<tt class="xref py py-meth docutils literal"><span class="pre">get_embedded_health()</span></tt> method lets you retrieve all the health
+information, so you can act upon it, for example in monitoring checks and
+management scripts. Note that the returned data can differ significantly
+between iLO versions.</p>
+<dl class="class">
+<dt>
+<em class="property">class </em><tt class="descclassname">hpilo.</tt><tt class="descname">Ilo</tt></dt>
+<dd><dl class="method">
+<dt id="hpilo.Ilo.get_embedded_health">
+<tt class="descname">get_embedded_health</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_embedded_health" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get server health information</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_embedded_health</span><span class="p">()</span>
+<span class="go">{&#39;fans&#39;: {&#39;Virtual Fan&#39;: {&#39;label&#39;: &#39;Virtual Fan&#39;,</span>
+<span class="go">                          &#39;speed&#39;: (22, &#39;Percentage&#39;),</span>
+<span class="go">                          &#39;status&#39;: &#39;OK&#39;,</span>
+<span class="go">                          &#39;zone&#39;: &#39;Virtual&#39;}},</span>
+<span class="go"> &#39;firmware_information&#39;: {&#39;HP ProLiant System ROM&#39;: &#39;08/02/2014&#39;,</span>
+<span class="go">                          &#39;HP ProLiant System ROM - Backup&#39;: &#39;12/20/2013&#39;,</span>
+<span class="go">                          &#39;HP ProLiant System ROM Bootblock&#39;: &#39;03/05/2013&#39;,</span>
+<span class="go">                          &#39;Power Management Controller Firmware&#39;: &#39;3.3&#39;,</span>
+<span class="go">                          &#39;Power Management Controller Firmware Bootloader&#39;: &#39;2.7&#39;,</span>
+<span class="go">                          &#39;Server Platform Services (SPS) Firmware&#39;: &#39;2.1.7.E7.4&#39;,</span>
+<span class="go">                          &#39;System Programmable Logic Device&#39;: &#39;Version 0x13&#39;,</span>
+<span class="go">                          &#39;iLO&#39;: &#39;1.51 Jun 16 2014&#39;},</span>
+<span class="go"> &#39;health_at_a_glance&#39;: {&#39;bios_hardware&#39;: {&#39;status&#39;: &#39;OK&#39;},</span>
+<span class="go">                        &#39;fans&#39;: {&#39;status&#39;: &#39;OK&#39;},</span>
+<span class="go">                        &#39;memory&#39;: {&#39;status&#39;: &#39;OK&#39;},</span>
+<span class="go">                        &#39;network&#39;: {&#39;status&#39;: &#39;OK&#39;},</span>
+<span class="go">                        &#39;processor&#39;: {&#39;status&#39;: &#39;OK&#39;},</span>
+<span class="go">                        &#39;storage&#39;: {&#39;status&#39;: &#39;OK&#39;},</span>
+<span class="go">                        &#39;temperature&#39;: {&#39;status&#39;: &#39;OK&#39;}},</span>
+<span class="go"> &#39;memory&#39;: {&#39;advanced_memory_protection&#39;: {&#39;amp_mode_status&#39;: &#39;Advanced ECC&#39;,</span>
+<span class="go">                                           &#39;available_amp_modes&#39;: &#39;On-line Spare, Advanced ECC&#39;,</span>
+<span class="go">                                           &#39;configured_amp_mode&#39;: &#39;Advanced ECC&#39;},</span>
+<span class="go">            &#39;memory_details&#39;: {&#39;CPU_1&#39;: {&#39;socket 1&#39;: {&#39;frequency&#39;: &#39;1600 MHz&#39;,</span>
+<span class="go">                                                      &#39;hp_smart_memory&#39;: &#39;Yes&#39;,</span>
+<span class="go">                                                      &#39;minimum_voltage&#39;: &#39;1.50 v&#39;,</span>
+<span class="go">                                                      &#39;part&#39;: {&#39;number&#39;: &#39;672612-081&#39;},</span>
+<span class="go">                                                      &#39;ranks&#39;: 2,</span>
+<span class="go">                                                      &#39;size&#39;: &#39;16384 MB&#39;,</span>
+<span class="go">                                                      &#39;socket&#39;: 1,</span>
+<span class="go">                                                      &#39;status&#39;: &#39;Good, In Use&#39;,</span>
+<span class="go">                                                      &#39;technology&#39;: &#39;RDIMM&#39;,</span>
+<span class="go">                                                      &#39;type&#39;: &#39;DIMM DDR3&#39;},</span>
+<span class="go">                                         &#39;socket 2&#39;: {&#39;frequency&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;hp_smart_memory&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;minimum_voltage&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;part&#39;: {&#39;number&#39;: &#39;N/A&#39;},</span>
+<span class="go">                                                      &#39;ranks&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;size&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;socket&#39;: 2,</span>
+<span class="go">                                                      &#39;status&#39;: &#39;Not Present&#39;,</span>
+<span class="go">                                                      &#39;technology&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;type&#39;: &#39;N/A&#39;},</span>
+<span class="go">                                         &#39;socket 3&#39;: {&#39;frequency&#39;: &#39;1600 MHz&#39;,</span>
+<span class="go">                                                      &#39;hp_smart_memory&#39;: &#39;Yes&#39;,</span>
+<span class="go">                                                      &#39;minimum_voltage&#39;: &#39;1.50 v&#39;,</span>
+<span class="go">                                                      &#39;part&#39;: {&#39;number&#39;: &#39;672612-081&#39;},</span>
+<span class="go">                                                      &#39;ranks&#39;: 2,</span>
+<span class="go">                                                      &#39;size&#39;: &#39;16384 MB&#39;,</span>
+<span class="go">                                                      &#39;socket&#39;: 3,</span>
+<span class="go">                                                      &#39;status&#39;: &#39;Good, In Use&#39;,</span>
+<span class="go">                                                      &#39;technology&#39;: &#39;RDIMM&#39;,</span>
+<span class="go">                                                      &#39;type&#39;: &#39;DIMM DDR3&#39;},</span>
+<span class="go">                                         &#39;socket 4&#39;: {&#39;frequency&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;hp_smart_memory&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;minimum_voltage&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;part&#39;: {&#39;number&#39;: &#39;N/A&#39;},</span>
+<span class="go">                                                      &#39;ranks&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;size&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;socket&#39;: 4,</span>
+<span class="go">                                                      &#39;status&#39;: &#39;Not Present&#39;,</span>
+<span class="go">                                                      &#39;technology&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;type&#39;: &#39;N/A&#39;},</span>
+<span class="go">                                         &#39;socket 5&#39;: {&#39;frequency&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;hp_smart_memory&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;minimum_voltage&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;part&#39;: {&#39;number&#39;: &#39;N/A&#39;},</span>
+<span class="go">                                                      &#39;ranks&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;size&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;socket&#39;: 5,</span>
+<span class="go">                                                      &#39;status&#39;: &#39;Not Present&#39;,</span>
+<span class="go">                                                      &#39;technology&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;type&#39;: &#39;N/A&#39;},</span>
+<span class="go">                                         &#39;socket 6&#39;: {&#39;frequency&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;hp_smart_memory&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;minimum_voltage&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;part&#39;: {&#39;number&#39;: &#39;N/A&#39;},</span>
+<span class="go">                                                      &#39;ranks&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;size&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;socket&#39;: 6,</span>
+<span class="go">                                                      &#39;status&#39;: &#39;Not Present&#39;,</span>
+<span class="go">                                                      &#39;technology&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;type&#39;: &#39;N/A&#39;},</span>
+<span class="go">                                         &#39;socket 7&#39;: {&#39;frequency&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;hp_smart_memory&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;minimum_voltage&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;part&#39;: {&#39;number&#39;: &#39;N/A&#39;},</span>
+<span class="go">                                                      &#39;ranks&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;size&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;socket&#39;: 7,</span>
+<span class="go">                                                      &#39;status&#39;: &#39;Not Present&#39;,</span>
+<span class="go">                                                      &#39;technology&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;type&#39;: &#39;N/A&#39;},</span>
+<span class="go">                                         &#39;socket 8&#39;: {&#39;frequency&#39;: &#39;1600 MHz&#39;,</span>
+<span class="go">                                                      &#39;hp_smart_memory&#39;: &#39;Yes&#39;,</span>
+<span class="go">                                                      &#39;minimum_voltage&#39;: &#39;1.50 v&#39;,</span>
+<span class="go">                                                      &#39;part&#39;: {&#39;number&#39;: &#39;672612-081&#39;},</span>
+<span class="go">                                                      &#39;ranks&#39;: 2,</span>
+<span class="go">                                                      &#39;size&#39;: &#39;16384 MB&#39;,</span>
+<span class="go">                                                      &#39;socket&#39;: 8,</span>
+<span class="go">                                                      &#39;status&#39;: &#39;Good, In Use&#39;,</span>
+<span class="go">                                                      &#39;technology&#39;: &#39;RDIMM&#39;,</span>
+<span class="go">                                                      &#39;type&#39;: &#39;DIMM DDR3&#39;}},</span>
+<span class="go">                               &#39;CPU_2&#39;: {&#39;socket 1&#39;: {&#39;frequency&#39;: &#39;1600 MHz&#39;,</span>
+<span class="go">                                                      &#39;hp_smart_memory&#39;: &#39;Yes&#39;,</span>
+<span class="go">                                                      &#39;minimum_voltage&#39;: &#39;1.50 v&#39;,</span>
+<span class="go">                                                      &#39;part&#39;: {&#39;number&#39;: &#39;672612-081&#39;},</span>
+<span class="go">                                                      &#39;ranks&#39;: 2,</span>
+<span class="go">                                                      &#39;size&#39;: &#39;16384 MB&#39;,</span>
+<span class="go">                                                      &#39;socket&#39;: 1,</span>
+<span class="go">                                                      &#39;status&#39;: &#39;Good, In Use&#39;,</span>
+<span class="go">                                                      &#39;technology&#39;: &#39;RDIMM&#39;,</span>
+<span class="go">                                                      &#39;type&#39;: &#39;DIMM DDR3&#39;},</span>
+<span class="go">                                         &#39;socket 2&#39;: {&#39;frequency&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;hp_smart_memory&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;minimum_voltage&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;part&#39;: {&#39;number&#39;: &#39;N/A&#39;},</span>
+<span class="go">                                                      &#39;ranks&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;size&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;socket&#39;: 2,</span>
+<span class="go">                                                      &#39;status&#39;: &#39;Not Present&#39;,</span>
+<span class="go">                                                      &#39;technology&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;type&#39;: &#39;N/A&#39;},</span>
+<span class="go">                                         &#39;socket 3&#39;: {&#39;frequency&#39;: &#39;1600 MHz&#39;,</span>
+<span class="go">                                                      &#39;hp_smart_memory&#39;: &#39;Yes&#39;,</span>
+<span class="go">                                                      &#39;minimum_voltage&#39;: &#39;1.50 v&#39;,</span>
+<span class="go">                                                      &#39;part&#39;: {&#39;number&#39;: &#39;672612-081&#39;},</span>
+<span class="go">                                                      &#39;ranks&#39;: 2,</span>
+<span class="go">                                                      &#39;size&#39;: &#39;16384 MB&#39;,</span>
+<span class="go">                                                      &#39;socket&#39;: 3,</span>
+<span class="go">                                                      &#39;status&#39;: &#39;Good, In Use&#39;,</span>
+<span class="go">                                                      &#39;technology&#39;: &#39;RDIMM&#39;,</span>
+<span class="go">                                                      &#39;type&#39;: &#39;DIMM DDR3&#39;},</span>
+<span class="go">                                         &#39;socket 4&#39;: {&#39;frequency&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;hp_smart_memory&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;minimum_voltage&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;part&#39;: {&#39;number&#39;: &#39;N/A&#39;},</span>
+<span class="go">                                                      &#39;ranks&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;size&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;socket&#39;: 4,</span>
+<span class="go">                                                      &#39;status&#39;: &#39;Not Present&#39;,</span>
+<span class="go">                                                      &#39;technology&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;type&#39;: &#39;N/A&#39;},</span>
+<span class="go">                                         &#39;socket 5&#39;: {&#39;frequency&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;hp_smart_memory&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;minimum_voltage&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;part&#39;: {&#39;number&#39;: &#39;N/A&#39;},</span>
+<span class="go">                                                      &#39;ranks&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;size&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;socket&#39;: 5,</span>
+<span class="go">                                                      &#39;status&#39;: &#39;Not Present&#39;,</span>
+<span class="go">                                                      &#39;technology&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;type&#39;: &#39;N/A&#39;},</span>
+<span class="go">                                         &#39;socket 6&#39;: {&#39;frequency&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;hp_smart_memory&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;minimum_voltage&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;part&#39;: {&#39;number&#39;: &#39;N/A&#39;},</span>
+<span class="go">                                                      &#39;ranks&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;size&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;socket&#39;: 6,</span>
+<span class="go">                                                      &#39;status&#39;: &#39;Not Present&#39;,</span>
+<span class="go">                                                      &#39;technology&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;type&#39;: &#39;N/A&#39;},</span>
+<span class="go">                                         &#39;socket 7&#39;: {&#39;frequency&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;hp_smart_memory&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;minimum_voltage&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;part&#39;: {&#39;number&#39;: &#39;N/A&#39;},</span>
+<span class="go">                                                      &#39;ranks&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;size&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;socket&#39;: 7,</span>
+<span class="go">                                                      &#39;status&#39;: &#39;Not Present&#39;,</span>
+<span class="go">                                                      &#39;technology&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                                      &#39;type&#39;: &#39;N/A&#39;},</span>
+<span class="go">                                         &#39;socket 8&#39;: {&#39;frequency&#39;: &#39;1600 MHz&#39;,</span>
+<span class="go">                                                      &#39;hp_smart_memory&#39;: &#39;Yes&#39;,</span>
+<span class="go">                                                      &#39;minimum_voltage&#39;: &#39;1.50 v&#39;,</span>
+<span class="go">                                                      &#39;part&#39;: {&#39;number&#39;: &#39;672612-081&#39;},</span>
+<span class="go">                                                      &#39;ranks&#39;: 2,</span>
+<span class="go">                                                      &#39;size&#39;: &#39;16384 MB&#39;,</span>
+<span class="go">                                                      &#39;socket&#39;: 8,</span>
+<span class="go">                                                      &#39;status&#39;: &#39;Good, In Use&#39;,</span>
+<span class="go">                                                      &#39;technology&#39;: &#39;RDIMM&#39;,</span>
+<span class="go">                                                      &#39;type&#39;: &#39;DIMM DDR3&#39;}}},</span>
+<span class="go">            &#39;memory_details_summary&#39;: {&#39;cpu_1&#39;: {&#39;number_of_sockets&#39;: 8,</span>
+<span class="go">                                                 &#39;operating_frequency&#39;: &#39;1333 MHz&#39;,</span>
+<span class="go">                                                 &#39;operating_voltage&#39;: &#39;1.50 v&#39;,</span>
+<span class="go">                                                 &#39;total_memory_size&#39;: &#39;48 GB&#39;},</span>
+<span class="go">                                       &#39;cpu_2&#39;: {&#39;number_of_sockets&#39;: 8,</span>
+<span class="go">                                                 &#39;operating_frequency&#39;: &#39;1333 MHz&#39;,</span>
+<span class="go">                                                 &#39;operating_voltage&#39;: &#39;1.50 v&#39;,</span>
+<span class="go">                                                 &#39;total_memory_size&#39;: &#39;48 GB&#39;}}},</span>
+<span class="go"> &#39;nic_information&#39;: {&#39;NIC Port 1&#39;: {&#39;ip_address&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                    &#39;location&#39;: &#39;Embedded&#39;,</span>
+<span class="go">                                    &#39;mac_address&#39;: &#39;fc:15:b4:0a:9d:58&#39;,</span>
+<span class="go">                                    &#39;network_port&#39;: &#39;Port 1&#39;,</span>
+<span class="go">                                    &#39;port_description&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                    &#39;status&#39;: &#39;Unknown&#39;},</span>
+<span class="go">                     &#39;NIC Port 2&#39;: {&#39;ip_address&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                    &#39;location&#39;: &#39;Embedded&#39;,</span>
+<span class="go">                                    &#39;mac_address&#39;: &#39;fc:15:b4:0a:9d:5c&#39;,</span>
+<span class="go">                                    &#39;network_port&#39;: &#39;Port 2&#39;,</span>
+<span class="go">                                    &#39;port_description&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                    &#39;status&#39;: &#39;Unknown&#39;},</span>
+<span class="go">                     &#39;iLO iLO Dedicated Network Port&#39;: {&#39;ip_address&#39;: &#39;10.42.128.1&#39;,</span>
+<span class="go">                                                        &#39;location&#39;: &#39;Embedded&#39;,</span>
+<span class="go">                                                        &#39;mac_address&#39;: &#39;9c:b6:54:8e:4b:7c&#39;,</span>
+<span class="go">                                                        &#39;network_port&#39;: &#39;iLO Dedicated Network Port&#39;,</span>
+<span class="go">                                                        &#39;port_description&#39;: &#39;iLO Dedicated Network Port&#39;,</span>
+<span class="go">                                                        &#39;status&#39;: &#39;OK&#39;}},</span>
+<span class="go"> &#39;power_supplies&#39;: {},</span>
+<span class="go"> &#39;power_supply_summary&#39;: {&#39;power_management_controller_firmware_version&#39;: &#39;3.3&#39;,</span>
+<span class="go">                          &#39;present_power_reading&#39;: &#39;65 Watts&#39;},</span>
+<span class="go"> &#39;processors&#39;: {&#39;Proc 1&#39;: {&#39;execution_technology&#39;: &#39;6/6 cores; 12 threads&#39;,</span>
+<span class="go">                           &#39;internal_l1_cache&#39;: &#39;192 KB&#39;,</span>
+<span class="go">                           &#39;internal_l2_cache&#39;: &#39;1536 KB&#39;,</span>
+<span class="go">                           &#39;internal_l3_cache&#39;: &#39;15360 KB&#39;,</span>
+<span class="go">                           &#39;label&#39;: &#39;Proc 1&#39;,</span>
+<span class="go">                           &#39;memory_technology&#39;: &#39;64-bit Capable&#39;,</span>
+<span class="go">                           &#39;name&#39;: &#39; Intel(R) Xeon(R) CPU E5-2640 0 @ 2.50GHz       &#39;,</span>
+<span class="go">                           &#39;speed&#39;: &#39;2500 MHz&#39;,</span>
+<span class="go">                           &#39;status&#39;: &#39;OK&#39;},</span>
+<span class="go">                &#39;Proc 2&#39;: {&#39;execution_technology&#39;: &#39;6/6 cores; 12 threads&#39;,</span>
+<span class="go">                           &#39;internal_l1_cache&#39;: &#39;192 KB&#39;,</span>
+<span class="go">                           &#39;internal_l2_cache&#39;: &#39;1536 KB&#39;,</span>
+<span class="go">                           &#39;internal_l3_cache&#39;: &#39;15360 KB&#39;,</span>
+<span class="go">                           &#39;label&#39;: &#39;Proc 2&#39;,</span>
+<span class="go">                           &#39;memory_technology&#39;: &#39;64-bit Capable&#39;,</span>
+<span class="go">                           &#39;name&#39;: &#39; Intel(R) Xeon(R) CPU E5-2640 0 @ 2.50GHz       &#39;,</span>
+<span class="go">                           &#39;speed&#39;: &#39;2500 MHz&#39;,</span>
+<span class="go">                           &#39;status&#39;: &#39;OK&#39;}},</span>
+<span class="go"> &#39;storage&#39;: {&#39;Controller on System Board&#39;: {&#39;cache_module_memory&#39;: &#39;524288 KB&#39;,</span>
+<span class="go">                                            &#39;cache_module_serial_num&#39;: &#39;PBKHV&#39;,</span>
+<span class="go">                                            &#39;cache_module_status&#39;: &#39;OK&#39;,</span>
+<span class="go">                                            &#39;controller_status&#39;: &#39;OK&#39;,</span>
+<span class="go">                                            &#39;drive_enclosures&#39;: [{&#39;drive_bay&#39;: 2,</span>
+<span class="go">                                                                  &#39;label&#39;: &#39;Port 1I Box 1&#39;,</span>
+<span class="go">                                                                  &#39;status&#39;: &#39;OK&#39;}],</span>
+<span class="go">                                            &#39;fw_version&#39;: &#39;5.42&#39;,</span>
+<span class="go">                                            &#39;label&#39;: &#39;Controller on System Board&#39;,</span>
+<span class="go">                                            &#39;logical_drives&#39;: [{&#39;capacity&#39;: &#39;558 GB&#39;,</span>
+<span class="go">                                                                &#39;encryption_status&#39;: &#39;Not Encrypted&#39;,</span>
+<span class="go">                                                                &#39;fault_tolerance&#39;: &#39;RAID 1/RAID 1+0&#39;,</span>
+<span class="go">                                                                &#39;label&#39;: &#39;01&#39;,</span>
+<span class="go">                                                                &#39;physical_drives&#39;: [{&#39;capacity&#39;: &#39;558 GB&#39;,</span>
+<span class="go">                                                                                     &#39;drive_configuration&#39;: &#39;Configured&#39;,</span>
+<span class="go">                                                                                     &#39;encryption_status&#39;: &#39;Not Encrypted&#39;,</span>
+<span class="go">                                                                                     &#39;fw_version&#39;: &#39;HPD5&#39;,</span>
+<span class="go">                                                                                     &#39;label&#39;: &#39;Port 1I Box 1 Bay 1&#39;,</span>
+<span class="go">                                                                                     &#39;location&#39;: &#39;Port 1I Box 1 Bay 1&#39;,</span>
+<span class="go">                                                                                     &#39;model&#39;: &#39;EG0600FCVBK&#39;,</span>
+<span class="go">                                                                                     &#39;serial_number&#39;: &#39;S0M243NV0000M433M04G&#39;,</span>
+<span class="go">                                                                                     &#39;status&#39;: &#39;OK&#39;},</span>
+<span class="go">                                                                                    {&#39;capacity&#39;: &#39;558 GB&#39;,</span>
+<span class="go">                                                                                     &#39;drive_configuration&#39;: &#39;Configured&#39;,</span>
+<span class="go">                                                                                     &#39;encryption_status&#39;: &#39;Not Encrypted&#39;,</span>
+<span class="go">                                                                                     &#39;fw_version&#39;: &#39;HPD5&#39;,</span>
+<span class="go">                                                                                     &#39;label&#39;: &#39;Port 1I Box 1 Bay 2&#39;,</span>
+<span class="go">                                                                                     &#39;location&#39;: &#39;Port 1I Box 1 Bay 2&#39;,</span>
+<span class="go">                                                                                     &#39;model&#39;: &#39;EG0600FCVBK&#39;,</span>
+<span class="go">                                                                                     &#39;serial_number&#39;: &#39;S0M244080000M433FABZ&#39;,</span>
+<span class="go">                                                                                     &#39;status&#39;: &#39;OK&#39;}],</span>
+<span class="go">                                                                &#39;status&#39;: &#39;OK&#39;}],</span>
+<span class="go">                                            &#39;model&#39;: &#39;HP Smart Array P220i Controller&#39;,</span>
+<span class="go">                                            &#39;serial_number&#39;: &#39;PCQVU0CRH6D13P&#39;,</span>
+<span class="go">                                            &#39;status&#39;: &#39;OK&#39;}},</span>
+<span class="go"> &#39;temperature&#39;: {&#39;01-Inlet Ambient&#39;: {&#39;caution&#39;: (42, &#39;Celsius&#39;),</span>
+<span class="go">                                      &#39;critical&#39;: (46, &#39;Celsius&#39;),</span>
+<span class="go">                                      &#39;currentreading&#39;: (19, &#39;Celsius&#39;),</span>
+<span class="go">                                      &#39;label&#39;: &#39;01-Inlet Ambient&#39;,</span>
+<span class="go">                                      &#39;location&#39;: &#39;Ambient&#39;,</span>
+<span class="go">                                      &#39;status&#39;: &#39;OK&#39;},</span>
+<span class="go">                 &#39;02-CPU 1&#39;: {&#39;caution&#39;: (70, &#39;Celsius&#39;),</span>
+<span class="go">                              &#39;critical&#39;: &#39;N/A&#39;,</span>
+<span class="go">                              &#39;currentreading&#39;: (40, &#39;Celsius&#39;),</span>
+<span class="go">                              &#39;label&#39;: &#39;02-CPU 1&#39;,</span>
+<span class="go">                              &#39;location&#39;: &#39;CPU&#39;,</span>
+<span class="go">                              &#39;status&#39;: &#39;OK&#39;},</span>
+<span class="go">                 &#39;03-CPU 2&#39;: {&#39;caution&#39;: (70, &#39;Celsius&#39;),</span>
+<span class="go">                              &#39;critical&#39;: &#39;N/A&#39;,</span>
+<span class="go">                              &#39;currentreading&#39;: (40, &#39;Celsius&#39;),</span>
+<span class="go">                              &#39;label&#39;: &#39;03-CPU 2&#39;,</span>
+<span class="go">                              &#39;location&#39;: &#39;CPU&#39;,</span>
+<span class="go">                              &#39;status&#39;: &#39;OK&#39;},</span>
+<span class="go">                 &#39;04-P1 DIMM 1-4&#39;: {&#39;caution&#39;: (87, &#39;Celsius&#39;),</span>
+<span class="go">                                    &#39;critical&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                    &#39;currentreading&#39;: (26, &#39;Celsius&#39;),</span>
+<span class="go">                                    &#39;label&#39;: &#39;04-P1 DIMM 1-4&#39;,</span>
+<span class="go">                                    &#39;location&#39;: &#39;Memory&#39;,</span>
+<span class="go">                                    &#39;status&#39;: &#39;OK&#39;},</span>
+<span class="go">                 &#39;05-P1 DIMM 5-8&#39;: {&#39;caution&#39;: (87, &#39;Celsius&#39;),</span>
+<span class="go">                                    &#39;critical&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                    &#39;currentreading&#39;: (25, &#39;Celsius&#39;),</span>
+<span class="go">                                    &#39;label&#39;: &#39;05-P1 DIMM 5-8&#39;,</span>
+<span class="go">                                    &#39;location&#39;: &#39;Memory&#39;,</span>
+<span class="go">                                    &#39;status&#39;: &#39;OK&#39;},</span>
+<span class="go">                 &#39;06-P2 DIMM 1-4&#39;: {&#39;caution&#39;: (87, &#39;Celsius&#39;),</span>
+<span class="go">                                    &#39;critical&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                    &#39;currentreading&#39;: (24, &#39;Celsius&#39;),</span>
+<span class="go">                                    &#39;label&#39;: &#39;06-P2 DIMM 1-4&#39;,</span>
+<span class="go">                                    &#39;location&#39;: &#39;Memory&#39;,</span>
+<span class="go">                                    &#39;status&#39;: &#39;OK&#39;},</span>
+<span class="go">                 &#39;07-P2 DIMM 5-8&#39;: {&#39;caution&#39;: (87, &#39;Celsius&#39;),</span>
+<span class="go">                                    &#39;critical&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                    &#39;currentreading&#39;: (24, &#39;Celsius&#39;),</span>
+<span class="go">                                    &#39;label&#39;: &#39;07-P2 DIMM 5-8&#39;,</span>
+<span class="go">                                    &#39;location&#39;: &#39;Memory&#39;,</span>
+<span class="go">                                    &#39;status&#39;: &#39;OK&#39;},</span>
+<span class="go">                 &#39;08-P1 Mem Zone&#39;: {&#39;caution&#39;: (90, &#39;Celsius&#39;),</span>
+<span class="go">                                    &#39;critical&#39;: (95, &#39;Celsius&#39;),</span>
+<span class="go">                                    &#39;currentreading&#39;: (29, &#39;Celsius&#39;),</span>
+<span class="go">                                    &#39;label&#39;: &#39;08-P1 Mem Zone&#39;,</span>
+<span class="go">                                    &#39;location&#39;: &#39;Memory&#39;,</span>
+<span class="go">                                    &#39;status&#39;: &#39;OK&#39;},</span>
+<span class="go">                 &#39;09-P1 Mem Zone&#39;: {&#39;caution&#39;: (90, &#39;Celsius&#39;),</span>
+<span class="go">                                    &#39;critical&#39;: (95, &#39;Celsius&#39;),</span>
+<span class="go">                                    &#39;currentreading&#39;: (28, &#39;Celsius&#39;),</span>
+<span class="go">                                    &#39;label&#39;: &#39;09-P1 Mem Zone&#39;,</span>
+<span class="go">                                    &#39;location&#39;: &#39;Memory&#39;,</span>
+<span class="go">                                    &#39;status&#39;: &#39;OK&#39;},</span>
+<span class="go">                 &#39;10-P2 Mem Zone&#39;: {&#39;caution&#39;: (90, &#39;Celsius&#39;),</span>
+<span class="go">                                    &#39;critical&#39;: (95, &#39;Celsius&#39;),</span>
+<span class="go">                                    &#39;currentreading&#39;: (25, &#39;Celsius&#39;),</span>
+<span class="go">                                    &#39;label&#39;: &#39;10-P2 Mem Zone&#39;,</span>
+<span class="go">                                    &#39;location&#39;: &#39;Memory&#39;,</span>
+<span class="go">                                    &#39;status&#39;: &#39;OK&#39;},</span>
+<span class="go">                 &#39;11-P2 Mem Zone&#39;: {&#39;caution&#39;: (90, &#39;Celsius&#39;),</span>
+<span class="go">                                    &#39;critical&#39;: (95, &#39;Celsius&#39;),</span>
+<span class="go">                                    &#39;currentreading&#39;: (27, &#39;Celsius&#39;),</span>
+<span class="go">                                    &#39;label&#39;: &#39;11-P2 Mem Zone&#39;,</span>
+<span class="go">                                    &#39;location&#39;: &#39;Memory&#39;,</span>
+<span class="go">                                    &#39;status&#39;: &#39;OK&#39;},</span>
+<span class="go">                 &#39;12-HD Max&#39;: {&#39;caution&#39;: (60, &#39;Celsius&#39;),</span>
+<span class="go">                               &#39;critical&#39;: &#39;N/A&#39;,</span>
+<span class="go">                               &#39;currentreading&#39;: (35, &#39;Celsius&#39;),</span>
+<span class="go">                               &#39;label&#39;: &#39;12-HD Max&#39;,</span>
+<span class="go">                               &#39;location&#39;: &#39;System&#39;,</span>
+<span class="go">                               &#39;status&#39;: &#39;OK&#39;},</span>
+<span class="go">                 &#39;13-Chipset&#39;: {&#39;caution&#39;: (105, &#39;Celsius&#39;),</span>
+<span class="go">                                &#39;critical&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                &#39;currentreading&#39;: (44, &#39;Celsius&#39;),</span>
+<span class="go">                                &#39;label&#39;: &#39;13-Chipset&#39;,</span>
+<span class="go">                                &#39;location&#39;: &#39;System&#39;,</span>
+<span class="go">                                &#39;status&#39;: &#39;OK&#39;},</span>
+<span class="go">                 &#39;14-Chipset Zone&#39;: {&#39;caution&#39;: (90, &#39;Celsius&#39;),</span>
+<span class="go">                                     &#39;critical&#39;: (95, &#39;Celsius&#39;),</span>
+<span class="go">                                     &#39;currentreading&#39;: (32, &#39;Celsius&#39;),</span>
+<span class="go">                                     &#39;label&#39;: &#39;14-Chipset Zone&#39;,</span>
+<span class="go">                                     &#39;location&#39;: &#39;System&#39;,</span>
+<span class="go">                                     &#39;status&#39;: &#39;OK&#39;},</span>
+<span class="go">                 &#39;15-VR P1&#39;: {&#39;caution&#39;: (115, &#39;Celsius&#39;),</span>
+<span class="go">                              &#39;critical&#39;: (120, &#39;Celsius&#39;),</span>
+<span class="go">                              &#39;currentreading&#39;: (33, &#39;Celsius&#39;),</span>
+<span class="go">                              &#39;label&#39;: &#39;15-VR P1&#39;,</span>
+<span class="go">                              &#39;location&#39;: &#39;System&#39;,</span>
+<span class="go">                              &#39;status&#39;: &#39;OK&#39;},</span>
+<span class="go">                 &#39;16-VR P2&#39;: {&#39;caution&#39;: (115, &#39;Celsius&#39;),</span>
+<span class="go">                              &#39;critical&#39;: (120, &#39;Celsius&#39;),</span>
+<span class="go">                              &#39;currentreading&#39;: (31, &#39;Celsius&#39;),</span>
+<span class="go">                              &#39;label&#39;: &#39;16-VR P2&#39;,</span>
+<span class="go">                              &#39;location&#39;: &#39;System&#39;,</span>
+<span class="go">                              &#39;status&#39;: &#39;OK&#39;},</span>
+<span class="go">                 &#39;17-VR P1 Mem&#39;: {&#39;caution&#39;: (115, &#39;Celsius&#39;),</span>
+<span class="go">                                  &#39;critical&#39;: (120, &#39;Celsius&#39;),</span>
+<span class="go">                                  &#39;currentreading&#39;: (32, &#39;Celsius&#39;),</span>
+<span class="go">                                  &#39;label&#39;: &#39;17-VR P1 Mem&#39;,</span>
+<span class="go">                                  &#39;location&#39;: &#39;System&#39;,</span>
+<span class="go">                                  &#39;status&#39;: &#39;OK&#39;},</span>
+<span class="go">                 &#39;18-VR P1 Mem&#39;: {&#39;caution&#39;: (115, &#39;Celsius&#39;),</span>
+<span class="go">                                  &#39;critical&#39;: (120, &#39;Celsius&#39;),</span>
+<span class="go">                                  &#39;currentreading&#39;: (31, &#39;Celsius&#39;),</span>
+<span class="go">                                  &#39;label&#39;: &#39;18-VR P1 Mem&#39;,</span>
+<span class="go">                                  &#39;location&#39;: &#39;System&#39;,</span>
+<span class="go">                                  &#39;status&#39;: &#39;OK&#39;},</span>
+<span class="go">                 &#39;19-VR P2 Mem&#39;: {&#39;caution&#39;: (115, &#39;Celsius&#39;),</span>
+<span class="go">                                  &#39;critical&#39;: (120, &#39;Celsius&#39;),</span>
+<span class="go">                                  &#39;currentreading&#39;: (26, &#39;Celsius&#39;),</span>
+<span class="go">                                  &#39;label&#39;: &#39;19-VR P2 Mem&#39;,</span>
+<span class="go">                                  &#39;location&#39;: &#39;System&#39;,</span>
+<span class="go">                                  &#39;status&#39;: &#39;OK&#39;},</span>
+<span class="go">                 &#39;20-VR P2 Mem&#39;: {&#39;caution&#39;: (115, &#39;Celsius&#39;),</span>
+<span class="go">                                  &#39;critical&#39;: (120, &#39;Celsius&#39;),</span>
+<span class="go">                                  &#39;currentreading&#39;: (27, &#39;Celsius&#39;),</span>
+<span class="go">                                  &#39;label&#39;: &#39;20-VR P2 Mem&#39;,</span>
+<span class="go">                                  &#39;location&#39;: &#39;System&#39;,</span>
+<span class="go">                                  &#39;status&#39;: &#39;OK&#39;},</span>
+<span class="go">                 &#39;21-SuperCap Max&#39;: {&#39;caution&#39;: (65, &#39;Celsius&#39;),</span>
+<span class="go">                                     &#39;critical&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                     &#39;currentreading&#39;: (19, &#39;Celsius&#39;),</span>
+<span class="go">                                     &#39;label&#39;: &#39;21-SuperCap Max&#39;,</span>
+<span class="go">                                     &#39;location&#39;: &#39;System&#39;,</span>
+<span class="go">                                     &#39;status&#39;: &#39;OK&#39;},</span>
+<span class="go">                 &#39;22-HD Controller&#39;: {&#39;caution&#39;: (100, &#39;Celsius&#39;),</span>
+<span class="go">                                      &#39;critical&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                      &#39;currentreading&#39;: (46, &#39;Celsius&#39;),</span>
+<span class="go">                                      &#39;label&#39;: &#39;22-HD Controller&#39;,</span>
+<span class="go">                                      &#39;location&#39;: &#39;I/O Board&#39;,</span>
+<span class="go">                                      &#39;status&#39;: &#39;OK&#39;},</span>
+<span class="go">                 &#39;23-HDcntlr Inlet&#39;: {&#39;caution&#39;: (70, &#39;Celsius&#39;),</span>
+<span class="go">                                      &#39;critical&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                      &#39;currentreading&#39;: (40, &#39;Celsius&#39;),</span>
+<span class="go">                                      &#39;label&#39;: &#39;23-HDcntlr Inlet&#39;,</span>
+<span class="go">                                      &#39;location&#39;: &#39;I/O Board&#39;,</span>
+<span class="go">                                      &#39;status&#39;: &#39;OK&#39;},</span>
+<span class="go">                 &#39;24-LOM Card&#39;: {&#39;caution&#39;: (100, &#39;Celsius&#39;),</span>
+<span class="go">                                 &#39;critical&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                 &#39;currentreading&#39;: (40, &#39;Celsius&#39;),</span>
+<span class="go">                                 &#39;label&#39;: &#39;24-LOM Card&#39;,</span>
+<span class="go">                                 &#39;location&#39;: &#39;I/O Board&#39;,</span>
+<span class="go">                                 &#39;status&#39;: &#39;OK&#39;},</span>
+<span class="go">                 &#39;25-LOM Card Zn&#39;: {&#39;caution&#39;: (75, &#39;Celsius&#39;),</span>
+<span class="go">                                    &#39;critical&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                    &#39;currentreading&#39;: (40, &#39;Celsius&#39;),</span>
+<span class="go">                                    &#39;label&#39;: &#39;25-LOM Card Zn&#39;,</span>
+<span class="go">                                    &#39;location&#39;: &#39;I/O Board&#39;,</span>
+<span class="go">                                    &#39;status&#39;: &#39;OK&#39;},</span>
+<span class="go">                 &#39;26-Mezz 1&#39;: {&#39;caution&#39;: &#39;N/A&#39;,</span>
+<span class="go">                               &#39;critical&#39;: &#39;N/A&#39;,</span>
+<span class="go">                               &#39;currentreading&#39;: &#39;N/A&#39;,</span>
+<span class="go">                               &#39;label&#39;: &#39;26-Mezz 1&#39;,</span>
+<span class="go">                               &#39;location&#39;: &#39;I/O Board&#39;,</span>
+<span class="go">                               &#39;status&#39;: &#39;Not Installed&#39;},</span>
+<span class="go">                 &#39;27-Mezz 1 Inlet&#39;: {&#39;caution&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                     &#39;critical&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                     &#39;currentreading&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                     &#39;label&#39;: &#39;27-Mezz 1 Inlet&#39;,</span>
+<span class="go">                                     &#39;location&#39;: &#39;I/O Board&#39;,</span>
+<span class="go">                                     &#39;status&#39;: &#39;Not Installed&#39;},</span>
+<span class="go">                 &#39;28-Mezz 2&#39;: {&#39;caution&#39;: &#39;N/A&#39;,</span>
+<span class="go">                               &#39;critical&#39;: &#39;N/A&#39;,</span>
+<span class="go">                               &#39;currentreading&#39;: &#39;N/A&#39;,</span>
+<span class="go">                               &#39;label&#39;: &#39;28-Mezz 2&#39;,</span>
+<span class="go">                               &#39;location&#39;: &#39;I/O Board&#39;,</span>
+<span class="go">                               &#39;status&#39;: &#39;Not Installed&#39;},</span>
+<span class="go">                 &#39;29-Mezz 2 Inlet&#39;: {&#39;caution&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                     &#39;critical&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                     &#39;currentreading&#39;: &#39;N/A&#39;,</span>
+<span class="go">                                     &#39;label&#39;: &#39;29-Mezz 2 Inlet&#39;,</span>
+<span class="go">                                     &#39;location&#39;: &#39;I/O Board&#39;,</span>
+<span class="go">                                     &#39;status&#39;: &#39;Not Installed&#39;},</span>
+<span class="go">                 &#39;30-System Board&#39;: {&#39;caution&#39;: (90, &#39;Celsius&#39;),</span>
+<span class="go">                                     &#39;critical&#39;: (95, &#39;Celsius&#39;),</span>
+<span class="go">                                     &#39;currentreading&#39;: (30, &#39;Celsius&#39;),</span>
+<span class="go">                                     &#39;label&#39;: &#39;30-System Board&#39;,</span>
+<span class="go">                                     &#39;location&#39;: &#39;System&#39;,</span>
+<span class="go">                                     &#39;status&#39;: &#39;OK&#39;},</span>
+<span class="go">                 &#39;31-System Board&#39;: {&#39;caution&#39;: (90, &#39;Celsius&#39;),</span>
+<span class="go">                                     &#39;critical&#39;: (95, &#39;Celsius&#39;),</span>
+<span class="go">                                     &#39;currentreading&#39;: (28, &#39;Celsius&#39;),</span>
+<span class="go">                                     &#39;label&#39;: &#39;31-System Board&#39;,</span>
+<span class="go">                                     &#39;location&#39;: &#39;System&#39;,</span>
+<span class="go">                                     &#39;status&#39;: &#39;OK&#39;},</span>
+<span class="go">                 &#39;32-Sys Exhaust&#39;: {&#39;caution&#39;: (75, &#39;Celsius&#39;),</span>
+<span class="go">                                    &#39;critical&#39;: (80, &#39;Celsius&#39;),</span>
+<span class="go">                                    &#39;currentreading&#39;: (25, &#39;Celsius&#39;),</span>
+<span class="go">                                    &#39;label&#39;: &#39;32-Sys Exhaust&#39;,</span>
+<span class="go">                                    &#39;location&#39;: &#39;System&#39;,</span>
+<span class="go">                                    &#39;status&#39;: &#39;OK&#39;},</span>
+<span class="go">                 &#39;33-Sys Exhaust&#39;: {&#39;caution&#39;: (75, &#39;Celsius&#39;),</span>
+<span class="go">                                    &#39;critical&#39;: (80, &#39;Celsius&#39;),</span>
+<span class="go">                                    &#39;currentreading&#39;: (32, &#39;Celsius&#39;),</span>
+<span class="go">                                    &#39;label&#39;: &#39;33-Sys Exhaust&#39;,</span>
+<span class="go">                                    &#39;location&#39;: &#39;System&#39;,</span>
+<span class="go">                                    &#39;status&#39;: &#39;OK&#39;},</span>
+<span class="go">                 &#39;34-GPU 1&#39;: {&#39;caution&#39;: &#39;N/A&#39;,</span>
+<span class="go">                              &#39;critical&#39;: &#39;N/A&#39;,</span>
+<span class="go">                              &#39;currentreading&#39;: &#39;N/A&#39;,</span>
+<span class="go">                              &#39;label&#39;: &#39;34-GPU 1&#39;,</span>
+<span class="go">                              &#39;location&#39;: &#39;I/O Board&#39;,</span>
+<span class="go">                              &#39;status&#39;: &#39;Not Installed&#39;},</span>
+<span class="go">                 &#39;35-GPU 2&#39;: {&#39;caution&#39;: &#39;N/A&#39;,</span>
+<span class="go">                              &#39;critical&#39;: &#39;N/A&#39;,</span>
+<span class="go">                              &#39;currentreading&#39;: &#39;N/A&#39;,</span>
+<span class="go">                              &#39;label&#39;: &#39;35-GPU 2&#39;,</span>
+<span class="go">                              &#39;location&#39;: &#39;I/O Board&#39;,</span>
+<span class="go">                              &#39;status&#39;: &#39;Not Installed&#39;}},</span>
+<span class="go"> &#39;vrm&#39;: None}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+        <p class="logo"><a href="index.html" title="index">
+          <img class="logo" src="_static/python-hpilo.png" alt="Logo"/>
+        </a></p>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="security.html"
+                          title="Previous page">&larr; Security and SSL settings</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="power.html"
+                          title="Next page">&rarr; Power manipulation</a></p>
+  </div>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="power.html" title="Power manipulation"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="security.html" title="Security and SSL settings"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">python-hpilo 2.12.1 documentation</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2011-2015, Dennis Kaarsemaker.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>
