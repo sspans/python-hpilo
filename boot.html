@@ -119,7 +119,9 @@ RBSU (Boots into the system RBSU)</p>
 <dl class="method">
 <dt id="hpilo.Ilo.get_persistent_boot">
 <tt class="descname">get_persistent_boot</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_persistent_boot" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the boot order of the host</p>
+<dd><p>Get the boot order of the host. For uEFI hosts (gen9+), this returns
+a list of tuples (name, description. For older host it returns a
+list of names</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_persistent_boot</span><span class="p">()</span>
 <span class="go">[&#39;cdrom&#39;, &#39;floppy&#39;, &#39;usb&#39;, &#39;hdd&#39;, &#39;network&#39;]</span>
 </pre></div>
