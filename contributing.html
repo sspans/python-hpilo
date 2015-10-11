@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Contributing guide &mdash; python-hpilo 3.0 documentation</title>
+    <title>Contributing guide &mdash; python-hpilo 3.2 documentation</title>
     
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '3.0',
+        VERSION:     '3.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,7 +27,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/cloud.js"></script>
-    <link rel="top" title="python-hpilo 3.0 documentation" href="index.html" />
+    <link rel="top" title="python-hpilo 3.2 documentation" href="index.html" />
     <link rel="prev" title="Common issues" href="troubleshooting.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
@@ -46,7 +46,7 @@
         <li class="right" >
           <a href="troubleshooting.html" title="Common issues"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">python-hpilo 3.0 documentation</a> &raquo;</li>
+    <li><a href="index.html">python-hpilo 3.2 documentation</a> &raquo;</li>
  
       </ul>
     </div>
@@ -64,22 +64,27 @@
 problem with the software, that&#8217;s the place to file an issue. And if you want
 to contribute to the project, that&#8217;s the place to go to as well.</p>
 <p>Patches can be submitted as pull requests on github or mailed to
-<a class="reference external" href="mailto:dennis&#37;&#52;&#48;kaarsemaker&#46;net">dennis<span>&#64;</span>kaarsemaker<span>&#46;</span>net</a>. When you submit a patch, please make sure you test it
-too. The test tool is built into hpilo.py, read the comments for the _test
-function to find the details. When adding new methods, please add tests too.</p>
+<a class="reference external" href="mailto:dennis&#37;&#52;&#48;kaarsemaker&#46;net">dennis<span>&#64;</span>kaarsemaker<span>&#46;</span>net</a>.</p>
+<p>If you are looking for a really simple way of contributing, please contribute
+test data from a server model that&#8217;s not included in the tests yet, see
+<cite>tests/README</cite> for more details.</p>
 <div class="section" id="coding-guidelines">
 <h2>Coding guidelines<a class="headerlink" href="#coding-guidelines" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>python-hpilo currently supports python 2.4 up to python 3.3. Any new code
-needs to be compatible with all these versions. That means no <cite>with</cite>
-statement, no <cite>sorted</cite> and using brackets for <cite>print()</cite>.</li>
-<li><a class="reference external" href="http://www.python.org/dev/peps/pep-0008/">pep 8</a> is to be followed, except for the maximum line length rule. Be
-reasonable with your line lengths though</li>
+<li>python-hpilo currently supports python 2.4 up to python 3.5. Any new code in
+<cite>hpilo.py</cite> and <cite>hpilo_cli</cite> needs to be compatible with all these versions.
+That means no <cite>with</cite> statement, no <cite>sorted</cite> and using brackets for <cite>print()</cite>.
+Code in examples and tests can assume python 2.7 and 3.4 or newer.</li>
+<li>No dependencies in <cite>hpilo.py</cite> and <cite>hpilo_cli</cite>. Examples may have additional
+dependencies.</li>
 <li>All methods call into <tt class="xref py py-func docutils literal"><span class="pre">_info_tag()</span></tt> or <tt class="xref py py-func docutils literal"><span class="pre">_control_tag()</span></tt>. Any
 new method must do so too, to be able to use it in <tt class="xref py py-meth docutils literal"><span class="pre">call_delayed()</span></tt>.</li>
 <li>All new methods must be documented. A docstring is mandatory and will appear
 in the docs. For methods that return data, sample output must be added to the
 documentation too.</li>
+<li>All new methods must be tested. You should add data for the xml
+parser/generator tests and, if applicable, a test that manipulates the iLO.
+See the <cite>tests/README</cite> file in the git repository for more details on tests.</li>
 </ul>
 </div>
 </div>
@@ -138,7 +143,7 @@ documentation too.</li>
         <li class="right" >
           <a href="troubleshooting.html" title="Common issues"
              >previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">python-hpilo 3.0 documentation</a> &raquo;</li>
+    <li><a href="index.html">python-hpilo 3.2 documentation</a> &raquo;</li>
  
       </ul>
     </div>
