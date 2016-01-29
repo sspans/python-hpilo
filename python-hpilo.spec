@@ -1,7 +1,7 @@
 Summary: Accessing HP iLO interfaces from python
 Name: python-hpilo
-Version: 3.5
-Release: 1
+Version: 3.6
+Release: 1%{?dist}
 Source0: http://pypi.python.org/packages/source/p/%{name}/%{name}-%{version}.tar.gz
 License: GPL/APL
 Group: Development/Libraries
