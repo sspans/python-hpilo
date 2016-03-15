@@ -1,7 +1,7 @@
 # (c) 2011-2016 Dennis Kaarsemaker <dennis@kaarsemaker.net>
 # see COPYING for license details
 
-__version__ = "3.6"
+__version__ = "3.7"
 
 import os
 import errno
@@ -33,9 +33,11 @@ try:
 except ImportError:
     # Fallback for older python versions
     class ssl:
-        PROTOCOL_SSLv3 = 1
-        PROTOCOL_TLSv23 = 2
-        PROTOCOL_TLSv1 = 3
+        PROTOCOL_SSLv3   = 1
+        PROTOCOL_SSLv23  = 2
+        PROTOCOL_TLSv1   = 3
+        PROTOCOL_TLSv1_1 = 4
+        PROTOCOL_TLSv1_2 = 5
         @staticmethod
         def wrap_socket(sock, *args, **kwargs):
             return ssl(sock)
@@ -183,19 +185,20 @@ class Ilo(object):
     HTTP_UPLOAD_HEADER = "POST /cgi-bin/uploadRibclFiles HTTP/1.1\r\nHost: localhost\r\nConnection: Close\r\nContent-Length: %d\r\nContent-Type: multipart/form-data; boundary=%s\r\n\r\n"
     BLOCK_SIZE = 64 * 1024
 
-    def __init__(self, hostname, login=None, password=None, timeout=60, port=443, protocol=None, delayed=False):
+    def __init__(self, hostname, login=None, password=None, timeout=60, port=443, protocol=None, delayed=False, ssl_version=None):
         self.hostname = hostname
         self.login    = login or 'Administrator'
         self.password = password or 'Password'
         self.timeout  = timeout
         self.debug    = 0
         self.port     = port
+        self.ssl_version = ssl_version or ssl.PROTOCOL_TLSv1
+        self.ssl_fallback = ssl_version is None # Only fall back to SSLv3 if no protocol was specified
         self.protocol = protocol
         self.cookie   = None
         self.delayed  = delayed
         self._elements = None
         self._processors = []
-        self.ssl_version = ssl.PROTOCOL_TLSv1
         self.save_response = None
         self.read_response = None
         self.save_request = None
@@ -397,7 +400,7 @@ class Ilo(object):
             e = sys.exc_info()[1]
             msg = getattr(e, 'reason', None) or getattr(e, 'message', None) or str(e)
             # Some ancient iLO's don't support TLSv1, retry with SSLv3
-            if 'wrong version number' in msg and self.sslversion == ssl.PROTOCOL_TLSv1:
+            if 'wrong version number' in msg and self.ssl_version >= ssl.PROTOCOL_TLSv1 and self.ssl_fallback:
                 self.ssl_version = ssl.PROTOCOL_SSLv3
                 return self._get_socket()
             raise IloCommunicationError("Cannot establish ssl session with %s:%d: %s" % (self.hostname, self.port, msg))
@@ -1439,15 +1442,39 @@ class Ilo(object):
         vars = dict(locals())
         del vars['self']
 
+        # The _priv thing is a comma-separated list of numbers, but other
+        # functions use names, and the iLO ssh interface shows different names.
+        # Support them all.
+        privmap = {
+            'login':         1,
+            'rc':            2,
+            'remote_cons':   2,
+            'vm':            3,
+            'virtual_media': 3,
+            'power':         4,
+            'reset_server':  4,
+            'config':        5,
+            'config_ilo':    5,
+            'admin':         6,
+        }
+
         # create special case for element with text inside
         if dir_kerberos_keytab:
             keytab_el = etree.Element('DIR_KERBEROS_KEYTAB')
             keytab_el.text = dir_kerberos_keytab
             del vars['dir_kerberos_keytab']
 
-        elements = [etree.Element(x.upper(), VALUE=str({True: 'Yes', \
-                False: 'No'}.get(vars[x], vars[x])))
-                    for x in vars if vars[x] is not None]
+        elements = []
+        for key, val in vars.iteritems():
+            if not val:
+                continue
+            if key.endswith('_priv'):
+                if isinstance(val, basestring):
+                    val = val.replace('oemhp_', '').replace('_priv', '').split(',')
+                val = ','.join([str(privmap.get(x,x)) for x in val])
+            else:
+                val = str({True: 'Yes', False: 'No'}.get(val, val))
+            elements.append(etree.Element(key.upper(), VALUE=val))
 
         if dir_kerberos_keytab:
             elements.append(keytab_el)
@@ -1652,7 +1679,9 @@ class Ilo(object):
 
     def set_host_power_saver(self, host_power_saver):
         """Set the configuration of the ProLiant power regulator"""
-        return self._control_tag('SERVER_INFO', 'SET_HOST_POWER_SAVER', attrib={'HOST_POWER_SAVER': str(host_power_saver)})
+        mapping = {'off': 1, 'min': 2, 'auto': 3, 'max': 4}
+        host_power_saver = str(mapping.get(str(host_power_saver).lower(), host_power_saver))
+        return self._control_tag('SERVER_INFO', 'SET_HOST_POWER_SAVER', attrib={'HOST_POWER_SAVER': host_power_saver})
 
     def set_one_time_boot(self, device):
         """Set one time boot device, device should be one of normal, floppy,
