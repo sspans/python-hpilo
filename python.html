@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Access from Python &mdash; python-hpilo 3.6 documentation</title>
+    <title>Access from Python &mdash; python-hpilo 3.7 documentation</title>
     
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '3.6',
+        VERSION:     '3.7',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,7 +27,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/cloud.js"></script>
-    <link rel="top" title="python-hpilo 3.6 documentation" href="index.html" />
+    <link rel="top" title="python-hpilo 3.7 documentation" href="index.html" />
     <link rel="next" title="Access from the shell" href="shell.html" />
     <link rel="prev" title="Installing python-hpilo" href="install.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -50,7 +50,7 @@
         <li class="right" >
           <a href="install.html" title="Installing python-hpilo"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">python-hpilo 3.6 documentation</a> &raquo;</li>
+    <li><a href="index.html">python-hpilo 3.7 documentation</a> &raquo;</li>
  
       </ul>
     </div>
@@ -69,7 +69,7 @@ devices, encapsulated in the <a class="reference internal" href="#hpilo.Ilo" tit
 few auxiliarry items in this module too.</p>
 <dl class="class">
 <dt id="hpilo.Ilo">
-<em class="property">class </em><tt class="descclassname">hpilo.</tt><tt class="descname">Ilo</tt><big>(</big><em>hostname</em>, <em>login=None</em>, <em>password=None</em>, <em>timeout=60</em>, <em>port=443</em>, <em>protocol=None</em>, <em>delayed=False</em><big>)</big><a class="headerlink" href="#hpilo.Ilo" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">hpilo.</tt><tt class="descname">Ilo</tt><big>(</big><em>hostname</em>, <em>login=None</em>, <em>password=None</em>, <em>timeout=60</em>, <em>port=443</em>, <em>protocol=None</em>, <em>delayed=False</em>, <em>ssl_version=None</em><big>)</big><a class="headerlink" href="#hpilo.Ilo" title="Permalink to this definition">¶</a></dt>
 <dd><p>Represents an iLO management interface on a specific host.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -90,6 +90,10 @@ not specify this parameter, it will be autodetected.</li>
 for any method call you make and return a result. To save
 roundtrip time costs, set this to <tt class="xref py py-data docutils literal"><span class="pre">False</span></tt> and call
 the <a class="reference internal" href="#hpilo.Ilo.call_delayed" title="hpilo.Ilo.call_delayed"><tt class="xref py py-meth docutils literal"><span class="pre">call_delayed()</span></tt></a> method manually.</li>
+<li><strong>ssl_version</strong> &#8211; By default, this library will use the TLSv1 protocol as
+security layer, falling back to SSLv3 if necessary. You can
+specify a different TLS version (use the constants from the
+ssl module) to use if necessary.</li>
 </ul>
 </td>
 </tr>
@@ -108,6 +112,11 @@ illustrated with an example. Observe the difference between:</p>
 <span class="go"> &#39;management_processor&#39;: &#39;iLO3&#39;}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pprint</span><span class="p">(</span><span class="n">ilo</span><span class="o">.</span><span class="n">get_uid_status</span><span class="p">())</span>
 <span class="go">&#39;OFF&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span> <span class="o">=</span> <span class="n">hpilo</span><span class="o">.</span><span class="n">Ilo</span><span class="p">(</span><span class="s">&#39;example-server.int.kaarsemaker.net&#39;</span><span class="p">,</span> <span class="s">&#39;Administrator&#39;</span><span class="p">,</span> <span class="s">&#39;PassW0rd&#39;</span><span class="p">,</span> <span class="n">ssl_version</span><span class="o">=</span><span class="n">ssl</span><span class="o">.</span><span class="n">PROTOCOL_TLSv1_2</span><span class="p">)</span>
+<span class="go">{&#39;firmware_date&#39;: &#39;Dec 02 2015&#39;,</span>
+<span class="go"> &#39;firmware_version&#39;: &#39;2.40&#39;,</span>
+<span class="go"> &#39;license_type&#39;: &#39;iLO Standard&#39;,</span>
+<span class="go"> &#39;management_processor&#39;: &#39;iLO4&#39;}</span>
 </pre></div>
 </div>
 <p>and</p>
@@ -219,7 +228,7 @@ password.</p>
         <li class="right" >
           <a href="install.html" title="Installing python-hpilo"
              >previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">python-hpilo 3.6 documentation</a> &raquo;</li>
+    <li><a href="index.html">python-hpilo 3.7 documentation</a> &raquo;</li>
  
       </ul>
     </div>
