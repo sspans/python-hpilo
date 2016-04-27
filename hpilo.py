@@ -1,8 +1,9 @@
 # (c) 2011-2016 Dennis Kaarsemaker <dennis@kaarsemaker.net>
 # see COPYING for license details
 
-__version__ = "3.7"
+__version__ = "3.8"
 
+import codecs
 import os
 import errno
 import platform
@@ -18,14 +19,16 @@ import hpilo_fw
 PY3 = sys.version_info[0] >= 3
 if PY3:
     import urllib.request as urllib2
-    import io as StringIO
+    import io
     b = lambda x: bytes(x, 'ascii')
     class Bogus(Exception): pass
     socket.sslerror = Bogus
     basestring = str
 else:
     import urllib2
-    import cStringIO as StringIO
+    import cStringIO as io
+    if not hasattr(io, 'BytesIO'):
+        io.BytesIO = io.StringIO
     b = lambda x: x
 
 try:
@@ -108,6 +111,22 @@ elif hasattr(etree.ElementTree, '_write'):
     etree.ElementTree._write = _write
 else:
     raise RuntimeError("Don't know how to monkeypatch XML serializer workarounds. Please report a bug at https://github.com/seveas/python-hpilo")
+
+# We handle non-ascii characters in the returned XML by replacing them with XML
+# character references. This likely results in bogus data, but avoids crashes.
+# The iLO should never do this, but firmware bugs may cause it to do so.
+def iloxml_replace(error):
+    ret = ""
+    for pos in range(error.start, len(error.object)):
+        b = error.object[pos]
+        if not isinstance(b, int):
+            b = ord(b)
+        if b < 128:
+            break
+        ret += u'?'
+    warnings.warn("Invalid ascii data found: %s, replaced with %s" % (repr(error.object[error.start:pos]), ret), IloWarning)
+    return (ret, pos)
+codecs.register_error('iloxml_replace', iloxml_replace)
 
 # Which protocol to use
 ILO_RAW  = 1
@@ -220,7 +239,7 @@ class Ilo(object):
 
     def _debug(self, level, message):
         if message.__class__.__name__ == 'bytes':
-            message = message.decode('latin-1')
+            message = message.decode('ascii')
         if self.debug >= level:
             if self._protect_passwords:
                 message = re.sub(r'PASSWORD=".*?"', 'PASSWORD="********"', message)
@@ -317,7 +336,7 @@ class Ilo(object):
         try:
             while True:
                 d = sock.read()
-                data += d.decode('latin-1')
+                data += d.decode('ascii')
                 if not d:
                     break
         except socket.sslerror: # Connection closed
@@ -342,13 +361,13 @@ class Ilo(object):
         if self.read_response or self.save_request:
             class FakeSocket(object):
                 def __init__(self, rfile=None, wfile=None):
-                    self.input = rfile and open(rfile) or StringIO.StringIO()
-                    self.output = wfile and open(wfile, 'a') or StringIO.StringIO()
+                    self.input = rfile and open(rfile, 'rb') or io.BytesIO()
+                    self.output = wfile and open(wfile, 'ab') or io.BytesIO()
                     self.read = self.input.read
                     self.write = self.output.write
                     data = self.input.read(4)
                     self.input.seek(0)
-                    self.protocol = data == 'HTTP' and ILO_HTTP or ILO_RAW
+                    self.protocol = data == b('HTTP') and ILO_HTTP or ILO_RAW
                 def close(self):
                     self.input.close()
                     self.output.close()
@@ -452,7 +471,7 @@ class Ilo(object):
         data = ''
         try:
             while True:
-                d = sock.read().decode('latin-1')
+                d = sock.read().decode('ascii', 'iloxml_replace')
                 data += d
                 if not d:
                     break
@@ -544,7 +563,10 @@ class Ilo(object):
                 root, login = self._elements
             else:
                 self._elements = (root, login)
-        element = etree.SubElement(login, element, **attrs)
+        if self.delayed and len(login) and login[-1].tag == element and login[-1].attrib == attrs:
+            element = login[-1]
+        else:
+            element = etree.SubElement(login, element, **attrs)
         return root, element
 
     def _parse_message(self, data, include_inform=False):
@@ -688,7 +710,7 @@ class Ilo(object):
         for t in tags[1:]:
             inner = etree.SubElement(inner, t[0], **t[1])
         header, message = self._request(root)
-        fd = StringIO.StringIO()
+        fd = io.BytesIO()
         etree.ElementTree(message).write(fd)
         ret = fd.getvalue()
         fd.close()
@@ -893,6 +915,11 @@ class Ilo(object):
     def factory_defaults(self):
         """Reset the iLO to factory default settings"""
         return self._control_tag('RIB_INFO', 'FACTORY_DEFAULTS')
+
+    def force_format(self):
+        """Forcefully format the iLO's internal NAND flash. Only use this when
+           the iLO is having severe problems and its self-test fails"""
+        return self._control_tag('RIB_INFO', 'FORCE_FORMAT', attrib={'VALUE': 'all'})
 
     def get_ahs_status(self):
         """Get active health system logging status"""
@@ -1884,7 +1911,7 @@ class Ilo(object):
                 opener = urllib2.build_opener(urllib2.ProxyHandler({}))
             req = opener.open(url, None, self.timeout)
             data = req.read()
-            self._debug(1, str(req.headers).rstrip() + "\n\n" + data.decode('utf-8', 'replace'))
+            self._debug(1, str(req.headers).rstrip() + "\n\n" + data.decode('ascii', 'iloxml_replace'))
         if self.save_response:
             fd = open(self.save_response, 'a')
             fd.write(data)
