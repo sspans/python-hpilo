@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Common issues &mdash; python-hpilo 3.7 documentation</title>
+    <title>Common issues &mdash; python-hpilo 3.8 documentation</title>
     
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '3.7',
+        VERSION:     '3.8',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,7 +27,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/cloud.js"></script>
-    <link rel="top" title="python-hpilo 3.7 documentation" href="index.html" />
+    <link rel="top" title="python-hpilo 3.8 documentation" href="index.html" />
     <link rel="next" title="Contributing guide" href="contributing.html" />
     <link rel="prev" title="Managing iLO’s with puppet" href="puppet.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -50,7 +50,7 @@
         <li class="right" >
           <a href="puppet.html" title="Managing iLO’s with puppet"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">python-hpilo 3.7 documentation</a> &raquo;</li>
+    <li><a href="index.html">python-hpilo 3.8 documentation</a> &raquo;</li>
  
       </ul>
     </div>
@@ -143,6 +143,17 @@ hpilo_cli example-server.int.kaarsemaker.net update_rib_firmware version=latest
 </pre></div>
 </div>
 </div>
+<div class="section" id="hpilo-iloerror-error-reading-configuration">
+<h2><cite>hpilo.IloError: Error reading configuration</cite><a class="headerlink" href="#hpilo-iloerror-error-reading-configuration" title="Permalink to this headline">¶</a></h2>
+<p>This error might occur in delayed mode when one of the calls causes a reset of
+the iLO, such as changing network settings or reseting to factory defaults. All
+delayed calls called by the same <cite>call_delayed</cite> after this reset may then cause
+this error as the iLO is reseting. For example, when calling <cite>hpilo_cli
+localhost factory_defaults + activate_license key=12345</cite>, the
+<cite>activate_license</cite> call may fail with this error. If you hit this issue and you
+use calls that can cause a reset, make sure you either use them outside a
+delayed call or at the end of the delayed call.</p>
+</div>
 </div>
 
 
@@ -162,6 +173,7 @@ hpilo_cli example-server.int.kaarsemaker.net update_rib_firmware version=latest
 <li><a class="reference internal" href="#elementtree-parseerror">ElementTree.ParseError</a></li>
 <li><a class="reference internal" href="#unexpected-errors-after-a-login-failure">Unexpected errors after a login failure</a></li>
 <li><a class="reference internal" href="#failure-to-update-ilo3-firmware">Failure to update iLO3 firmware</a></li>
+<li><a class="reference internal" href="#hpilo-iloerror-error-reading-configuration"><cite>hpilo.IloError: Error reading configuration</cite></a></li>
 </ul>
 </li>
 </ul>
@@ -211,7 +223,7 @@ hpilo_cli example-server.int.kaarsemaker.net update_rib_firmware version=latest
         <li class="right" >
           <a href="puppet.html" title="Managing iLO’s with puppet"
              >previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">python-hpilo 3.7 documentation</a> &raquo;</li>
+    <li><a href="index.html">python-hpilo 3.8 documentation</a> &raquo;</li>
  
       </ul>
     </div>
