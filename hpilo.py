@@ -1,7 +1,7 @@
 # (c) 2011-2016 Dennis Kaarsemaker <dennis@kaarsemaker.net>
 # see COPYING for license details
 
-__version__ = "3.8"
+__version__ = "3.9"
 
 import codecs
 import os
@@ -373,7 +373,8 @@ class Ilo(object):
                     self.output.close()
                 shutdown = lambda *args: None
             sock = FakeSocket(self.read_response, self.save_request)
-            self.protocol = sock.protocol
+            if self.read_response:
+                self.protocol = sock.protocol
             return sock
 
         if self.protocol == ILO_LOCAL:
@@ -428,7 +429,7 @@ class Ilo(object):
         sock = self._get_socket()
         if self.read_response:
             protocol = sock.protocol
-        msglen = msglen_ = len(self.XML_HEADER + xml)
+        msglen = len(self.XML_HEADER + xml)
         if protocol == ILO_HTTP:
             extra_header = ''
             if self.cookie:
@@ -1492,8 +1493,8 @@ class Ilo(object):
             del vars['dir_kerberos_keytab']
 
         elements = []
-        for key, val in vars.iteritems():
-            if not val:
+        for key, val in vars.items():
+            if val is None:
                 continue
             if key.endswith('_priv'):
                 if isinstance(val, basestring):
