@@ -62,10 +62,10 @@ def download(ilo, path=None, progress = lambda txt: None):
     return False
 
 def parse(fwfile, ilo):
-    fd = open(fwfile)
+    fd = open(fwfile, 'rb')
     data = fd.read()
     fd.close()
-    if '_SKIP=' in data:
+    if b('_SKIP=') in data:
         # scexe file
         fwfile = _parse(data, os.getcwd())
     return fwfile
@@ -98,7 +98,6 @@ def _parse(scexe, path, filename=None):
 
     tf = tarfile.open(name="bogus_name_for_old_python_versions", fileobj=BytesIO(tarball), mode='r:gz')
     filenames = [x for x in tf.getnames() if x.endswith('.bin')]
-    orig_filename = filename
     if not filename or filename not in filenames:
         if len(filenames) != 1:
             raise ValueError("scexe file seems corrupt")
