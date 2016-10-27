@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Common issues &mdash; python-hpilo 3.8 documentation</title>
+    <title>Common issues &mdash; python-hpilo 3.9 documentation</title>
     
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '3.8',
+        VERSION:     '3.9',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,15 +27,15 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/cloud.js"></script>
-    <link rel="top" title="python-hpilo 3.8 documentation" href="index.html" />
+    <link rel="top" title="python-hpilo 3.9 documentation" href="index.html" />
     <link rel="next" title="Contributing guide" href="contributing.html" />
     <link rel="prev" title="Managing iLO’s with puppet" href="puppet.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
-  <body>
+  <body role="document">
     <div class="relbar-top">
         
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -50,7 +50,7 @@
         <li class="right" >
           <a href="puppet.html" title="Managing iLO’s with puppet"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">python-hpilo 3.8 documentation</a> &raquo;</li>
+    <li><a href="index.html">python-hpilo 3.9 documentation</a> &raquo;</li>
  
       </ul>
     </div>
@@ -60,7 +60,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="common-issues">
 <h1>Common issues<a class="headerlink" href="#common-issues" title="Permalink to this headline">¶</a></h1>
@@ -75,10 +75,10 @@ follows:</p>
 </div>
 <p>Of course you should replace the hostname  with the actual iLO hostname or ip,
 and get_fw_version with the actual call you want to make. If you use the python
-API instead of the CLI tool, set the <tt class="xref py py-data docutils literal"><span class="pre">save_response</span></tt> attribute on the ilo
+API instead of the CLI tool, set the <code class="xref py py-data docutils literal"><span class="pre">save_response</span></code> attribute on the ilo
 object:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">ilo</span> <span class="o">=</span> <span class="n">hpilo</span><span class="o">.</span><span class="n">Ilo</span><span class="p">(</span><span class="n">hostname</span><span class="p">,</span> <span class="n">login</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
-<span class="n">ilo</span><span class="o">.</span><span class="n">save_response</span> <span class="o">=</span> <span class="s">&quot;for_bugreport.txt&quot;</span>
+<span class="n">ilo</span><span class="o">.</span><span class="n">save_response</span> <span class="o">=</span> <span class="s2">&quot;for_bugreport.txt&quot;</span>
 <span class="n">ilo</span><span class="o">.</span><span class="n">get_fw_version</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -130,7 +130,7 @@ version and try again. If the problem persists, please file a bug report.</p>
 <div class="section" id="unexpected-errors-after-a-login-failure">
 <h2>Unexpected errors after a login failure<a class="headerlink" href="#unexpected-errors-after-a-login-failure" title="Permalink to this headline">¶</a></h2>
 <p>If you use the wrong credentials to access the XML interface, some iLO&#8217;s get
-into some weird state. Call <tt class="xref py py-func docutils literal"><span class="pre">get_fw_version()</span></tt> a few times to clear this
+into some weird state. Call <code class="xref py py-func docutils literal"><span class="pre">get_fw_version()</span></code> a few times to clear this
 state and recover.</p>
 </div>
 <div class="section" id="failure-to-update-ilo3-firmware">
@@ -160,7 +160,7 @@ delayed call or at the end of the delayed call.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
         <p class="logo"><a href="index.html" title="index">
           <img class="logo" src="_static/python-hpilo.png" alt="Logo"/>
@@ -189,7 +189,7 @@ delayed call or at the end of the delayed call.</p>
     <p class="topless"><a href="contributing.html"
                           title="Next page">&rarr; Contributing guide</a></p>
   </div>
-<div id="searchbox" style="display: none">
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -208,7 +208,7 @@ delayed call or at the end of the delayed call.</p>
     </div>
     <div class="relbar-bottom">
         
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -223,13 +223,13 @@ delayed call or at the end of the delayed call.</p>
         <li class="right" >
           <a href="puppet.html" title="Managing iLO’s with puppet"
              >previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">python-hpilo 3.8 documentation</a> &raquo;</li>
+    <li><a href="index.html">python-hpilo 3.9 documentation</a> &raquo;</li>
  
       </ul>
     </div>
     </div>
 
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2011-2016, Dennis Kaarsemaker.
     </div>
     <!-- cloud_sptheme 1.4 -->

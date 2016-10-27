@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>General server and iLO information &mdash; python-hpilo 3.8 documentation</title>
+    <title>General server and iLO information &mdash; python-hpilo 3.9 documentation</title>
     
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '3.8',
+        VERSION:     '3.9',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,15 +27,15 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/cloud.js"></script>
-    <link rel="top" title="python-hpilo 3.8 documentation" href="index.html" />
+    <link rel="top" title="python-hpilo 3.9 documentation" href="index.html" />
     <link rel="next" title="Network settings" href="networksettings.html" />
     <link rel="prev" title="Access from the shell" href="shell.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
-  <body>
+  <body role="document">
     <div class="relbar-top">
         
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -50,7 +50,7 @@
         <li class="right" >
           <a href="shell.html" title="Access from the shell"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">python-hpilo 3.8 documentation</a> &raquo;</li>
+    <li><a href="index.html">python-hpilo 3.9 documentation</a> &raquo;</li>
  
       </ul>
     </div>
@@ -60,7 +60,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="general-server-and-ilo-information">
 <h1>General server and iLO information<a class="headerlink" href="#general-server-and-ilo-information" title="Permalink to this headline">¶</a></h1>
@@ -70,23 +70,23 @@ describes all the ones that do not fit under a more specific subject, such as
 authentication or power.</p>
 <dl class="class">
 <dt>
-<em class="property">class </em><tt class="descclassname">hpilo.</tt><tt class="descname">Ilo</tt></dt>
+<em class="property">class </em><code class="descclassname">hpilo.</code><code class="descname">Ilo</code></dt>
 <dd><dl class="method">
 <dt id="hpilo.Ilo.factory_defaults">
-<tt class="descname">factory_defaults</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.factory_defaults" title="Permalink to this definition">¶</a></dt>
+<code class="descname">factory_defaults</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.factory_defaults" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reset the iLO to factory default settings</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hpilo.Ilo.force_format">
-<tt class="descname">force_format</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.force_format" title="Permalink to this definition">¶</a></dt>
+<code class="descname">force_format</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.force_format" title="Permalink to this definition">¶</a></dt>
 <dd><p>Forcefully format the iLO&#8217;s internal NAND flash. Only use this when
 the iLO is having severe problems and its self-test fails</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hpilo.Ilo.get_product_name">
-<tt class="descname">get_product_name</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_product_name" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_product_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.get_product_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the model name of the server, use get_fw_version to get the iLO model</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_product_name</span><span class="p">()</span>
 <span class="go">ProLiant BL460c Gen8</span>
@@ -96,7 +96,7 @@ the iLO is having severe problems and its self-test fails</p>
 
 <dl class="method">
 <dt id="hpilo.Ilo.get_fw_version">
-<tt class="descname">get_fw_version</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_fw_version" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_fw_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.get_fw_version" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the iLO type and firmware version, use get_product_name to get the server model</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_fw_version</span><span class="p">()</span>
 <span class="go">{&#39;firmware_date&#39;: &#39;Jan 15 2015&#39;,</span>
@@ -109,10 +109,10 @@ the iLO is having severe problems and its self-test fails</p>
 
 <dl class="method">
 <dt id="hpilo.Ilo.get_host_data">
-<tt class="descname">get_host_data</tt><big>(</big><em>decoded_only=True</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_host_data" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_host_data</code><span class="sig-paren">(</span><em>decoded_only=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.get_host_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get SMBIOS records that describe the host. By default only the ones
 where human readable information is available are returned. To get
-all records pass <tt class="xref py py-attr docutils literal"><span class="pre">decoded_only=False</span></tt></p>
+all records pass <code class="xref py py-attr docutils literal"><span class="pre">decoded_only=False</span></code></p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_host_data</span><span class="p">()</span>
 <span class="go">[{&#39;Date&#39;: &#39;08/02/2014&#39;,</span>
 <span class="go">  &#39;Family&#39;: &#39;I31&#39;,</span>
@@ -224,7 +224,7 @@ all records pass <tt class="xref py py-attr docutils literal"><span class="pre">
 
 <dl class="method">
 <dt id="hpilo.Ilo.get_global_settings">
-<tt class="descname">get_global_settings</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_global_settings" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_global_settings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.get_global_settings" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get global iLO settings</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_global_settings</span><span class="p">()</span>
 <span class="go">{&#39;alertmail_email_address&#39;: &#39;&#39;,</span>
@@ -263,13 +263,13 @@ all records pass <tt class="xref py py-attr docutils literal"><span class="pre">
 
 <dl class="method">
 <dt id="hpilo.Ilo.mod_global_settings">
-<tt class="descname">mod_global_settings</tt><big>(</big><em>session_timeout=None</em>, <em>f8_prompt_enabled=None</em>, <em>f8_login_required=None</em>, <em>lock_configuration=None</em>, <em>ilo_funct_enabled=None</em>, <em>serial_cli_status=None</em>, <em>serial_cli_speed=None</em>, <em>http_port=None</em>, <em>https_port=None</em>, <em>ssh_port=None</em>, <em>ssh_status=None</em>, <em>vmedia_disable=None</em>, <em>virtual_media_port=None</em>, <em>remote_console_port=None</em>, <em>snmp_access_enabled=None</em>, <em>snmp_port=None</em>, <em>snmp_trap_port=None</em>, <em>remote_syslog_enable=None</em>, <em>remote_syslog_server_address=None</em>, <em>remote_syslog_port=None</em>, <em>alertmail_enable=None</em>, <em>alertmail_email_address=None</em>, <em>alertmail_sender_domain=None</em>, <em>alertmail_smtp_server=None</em>, <em>alertmail_smtp_port=None</em>, <em>min_password=None</em>, <em>enforce_aes=None</em>, <em>authentication_failure_logging=None</em>, <em>rbsu_post_ip=None</em>, <em>remote_console_encryption=None</em>, <em>remote_keyboard_model=None</em>, <em>terminal_services_port=None</em>, <em>high_performance_mouse=None</em>, <em>shared_console_enable=None</em>, <em>shared_console_port=None</em>, <em>remote_console_acquire=None</em>, <em>brownout_recovery=None</em>, <em>ipmi_dcmi_over_lan_enabled=None</em>, <em>vsp_log_enable=None</em>, <em>vsp_software_flow_control=None</em>, <em>propagate_time_to_host=None</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.mod_global_settings" title="Permalink to this definition">¶</a></dt>
+<code class="descname">mod_global_settings</code><span class="sig-paren">(</span><em>session_timeout=None</em>, <em>f8_prompt_enabled=None</em>, <em>f8_login_required=None</em>, <em>lock_configuration=None</em>, <em>ilo_funct_enabled=None</em>, <em>serial_cli_status=None</em>, <em>serial_cli_speed=None</em>, <em>http_port=None</em>, <em>https_port=None</em>, <em>ssh_port=None</em>, <em>ssh_status=None</em>, <em>vmedia_disable=None</em>, <em>virtual_media_port=None</em>, <em>remote_console_port=None</em>, <em>snmp_access_enabled=None</em>, <em>snmp_port=None</em>, <em>snmp_trap_port=None</em>, <em>remote_syslog_enable=None</em>, <em>remote_syslog_server_address=None</em>, <em>remote_syslog_port=None</em>, <em>alertmail_enable=None</em>, <em>alertmail_email_address=None</em>, <em>alertmail_sender_domain=None</em>, <em>alertmail_smtp_server=None</em>, <em>alertmail_smtp_port=None</em>, <em>min_password=None</em>, <em>enforce_aes=None</em>, <em>authentication_failure_logging=None</em>, <em>rbsu_post_ip=None</em>, <em>remote_console_encryption=None</em>, <em>remote_keyboard_model=None</em>, <em>terminal_services_port=None</em>, <em>high_performance_mouse=None</em>, <em>shared_console_enable=None</em>, <em>shared_console_port=None</em>, <em>remote_console_acquire=None</em>, <em>brownout_recovery=None</em>, <em>ipmi_dcmi_over_lan_enabled=None</em>, <em>vsp_log_enable=None</em>, <em>vsp_software_flow_control=None</em>, <em>propagate_time_to_host=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.mod_global_settings" title="Permalink to this definition">¶</a></dt>
 <dd><p>Modify iLO global settings, only values that are specified will be changed.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hpilo.Ilo.get_server_name">
-<tt class="descname">get_server_name</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_server_name" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_server_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.get_server_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the name of the server this iLO is managing</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_server_name</span><span class="p">()</span>
 <span class="go">example-server.int.kaarsemaker.net</span>
@@ -279,13 +279,13 @@ all records pass <tt class="xref py py-attr docutils literal"><span class="pre">
 
 <dl class="method">
 <dt id="hpilo.Ilo.set_server_name">
-<tt class="descname">set_server_name</tt><big>(</big><em>name</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.set_server_name" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_server_name</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.set_server_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the name of the server</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hpilo.Ilo.get_server_fqdn">
-<tt class="descname">get_server_fqdn</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_server_fqdn" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_server_fqdn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.get_server_fqdn" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the fqdn of the server this iLO is managing</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_server_fqdn</span><span class="p">()</span>
 <span class="go">example-server.int.kaarsemaker.net</span>
@@ -295,13 +295,13 @@ all records pass <tt class="xref py py-attr docutils literal"><span class="pre">
 
 <dl class="method">
 <dt id="hpilo.Ilo.set_server_fqdn">
-<tt class="descname">set_server_fqdn</tt><big>(</big><em>fqdn</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.set_server_fqdn" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_server_fqdn</code><span class="sig-paren">(</span><em>fqdn</em><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.set_server_fqdn" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the fqdn of the server</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hpilo.Ilo.get_smh_fqdn">
-<tt class="descname">get_smh_fqdn</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_smh_fqdn" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_smh_fqdn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.get_smh_fqdn" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the fqdn of the HP System Management Homepage</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_smh_fqdn</span><span class="p">()</span>
 <span class="go">example-server.int.kaarsemaker.net</span>
@@ -311,7 +311,7 @@ all records pass <tt class="xref py py-attr docutils literal"><span class="pre">
 
 <dl class="method">
 <dt id="hpilo.Ilo.get_oa_info">
-<tt class="descname">get_oa_info</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_oa_info" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_oa_info</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.get_oa_info" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get information about the Onboard Administrator of the enclosing chassis</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_oa_info</span><span class="p">()</span>
 <span class="go">{&#39;encl&#39;: &#39;chassis-25&#39;,</span>
@@ -327,7 +327,7 @@ all records pass <tt class="xref py py-attr docutils literal"><span class="pre">
 
 <dl class="method">
 <dt id="hpilo.Ilo.get_asset_tag">
-<tt class="descname">get_asset_tag</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_asset_tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_asset_tag</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.get_asset_tag" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the server asset tag</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_asset_tag</span><span class="p">()</span>
 <span class="go">/home/dennis/code/python-hpilo/hpilo.py:459: IloWarning: No Asset Tag Information.</span>
@@ -343,13 +343,13 @@ all records pass <tt class="xref py py-attr docutils literal"><span class="pre">
 
 <dl class="method">
 <dt id="hpilo.Ilo.set_asset_tag">
-<tt class="descname">set_asset_tag</tt><big>(</big><em>asset_tag</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.set_asset_tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_asset_tag</code><span class="sig-paren">(</span><em>asset_tag</em><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.set_asset_tag" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the server asset tag</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hpilo.Ilo.get_uid_status">
-<tt class="descname">get_uid_status</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_uid_status" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_uid_status</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.get_uid_status" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the status of the UID light</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_uid_status</span><span class="p">()</span>
 <span class="go">OFF</span>
@@ -359,13 +359,13 @@ all records pass <tt class="xref py py-attr docutils literal"><span class="pre">
 
 <dl class="method">
 <dt id="hpilo.Ilo.uid_control">
-<tt class="descname">uid_control</tt><big>(</big><em>uid=False</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.uid_control" title="Permalink to this definition">¶</a></dt>
+<code class="descname">uid_control</code><span class="sig-paren">(</span><em>uid=False</em><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.uid_control" title="Permalink to this definition">¶</a></dt>
 <dd><p>Turn the UID light on (&#8220;Yes&#8221;) or off (&#8220;No&#8221;)</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hpilo.Ilo.get_all_languages">
-<tt class="descname">get_all_languages</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_all_languages" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_all_languages</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.get_all_languages" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the list of installed languages - broken because iLO returns invalid XML</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_all_languages</span><span class="p">()</span>
 <span class="go">{&#39;language_selection&#39;: {&#39;lang_id&#39;: &#39;en&#39;, &#39;language&#39;: &#39;English&#39;}}</span>
@@ -375,7 +375,7 @@ all records pass <tt class="xref py py-attr docutils literal"><span class="pre">
 
 <dl class="method">
 <dt id="hpilo.Ilo.get_language">
-<tt class="descname">get_language</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_language" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_language</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.get_language" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the default language set</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_language</span><span class="p">()</span>
 <span class="go">{&#39;lang_id&#39;: &#39;en&#39;, &#39;language&#39;: &#39;English&#39;}</span>
@@ -385,13 +385,13 @@ all records pass <tt class="xref py py-attr docutils literal"><span class="pre">
 
 <dl class="method">
 <dt id="hpilo.Ilo.set_language">
-<tt class="descname">set_language</tt><big>(</big><em>lang_id</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.set_language" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_language</code><span class="sig-paren">(</span><em>lang_id</em><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.set_language" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the default language. Only EN, JA and ZH are supported</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hpilo.Ilo.get_rack_settings">
-<tt class="descname">get_rack_settings</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_rack_settings" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_rack_settings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.get_rack_settings" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the rack settings for an iLO</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_rack_settings</span><span class="p">()</span>
 <span class="go">{&#39;bay&#39;: 9,</span>
@@ -406,7 +406,7 @@ all records pass <tt class="xref py py-attr docutils literal"><span class="pre">
 
 <dl class="method">
 <dt id="hpilo.Ilo.get_spatial">
-<tt class="descname">get_spatial</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_spatial" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_spatial</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.get_spatial" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get location information</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_spatial</span><span class="p">()</span>
 <span class="go">{&#39;bay&#39;: 4,</span>
@@ -437,7 +437,7 @@ all records pass <tt class="xref py py-attr docutils literal"><span class="pre">
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
         <p class="logo"><a href="index.html" title="index">
           <img class="logo" src="_static/python-hpilo.png" alt="Logo"/>
@@ -452,7 +452,7 @@ all records pass <tt class="xref py py-attr docutils literal"><span class="pre">
     <p class="topless"><a href="networksettings.html"
                           title="Next page">&rarr; Network settings</a></p>
   </div>
-<div id="searchbox" style="display: none">
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -471,7 +471,7 @@ all records pass <tt class="xref py py-attr docutils literal"><span class="pre">
     </div>
     <div class="relbar-bottom">
         
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -486,13 +486,13 @@ all records pass <tt class="xref py py-attr docutils literal"><span class="pre">
         <li class="right" >
           <a href="shell.html" title="Access from the shell"
              >previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">python-hpilo 3.8 documentation</a> &raquo;</li>
+    <li><a href="index.html">python-hpilo 3.9 documentation</a> &raquo;</li>
  
       </ul>
     </div>
     </div>
 
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2011-2016, Dennis Kaarsemaker.
     </div>
     <!-- cloud_sptheme 1.4 -->

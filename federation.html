@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Federation groups &mdash; python-hpilo 3.8 documentation</title>
+    <title>Federation groups &mdash; python-hpilo 3.9 documentation</title>
     
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '3.8',
+        VERSION:     '3.9',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,15 +27,15 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/cloud.js"></script>
-    <link rel="top" title="python-hpilo 3.8 documentation" href="index.html" />
+    <link rel="top" title="python-hpilo 3.9 documentation" href="index.html" />
     <link rel="next" title="Active Health System and Insight Remote Support" href="ahs.html" />
     <link rel="prev" title="iLO event log" href="log.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
-  <body>
+  <body role="document">
     <div class="relbar-top">
         
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -50,7 +50,7 @@
         <li class="right" >
           <a href="log.html" title="iLO event log"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">python-hpilo 3.8 documentation</a> &raquo;</li>
+    <li><a href="index.html">python-hpilo 3.9 documentation</a> &raquo;</li>
  
       </ul>
     </div>
@@ -60,7 +60,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="federation-groups">
 <h1>Federation groups<a class="headerlink" href="#federation-groups" title="Permalink to this headline">¶</a></h1>
@@ -69,16 +69,16 @@ web interface, including firmware updates, license installs and querying health
 status.</p>
 <dl class="class">
 <dt>
-<em class="property">class </em><tt class="descclassname">hpilo.</tt><tt class="descname">Ilo</tt></dt>
+<em class="property">class </em><code class="descclassname">hpilo.</code><code class="descname">Ilo</code></dt>
 <dd><dl class="method">
 <dt id="hpilo.Ilo.add_federation_group">
-<tt class="descname">add_federation_group</tt><big>(</big><em>group_name</em>, <em>group_key</em>, <em>admin_priv=False</em>, <em>remote_cons_priv=True</em>, <em>reset_server_priv=False</em>, <em>virtual_media_priv=False</em>, <em>config_ilo_priv=True</em>, <em>login_priv=False</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.add_federation_group" title="Permalink to this definition">¶</a></dt>
+<code class="descname">add_federation_group</code><span class="sig-paren">(</span><em>group_name</em>, <em>group_key</em>, <em>admin_priv=False</em>, <em>remote_cons_priv=True</em>, <em>reset_server_priv=False</em>, <em>virtual_media_priv=False</em>, <em>config_ilo_priv=True</em>, <em>login_priv=False</em><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.add_federation_group" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a new federation group</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hpilo.Ilo.get_federation_all_groups">
-<tt class="descname">get_federation_all_groups</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_federation_all_groups" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_federation_all_groups</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.get_federation_all_groups" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get all federation group names</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_federation_all_groups</span><span class="p">()</span>
 <span class="go">[&#39;DEFAULT&#39;]</span>
@@ -88,7 +88,7 @@ status.</p>
 
 <dl class="method">
 <dt id="hpilo.Ilo.get_federation_all_groups_info">
-<tt class="descname">get_federation_all_groups_info</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_federation_all_groups_info" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_federation_all_groups_info</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.get_federation_all_groups_info" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get all federation group names and associated privileges</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_federation_all_groups_info</span><span class="p">()</span>
 <span class="go">{&#39;DEFAULT&#39;: {&#39;admin_priv&#39;: False,</span>
@@ -104,9 +104,9 @@ status.</p>
 
 <dl class="method">
 <dt id="hpilo.Ilo.get_federation_group">
-<tt class="descname">get_federation_group</tt><big>(</big><em>group_name</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_federation_group" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_federation_group</code><span class="sig-paren">(</span><em>group_name</em><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.get_federation_group" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get privileges for a specific federation group</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_federation_group</span><span class="p">(</span><span class="n">group_name</span><span class="o">=</span><span class="s">&quot;DEFAULT&quot;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_federation_group</span><span class="p">(</span><span class="n">group_name</span><span class="o">=</span><span class="s2">&quot;DEFAULT&quot;</span><span class="p">)</span>
 <span class="go">{&#39;admin_priv&#39;: False,</span>
 <span class="go"> &#39;config_ilo_priv&#39;: False,</span>
 <span class="go"> &#39;group_name&#39;: &#39;DEFAULT&#39;,</span>
@@ -120,7 +120,7 @@ status.</p>
 
 <dl class="method">
 <dt id="hpilo.Ilo.mod_federation_group">
-<tt class="descname">mod_federation_group</tt><big>(</big><em>group_name</em>, <em>new_group_name=None</em>, <em>group_key=None</em>, <em>admin_priv=None</em>, <em>remote_cons_priv=None</em>, <em>reset_server_priv=None</em>, <em>virtual_media_priv=None</em>, <em>config_ilo_priv=None</em>, <em>login_priv=None</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.mod_federation_group" title="Permalink to this definition">¶</a></dt>
+<code class="descname">mod_federation_group</code><span class="sig-paren">(</span><em>group_name</em>, <em>new_group_name=None</em>, <em>group_key=None</em>, <em>admin_priv=None</em>, <em>remote_cons_priv=None</em>, <em>reset_server_priv=None</em>, <em>virtual_media_priv=None</em>, <em>config_ilo_priv=None</em>, <em>login_priv=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.mod_federation_group" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set attributes for a federation group, only specified arguments will
 be changed.  All arguments except group_name, new_group_name and
 group_key should be boolean</p>
@@ -128,13 +128,13 @@ group_key should be boolean</p>
 
 <dl class="method">
 <dt id="hpilo.Ilo.delete_federation_group">
-<tt class="descname">delete_federation_group</tt><big>(</big><em>group_name</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.delete_federation_group" title="Permalink to this definition">¶</a></dt>
+<code class="descname">delete_federation_group</code><span class="sig-paren">(</span><em>group_name</em><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.delete_federation_group" title="Permalink to this definition">¶</a></dt>
 <dd><p>Delete the specified federation group membership</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hpilo.Ilo.get_federation_multicast">
-<tt class="descname">get_federation_multicast</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_federation_multicast" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_federation_multicast</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.get_federation_multicast" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the iLO federation mulicast settings</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_federation_multicast</span><span class="p">()</span>
 <span class="go">{&#39;ipv6_multicast_scope&#39;: &#39;Site&#39;,</span>
@@ -147,7 +147,7 @@ group_key should be boolean</p>
 
 <dl class="method">
 <dt id="hpilo.Ilo.set_federation_multicast">
-<tt class="descname">set_federation_multicast</tt><big>(</big><em>multicast_discovery_enabled=True</em>, <em>multicast_announcement_interval=600</em>, <em>ipv6_multicast_scope='Site'</em>, <em>multicast_ttl=5</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.set_federation_multicast" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_federation_multicast</code><span class="sig-paren">(</span><em>multicast_discovery_enabled=True</em>, <em>multicast_announcement_interval=600</em>, <em>ipv6_multicast_scope='Site'</em>, <em>multicast_ttl=5</em><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.set_federation_multicast" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the Federation multicast configuration</p>
 </dd></dl>
 
@@ -159,7 +159,7 @@ group_key should be boolean</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
         <p class="logo"><a href="index.html" title="index">
           <img class="logo" src="_static/python-hpilo.png" alt="Logo"/>
@@ -174,7 +174,7 @@ group_key should be boolean</p>
     <p class="topless"><a href="ahs.html"
                           title="Next page">&rarr; Active Health System and Insight Remote Support</a></p>
   </div>
-<div id="searchbox" style="display: none">
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -193,7 +193,7 @@ group_key should be boolean</p>
     </div>
     <div class="relbar-bottom">
         
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -208,13 +208,13 @@ group_key should be boolean</p>
         <li class="right" >
           <a href="log.html" title="iLO event log"
              >previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">python-hpilo 3.8 documentation</a> &raquo;</li>
+    <li><a href="index.html">python-hpilo 3.9 documentation</a> &raquo;</li>
  
       </ul>
     </div>
     </div>
 
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2011-2016, Dennis Kaarsemaker.
     </div>
     <!-- cloud_sptheme 1.4 -->

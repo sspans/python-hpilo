@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Network settings &mdash; python-hpilo 3.8 documentation</title>
+    <title>Network settings &mdash; python-hpilo 3.9 documentation</title>
     
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '3.8',
+        VERSION:     '3.9',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,15 +27,15 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/cloud.js"></script>
-    <link rel="top" title="python-hpilo 3.8 documentation" href="index.html" />
+    <link rel="top" title="python-hpilo 3.9 documentation" href="index.html" />
     <link rel="next" title="iLO licensing" href="license.html" />
     <link rel="prev" title="General server and iLO information" href="info.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
-  <body>
+  <body role="document">
     <div class="relbar-top">
         
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -50,7 +50,7 @@
         <li class="right" >
           <a href="info.html" title="General server and iLO information"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">python-hpilo 3.8 documentation</a> &raquo;</li>
+    <li><a href="index.html">python-hpilo 3.9 documentation</a> &raquo;</li>
  
       </ul>
     </div>
@@ -60,7 +60,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="network-settings">
 <h1>Network settings<a class="headerlink" href="#network-settings" title="Permalink to this headline">¶</a></h1>
@@ -69,10 +69,10 @@ these functions you can inspect the network configuration and, if DHCP doesn&#82
 quite do the right thing for you, make manual adjustments.</p>
 <dl class="class">
 <dt>
-<em class="property">class </em><tt class="descclassname">hpilo.</tt><tt class="descname">Ilo</tt></dt>
+<em class="property">class </em><code class="descclassname">hpilo.</code><code class="descname">Ilo</code></dt>
 <dd><dl class="method">
 <dt id="hpilo.Ilo.get_network_settings">
-<tt class="descname">get_network_settings</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_network_settings" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_network_settings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.get_network_settings" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the iLO network settings</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_network_settings</span><span class="p">()</span>
 <span class="go">{&#39;dhcp_dns_server&#39;: True,</span>
@@ -145,7 +145,7 @@ quite do the right thing for you, make manual adjustments.</p>
 
 <dl class="method">
 <dt id="hpilo.Ilo.mod_network_settings">
-<tt class="descname">mod_network_settings</tt><big>(</big><em>enable_nic=None</em>, <em>reg_ddns_server=None</em>, <em>ping_gateway=None</em>, <em>dhcp_domain_name=None</em>, <em>speed_autoselect=None</em>, <em>nic_speed=None</em>, <em>full_duplex=None</em>, <em>dhcp_enable=None</em>, <em>ip_address=None</em>, <em>subnet_mask=None</em>, <em>gateway_ip_address=None</em>, <em>dns_name=None</em>, <em>domain_name=None</em>, <em>dhcp_gateway=None</em>, <em>dhcp_dns_server=None</em>, <em>dhcp_wins_server=None</em>, <em>dhcp_static_route=None</em>, <em>reg_wins_server=None</em>, <em>prim_dns_server=None</em>, <em>sec_dns_server=None</em>, <em>ter_dns_server=None</em>, <em>prim_wins_server=None</em>, <em>sec_wins_server=None</em>, <em>static_route_1=None</em>, <em>static_route_2=None</em>, <em>static_route_3=None</em>, <em>dhcp_sntp_settings=None</em>, <em>sntp_server1=None</em>, <em>sntp_server2=None</em>, <em>timezone=None</em>, <em>enclosure_ip_enable=None</em>, <em>web_agent_ip_address=None</em>, <em>shared_network_port=None</em>, <em>vlan_enabled=None</em>, <em>vlan_id=None</em>, <em>shared_network_port_vlan=None</em>, <em>shared_network_port_vlan_id=None</em>, <em>ipv6_address=None</em>, <em>ipv6_static_route_1=None</em>, <em>ipv6_static_route2=None</em>, <em>ipv6_static_route_3=None</em>, <em>ipv6_prim_dns_server=None</em>, <em>ipv6_sec_dns_server=None</em>, <em>ipv6_ter_dns_server=None</em>, <em>ipv6_default_gateway=None</em>, <em>ipv6_preferred_protocol=None</em>, <em>ipv6_addr_autocfg=None</em>, <em>ipv6_reg_ddns_server=None</em>, <em>dhcpv6_dns_server=None</em>, <em>dhcpv6_rapid_commit=None</em>, <em>dhcpv6_stateful_enable=None</em>, <em>dhcpv6_stateless_enable=None</em>, <em>dhcpv6_sntp_settings=None</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.mod_network_settings" title="Permalink to this definition">¶</a></dt>
+<code class="descname">mod_network_settings</code><span class="sig-paren">(</span><em>enable_nic=None</em>, <em>reg_ddns_server=None</em>, <em>ping_gateway=None</em>, <em>dhcp_domain_name=None</em>, <em>speed_autoselect=None</em>, <em>nic_speed=None</em>, <em>full_duplex=None</em>, <em>dhcp_enable=None</em>, <em>ip_address=None</em>, <em>subnet_mask=None</em>, <em>gateway_ip_address=None</em>, <em>dns_name=None</em>, <em>domain_name=None</em>, <em>dhcp_gateway=None</em>, <em>dhcp_dns_server=None</em>, <em>dhcp_wins_server=None</em>, <em>dhcp_static_route=None</em>, <em>reg_wins_server=None</em>, <em>prim_dns_server=None</em>, <em>sec_dns_server=None</em>, <em>ter_dns_server=None</em>, <em>prim_wins_server=None</em>, <em>sec_wins_server=None</em>, <em>static_route_1=None</em>, <em>static_route_2=None</em>, <em>static_route_3=None</em>, <em>dhcp_sntp_settings=None</em>, <em>sntp_server1=None</em>, <em>sntp_server2=None</em>, <em>timezone=None</em>, <em>enclosure_ip_enable=None</em>, <em>web_agent_ip_address=None</em>, <em>shared_network_port=None</em>, <em>vlan_enabled=None</em>, <em>vlan_id=None</em>, <em>shared_network_port_vlan=None</em>, <em>shared_network_port_vlan_id=None</em>, <em>ipv6_address=None</em>, <em>ipv6_static_route_1=None</em>, <em>ipv6_static_route2=None</em>, <em>ipv6_static_route_3=None</em>, <em>ipv6_prim_dns_server=None</em>, <em>ipv6_sec_dns_server=None</em>, <em>ipv6_ter_dns_server=None</em>, <em>ipv6_default_gateway=None</em>, <em>ipv6_preferred_protocol=None</em>, <em>ipv6_addr_autocfg=None</em>, <em>ipv6_reg_ddns_server=None</em>, <em>dhcpv6_dns_server=None</em>, <em>dhcpv6_rapid_commit=None</em>, <em>dhcpv6_stateful_enable=None</em>, <em>dhcpv6_stateless_enable=None</em>, <em>dhcpv6_sntp_settings=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.mod_network_settings" title="Permalink to this definition">¶</a></dt>
 <dd><p>Configure the network settings for the iLO card. The static route arguments require
 dicts as arguments. The necessary keys in these dicts are dest,
 gateway and mask all in dotted-quad form</p>
@@ -159,7 +159,7 @@ gateway and mask all in dotted-quad form</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
         <p class="logo"><a href="index.html" title="index">
           <img class="logo" src="_static/python-hpilo.png" alt="Logo"/>
@@ -174,7 +174,7 @@ gateway and mask all in dotted-quad form</p>
     <p class="topless"><a href="license.html"
                           title="Next page">&rarr; iLO licensing</a></p>
   </div>
-<div id="searchbox" style="display: none">
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -193,7 +193,7 @@ gateway and mask all in dotted-quad form</p>
     </div>
     <div class="relbar-bottom">
         
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -208,13 +208,13 @@ gateway and mask all in dotted-quad form</p>
         <li class="right" >
           <a href="info.html" title="General server and iLO information"
              >previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">python-hpilo 3.8 documentation</a> &raquo;</li>
+    <li><a href="index.html">python-hpilo 3.9 documentation</a> &raquo;</li>
  
       </ul>
     </div>
     </div>
 
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2011-2016, Dennis Kaarsemaker.
     </div>
     <!-- cloud_sptheme 1.4 -->

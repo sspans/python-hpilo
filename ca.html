@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Managing SSL certificates &mdash; python-hpilo 3.8 documentation</title>
+    <title>Managing SSL certificates &mdash; python-hpilo 3.9 documentation</title>
     
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '3.8',
+        VERSION:     '3.9',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,15 +27,15 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/cloud.js"></script>
-    <link rel="top" title="python-hpilo 3.8 documentation" href="index.html" />
+    <link rel="top" title="python-hpilo 3.9 documentation" href="index.html" />
     <link rel="next" title="iLO information search" href="elasticsearch.html" />
     <link rel="prev" title="Deployment profiles" href="profile.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
-  <body>
+  <body role="document">
     <div class="relbar-top">
         
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -50,7 +50,7 @@
         <li class="right" >
           <a href="profile.html" title="Deployment profiles"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">python-hpilo 3.8 documentation</a> &raquo;</li>
+    <li><a href="index.html">python-hpilo 3.9 documentation</a> &raquo;</li>
  
       </ul>
     </div>
@@ -60,7 +60,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="managing-ssl-certificates">
 <h1>Managing SSL certificates<a class="headerlink" href="#managing-ssl-certificates" title="Permalink to this headline">¶</a></h1>
@@ -69,7 +69,7 @@ nuisance, so let&#8217;s make sure we have proper SSL certificates. This script 
 make that easy to do for you by taking care of all the CA work. All you need to
 do is add the CA&#8217;s certificate to your browsers trusted CA list.</p>
 <p>First thing to do is configure the CA. Add something like the following to your
-<tt class="file docutils literal"><span class="pre">~/.ilo.conf</span></tt>:</p>
+<code class="file docutils literal"><span class="pre">~/.ilo.conf</span></code>:</p>
 <div class="highlight-python"><div class="highlight"><pre>[ca]
 path = ~/.hpilo_ca
 country = NL
@@ -80,7 +80,7 @@ organizational_unit = Sysadmin
 </pre></div>
 </div>
 <p>This path can point to an existing CA, the only requirement is that
-<tt class="file docutils literal"><span class="pre">openssl.cnf</span></tt> for this CA lives inside that directory. The other config
+<code class="file docutils literal"><span class="pre">openssl.cnf</span></code> for this CA lives inside that directory. The other config
 values are used when generating the certificates for the iLOs and are all
 optional, they default to what HP puts in there.</p>
 <p>If the CA does not yet exist, you can create it as follows:</p>
@@ -105,7 +105,7 @@ Common Name (eg, your name or your servers hostname) [hpilo_ca]:
 </div>
 <p>This generates the needed directories, an openssl config and a self-signed
 certificate for your CA.</p>
-<p>When your CA is set up, you can start signing certificates. <tt class="file docutils literal"><span class="pre">hpilo_ca</span></tt>
+<p>When your CA is set up, you can start signing certificates. <code class="file docutils literal"><span class="pre">hpilo_ca</span></code>
 will check several things:</p>
 <blockquote>
 <div><ul class="simple">
@@ -160,7 +160,7 @@ Data Base Updated
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
         <p class="logo"><a href="index.html" title="index">
           <img class="logo" src="_static/python-hpilo.png" alt="Logo"/>
@@ -175,7 +175,7 @@ Data Base Updated
     <p class="topless"><a href="elasticsearch.html"
                           title="Next page">&rarr; iLO information search</a></p>
   </div>
-<div id="searchbox" style="display: none">
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -194,7 +194,7 @@ Data Base Updated
     </div>
     <div class="relbar-bottom">
         
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -209,13 +209,13 @@ Data Base Updated
         <li class="right" >
           <a href="profile.html" title="Deployment profiles"
              >previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">python-hpilo 3.8 documentation</a> &raquo;</li>
+    <li><a href="index.html">python-hpilo 3.9 documentation</a> &raquo;</li>
  
       </ul>
     </div>
     </div>
 
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2011-2016, Dennis Kaarsemaker.
     </div>
     <!-- cloud_sptheme 1.4 -->

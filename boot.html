@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Boot settings and rebooting &mdash; python-hpilo 3.8 documentation</title>
+    <title>Boot settings and rebooting &mdash; python-hpilo 3.9 documentation</title>
     
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '3.8',
+        VERSION:     '3.9',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,15 +27,15 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/cloud.js"></script>
-    <link rel="top" title="python-hpilo 3.8 documentation" href="index.html" />
+    <link rel="top" title="python-hpilo 3.9 documentation" href="index.html" />
     <link rel="next" title="Virtual media" href="media.html" />
     <link rel="prev" title="Power manipulation" href="power.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
-  <body>
+  <body role="document">
     <div class="relbar-top">
         
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -50,7 +50,7 @@
         <li class="right" >
           <a href="power.html" title="Power manipulation"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">python-hpilo 3.8 documentation</a> &raquo;</li>
+    <li><a href="index.html">python-hpilo 3.9 documentation</a> &raquo;</li>
  
       </ul>
     </div>
@@ -60,7 +60,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="boot-settings-and-rebooting">
 <h1>Boot settings and rebooting<a class="headerlink" href="#boot-settings-and-rebooting" title="Permalink to this headline">¶</a></h1>
@@ -70,34 +70,34 @@ iLO. If you need to power off the server hard, take a look at the
 <a class="reference internal" href="power.html"><em>power documentation</em></a>.</p>
 <dl class="class">
 <dt>
-<em class="property">class </em><tt class="descclassname">hpilo.</tt><tt class="descname">Ilo</tt></dt>
+<em class="property">class </em><code class="descclassname">hpilo.</code><code class="descname">Ilo</code></dt>
 <dd><dl class="method">
 <dt id="hpilo.Ilo.reset_rib">
-<tt class="descname">reset_rib</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.reset_rib" title="Permalink to this definition">¶</a></dt>
+<code class="descname">reset_rib</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.reset_rib" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reset the iLO/RILOE board</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hpilo.Ilo.reset_server">
-<tt class="descname">reset_server</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.reset_server" title="Permalink to this definition">¶</a></dt>
+<code class="descname">reset_server</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.reset_server" title="Permalink to this definition">¶</a></dt>
 <dd><p>Power cycle the server</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hpilo.Ilo.cold_boot_server">
-<tt class="descname">cold_boot_server</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.cold_boot_server" title="Permalink to this definition">¶</a></dt>
+<code class="descname">cold_boot_server</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.cold_boot_server" title="Permalink to this definition">¶</a></dt>
 <dd><p>Force a cold boot of the server</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hpilo.Ilo.warm_boot_server">
-<tt class="descname">warm_boot_server</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.warm_boot_server" title="Permalink to this definition">¶</a></dt>
+<code class="descname">warm_boot_server</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.warm_boot_server" title="Permalink to this definition">¶</a></dt>
 <dd><p>Force a warm boot of the server</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hpilo.Ilo.get_one_time_boot">
-<tt class="descname">get_one_time_boot</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_one_time_boot" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_one_time_boot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.get_one_time_boot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the one time boot state of the host</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_one_time_boot</span><span class="p">()</span>
 <span class="go">normal</span>
@@ -107,7 +107,7 @@ iLO. If you need to power off the server hard, take a look at the
 
 <dl class="method">
 <dt id="hpilo.Ilo.set_one_time_boot">
-<tt class="descname">set_one_time_boot</tt><big>(</big><em>device</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.set_one_time_boot" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_one_time_boot</code><span class="sig-paren">(</span><em>device</em><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.set_one_time_boot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set one time boot device, device should be one of normal, floppy,
 cdrom, hdd, usb, rbsu or network. Ilo 4 also supports EMB-MENU
 (Displays the default boot menu), EMB-ACU (Boots into ACU),
@@ -118,7 +118,7 @@ RBSU (Boots into the system RBSU)</p>
 
 <dl class="method">
 <dt id="hpilo.Ilo.get_persistent_boot">
-<tt class="descname">get_persistent_boot</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_persistent_boot" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_persistent_boot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.get_persistent_boot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the boot order of the host. For uEFI hosts (gen9+), this returns
 a list of tuples (name, description. For older host it returns a
 list of names</p>
@@ -130,13 +130,13 @@ list of names</p>
 
 <dl class="method">
 <dt id="hpilo.Ilo.set_persistent_boot">
-<tt class="descname">set_persistent_boot</tt><big>(</big><em>devices</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.set_persistent_boot" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_persistent_boot</code><span class="sig-paren">(</span><em>devices</em><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.set_persistent_boot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set persistent boot order, devices should be comma-separated</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hpilo.Ilo.get_supported_boot_mode">
-<tt class="descname">get_supported_boot_mode</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_supported_boot_mode" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_supported_boot_mode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.get_supported_boot_mode" title="Permalink to this definition">¶</a></dt>
 <dd><div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_supported_boot_mode</span><span class="p">()</span>
 <span class="go">LEGACY_ONLY</span>
 </pre></div>
@@ -145,7 +145,7 @@ list of names</p>
 
 <dl class="method">
 <dt id="hpilo.Ilo.get_current_boot_mode">
-<tt class="descname">get_current_boot_mode</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_current_boot_mode" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_current_boot_mode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.get_current_boot_mode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the current boot mode (legaci or uefi)</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_current_boot_mode</span><span class="p">()</span>
 <span class="go">LEGACY</span>
@@ -155,7 +155,7 @@ list of names</p>
 
 <dl class="method">
 <dt id="hpilo.Ilo.get_pending_boot_mode">
-<tt class="descname">get_pending_boot_mode</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_pending_boot_mode" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_pending_boot_mode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.get_pending_boot_mode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the pending boot mode (legaci or uefi)</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_pending_boot_mode</span><span class="p">()</span>
 <span class="go">LEGACY</span>
@@ -165,7 +165,7 @@ list of names</p>
 
 <dl class="method">
 <dt id="hpilo.Ilo.set_pending_boot_mode">
-<tt class="descname">set_pending_boot_mode</tt><big>(</big><em>boot_mode</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.set_pending_boot_mode" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_pending_boot_mode</code><span class="sig-paren">(</span><em>boot_mode</em><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.set_pending_boot_mode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the boot mode for the next boot to UEFI or legacy</p>
 </dd></dl>
 
@@ -177,7 +177,7 @@ list of names</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
         <p class="logo"><a href="index.html" title="index">
           <img class="logo" src="_static/python-hpilo.png" alt="Logo"/>
@@ -192,7 +192,7 @@ list of names</p>
     <p class="topless"><a href="media.html"
                           title="Next page">&rarr; Virtual media</a></p>
   </div>
-<div id="searchbox" style="display: none">
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -211,7 +211,7 @@ list of names</p>
     </div>
     <div class="relbar-bottom">
         
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -226,13 +226,13 @@ list of names</p>
         <li class="right" >
           <a href="power.html" title="Power manipulation"
              >previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">python-hpilo 3.8 documentation</a> &raquo;</li>
+    <li><a href="index.html">python-hpilo 3.9 documentation</a> &raquo;</li>
  
       </ul>
     </div>
     </div>
 
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2011-2016, Dennis Kaarsemaker.
     </div>
     <!-- cloud_sptheme 1.4 -->

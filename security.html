@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Security and SSL settings &mdash; python-hpilo 3.8 documentation</title>
+    <title>Security and SSL settings &mdash; python-hpilo 3.9 documentation</title>
     
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '3.8',
+        VERSION:     '3.9',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,15 +27,15 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/cloud.js"></script>
-    <link rel="top" title="python-hpilo 3.8 documentation" href="index.html" />
+    <link rel="top" title="python-hpilo 3.9 documentation" href="index.html" />
     <link rel="next" title="Server health" href="health.html" />
     <link rel="prev" title="Authentication settings" href="authentication.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
-  <body>
+  <body role="document">
     <div class="relbar-top">
         
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -50,7 +50,7 @@
         <li class="right" >
           <a href="authentication.html" title="Authentication settings"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">python-hpilo 3.8 documentation</a> &raquo;</li>
+    <li><a href="index.html">python-hpilo 3.9 documentation</a> &raquo;</li>
  
       </ul>
     </div>
@@ -60,7 +60,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="security-and-ssl-settings">
 <h1>Security and SSL settings<a class="headerlink" href="#security-and-ssl-settings" title="Permalink to this headline">¶</a></h1>
@@ -68,16 +68,16 @@
 as you want them, including using proper SSL certificates for communication.</p>
 <dl class="class">
 <dt>
-<em class="property">class </em><tt class="descclassname">hpilo.</tt><tt class="descname">Ilo</tt></dt>
+<em class="property">class </em><code class="descclassname">hpilo.</code><code class="descname">Ilo</code></dt>
 <dd><dl class="method">
 <dt id="hpilo.Ilo.cert_fqdn">
-<tt class="descname">cert_fqdn</tt><big>(</big><em>use_fqdn</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.cert_fqdn" title="Permalink to this definition">¶</a></dt>
+<code class="descname">cert_fqdn</code><span class="sig-paren">(</span><em>use_fqdn</em><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.cert_fqdn" title="Permalink to this definition">¶</a></dt>
 <dd><p>Configure whether to use the fqdn or the short hostname for certificate requests</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hpilo.Ilo.get_cert_subject_info">
-<tt class="descname">get_cert_subject_info</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_cert_subject_info" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_cert_subject_info</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.get_cert_subject_info" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get ssl certificate subject information</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_cert_subject_info</span><span class="p">()</span>
 <span class="go">{&#39;csr_subject_common_name&#39;: &#39;example-server.int.kaarsemaker.net&#39;,</span>
@@ -95,25 +95,25 @@ as you want them, including using proper SSL certificates for communication.</p>
 
 <dl class="method">
 <dt id="hpilo.Ilo.certificate_signing_request">
-<tt class="descname">certificate_signing_request</tt><big>(</big><em>country=None</em>, <em>state=None</em>, <em>locality=None</em>, <em>organization=None</em>, <em>organizational_unit=None</em>, <em>common_name=None</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.certificate_signing_request" title="Permalink to this definition">¶</a></dt>
+<code class="descname">certificate_signing_request</code><span class="sig-paren">(</span><em>country=None</em>, <em>state=None</em>, <em>locality=None</em>, <em>organization=None</em>, <em>organizational_unit=None</em>, <em>common_name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.certificate_signing_request" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a certificate signing request from the iLO</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hpilo.Ilo.import_certificate">
-<tt class="descname">import_certificate</tt><big>(</big><em>certificate</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.import_certificate" title="Permalink to this definition">¶</a></dt>
+<code class="descname">import_certificate</code><span class="sig-paren">(</span><em>certificate</em><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.import_certificate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Import a signed SSL certificate</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hpilo.Ilo.computer_lock_config">
-<tt class="descname">computer_lock_config</tt><big>(</big><em>computer_lock=None</em>, <em>computer_lock_key=None</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.computer_lock_config" title="Permalink to this definition">¶</a></dt>
+<code class="descname">computer_lock_config</code><span class="sig-paren">(</span><em>computer_lock=None</em>, <em>computer_lock_key=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.computer_lock_config" title="Permalink to this definition">¶</a></dt>
 <dd><p>Configure the computer lock settings</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hpilo.Ilo.fips_enable">
-<tt class="descname">fips_enable</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.fips_enable" title="Permalink to this definition">¶</a></dt>
+<code class="descname">fips_enable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.fips_enable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Enable FIPS standard to enforce AES/3DES encryption, can only be
 reset with a call to factory_defaults. Resets Administrator password
 and license key</p>
@@ -121,7 +121,7 @@ and license key</p>
 
 <dl class="method">
 <dt id="hpilo.Ilo.get_encrypt_settings">
-<tt class="descname">get_encrypt_settings</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_encrypt_settings" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_encrypt_settings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.get_encrypt_settings" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the iLO encryption settings</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_encrypt_settings</span><span class="p">()</span>
 <span class="go">/home/dennis/code/python-hpilo/hpilo.py:533: IloWarning: ESKM servers are not configured.</span>
@@ -138,7 +138,7 @@ and license key</p>
 
 <dl class="method">
 <dt id="hpilo.Ilo.get_fips_status">
-<tt class="descname">get_fips_status</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_fips_status" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_fips_status</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.get_fips_status" title="Permalink to this definition">¶</a></dt>
 <dd><p>Is the FIPS-mandated AES/3DESencryption enforcement in place</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_fips_status</span><span class="p">()</span>
 <span class="go">{&#39;fips_mode&#39;: &#39;Enabled&#39;}</span>
@@ -148,7 +148,7 @@ and license key</p>
 
 <dl class="method">
 <dt id="hpilo.Ilo.get_security_msg">
-<tt class="descname">get_security_msg</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_security_msg" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_security_msg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.get_security_msg" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieve the security message that is displayed on the login screen</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_security_msg</span><span class="p">()</span>
 <span class="go">{&#39;security_msg&#39;: &#39;Enabled&#39;,</span>
@@ -159,13 +159,13 @@ and license key</p>
 
 <dl class="method">
 <dt id="hpilo.Ilo.set_security_msg">
-<tt class="descname">set_security_msg</tt><big>(</big><em>security_msg</em>, <em>security_msg_text=''</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.set_security_msg" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_security_msg</code><span class="sig-paren">(</span><em>security_msg</em>, <em>security_msg_text=''</em><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.set_security_msg" title="Permalink to this definition">¶</a></dt>
 <dd><p>Enables/disables the security message on the iLO login screen and sets its value</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hpilo.Ilo.get_tpm_status">
-<tt class="descname">get_tpm_status</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_tpm_status" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_tpm_status</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.get_tpm_status" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the status of the Trusted Platform Module</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_tpm_status</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pprint</span><span class="p">(</span><span class="n">my_ilo</span><span class="o">.</span><span class="n">get_tpm_status</span><span class="p">())</span>
@@ -182,7 +182,7 @@ and license key</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
         <p class="logo"><a href="index.html" title="index">
           <img class="logo" src="_static/python-hpilo.png" alt="Logo"/>
@@ -197,7 +197,7 @@ and license key</p>
     <p class="topless"><a href="health.html"
                           title="Next page">&rarr; Server health</a></p>
   </div>
-<div id="searchbox" style="display: none">
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -216,7 +216,7 @@ and license key</p>
     </div>
     <div class="relbar-bottom">
         
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -231,13 +231,13 @@ and license key</p>
         <li class="right" >
           <a href="authentication.html" title="Authentication settings"
              >previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">python-hpilo 3.8 documentation</a> &raquo;</li>
+    <li><a href="index.html">python-hpilo 3.9 documentation</a> &raquo;</li>
  
       </ul>
     </div>
     </div>
 
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2011-2016, Dennis Kaarsemaker.
     </div>
     <!-- cloud_sptheme 1.4 -->

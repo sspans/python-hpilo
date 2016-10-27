@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Virtual media &mdash; python-hpilo 3.8 documentation</title>
+    <title>Virtual media &mdash; python-hpilo 3.9 documentation</title>
     
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '3.8',
+        VERSION:     '3.9',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,15 +27,15 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/cloud.js"></script>
-    <link rel="top" title="python-hpilo 3.8 documentation" href="index.html" />
+    <link rel="top" title="python-hpilo 3.9 documentation" href="index.html" />
     <link rel="next" title="Keyboard and mouse settings" href="input.html" />
     <link rel="prev" title="Boot settings and rebooting" href="boot.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
-  <body>
+  <body role="document">
     <div class="relbar-top">
         
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -50,7 +50,7 @@
         <li class="right" >
           <a href="boot.html" title="Boot settings and rebooting"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">python-hpilo 3.8 documentation</a> &raquo;</li>
+    <li><a href="index.html">python-hpilo 3.9 documentation</a> &raquo;</li>
  
       </ul>
     </div>
@@ -60,7 +60,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="virtual-media">
 <h1>Virtual media<a class="headerlink" href="#virtual-media" title="Permalink to this headline">¶</a></h1>
@@ -69,10 +69,10 @@ as virtual floppy or cdrom device. This can be used to e.g. install an
 operating system remotely.</p>
 <dl class="class">
 <dt>
-<em class="property">class </em><tt class="descclassname">hpilo.</tt><tt class="descname">Ilo</tt></dt>
+<em class="property">class </em><code class="descclassname">hpilo.</code><code class="descname">Ilo</code></dt>
 <dd><dl class="method">
 <dt id="hpilo.Ilo.get_vm_status">
-<tt class="descname">get_vm_status</tt><big>(</big><em>device='CDROM'</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_vm_status" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_vm_status</code><span class="sig-paren">(</span><em>device='CDROM'</em><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.get_vm_status" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the status of virtual media devices. Valid devices are FLOPPY and CDROM</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_vm_status</span><span class="p">()</span>
 <span class="go">{&#39;boot_option&#39;: &#39;NO_BOOT&#39;,</span>
@@ -87,7 +87,7 @@ operating system remotely.</p>
 
 <dl class="method">
 <dt id="hpilo.Ilo.set_vf_status">
-<tt class="descname">set_vf_status</tt><big>(</big><em>boot_option='boot_once'</em>, <em>write_protect=True</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.set_vf_status" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_vf_status</code><span class="sig-paren">(</span><em>boot_option='boot_once'</em>, <em>write_protect=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.set_vf_status" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the parameters of the RILOE virtual floppy specified virtual
 media. Valid boot options are boot_once, boot_always, no_boot, connect
 and disconnect.</p>
@@ -95,7 +95,7 @@ and disconnect.</p>
 
 <dl class="method">
 <dt id="hpilo.Ilo.set_vm_status">
-<tt class="descname">set_vm_status</tt><big>(</big><em>device='cdrom'</em>, <em>boot_option='boot_once'</em>, <em>write_protect=True</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.set_vm_status" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_vm_status</code><span class="sig-paren">(</span><em>device='cdrom'</em>, <em>boot_option='boot_once'</em>, <em>write_protect=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.set_vm_status" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the parameters of the specified virtual media. Valid boot
 options are boot_once, boot_always, no_boot, connect and disconnect.
 Valid devices are floppy and cdrom</p>
@@ -103,20 +103,20 @@ Valid devices are floppy and cdrom</p>
 
 <dl class="method">
 <dt id="hpilo.Ilo.insert_virtual_media">
-<tt class="descname">insert_virtual_media</tt><big>(</big><em>device</em>, <em>image_url</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.insert_virtual_media" title="Permalink to this definition">¶</a></dt>
+<code class="descname">insert_virtual_media</code><span class="sig-paren">(</span><em>device</em>, <em>image_url</em><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.insert_virtual_media" title="Permalink to this definition">¶</a></dt>
 <dd><p>Insert a virtual floppy or CDROM. Note that you will also need to
-use <a class="reference internal" href="#hpilo.Ilo.set_vm_status" title="hpilo.Ilo.set_vm_status"><tt class="xref py py-func docutils literal"><span class="pre">set_vm_status()</span></tt></a> to connect the media</p>
+use <a class="reference internal" href="#hpilo.Ilo.set_vm_status" title="hpilo.Ilo.set_vm_status"><code class="xref py py-func docutils literal"><span class="pre">set_vm_status()</span></code></a> to connect the media</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hpilo.Ilo.eject_virtual_floppy">
-<tt class="descname">eject_virtual_floppy</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.eject_virtual_floppy" title="Permalink to this definition">¶</a></dt>
+<code class="descname">eject_virtual_floppy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.eject_virtual_floppy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Eject the virtual floppy</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hpilo.Ilo.eject_virtual_media">
-<tt class="descname">eject_virtual_media</tt><big>(</big><em>device='cdrom'</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.eject_virtual_media" title="Permalink to this definition">¶</a></dt>
+<code class="descname">eject_virtual_media</code><span class="sig-paren">(</span><em>device='cdrom'</em><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.eject_virtual_media" title="Permalink to this definition">¶</a></dt>
 <dd><p>Eject the virtual media attached to the specified device</p>
 </dd></dl>
 
@@ -128,7 +128,7 @@ use <a class="reference internal" href="#hpilo.Ilo.set_vm_status" title="hpilo.I
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
         <p class="logo"><a href="index.html" title="index">
           <img class="logo" src="_static/python-hpilo.png" alt="Logo"/>
@@ -143,7 +143,7 @@ use <a class="reference internal" href="#hpilo.Ilo.set_vm_status" title="hpilo.I
     <p class="topless"><a href="input.html"
                           title="Next page">&rarr; Keyboard and mouse settings</a></p>
   </div>
-<div id="searchbox" style="display: none">
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -162,7 +162,7 @@ use <a class="reference internal" href="#hpilo.Ilo.set_vm_status" title="hpilo.I
     </div>
     <div class="relbar-bottom">
         
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -177,13 +177,13 @@ use <a class="reference internal" href="#hpilo.Ilo.set_vm_status" title="hpilo.I
         <li class="right" >
           <a href="boot.html" title="Boot settings and rebooting"
              >previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">python-hpilo 3.8 documentation</a> &raquo;</li>
+    <li><a href="index.html">python-hpilo 3.9 documentation</a> &raquo;</li>
  
       </ul>
     </div>
     </div>
 
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2011-2016, Dennis Kaarsemaker.
     </div>
     <!-- cloud_sptheme 1.4 -->

@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>iLO licensing &mdash; python-hpilo 3.8 documentation</title>
+    <title>iLO licensing &mdash; python-hpilo 3.9 documentation</title>
     
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '3.8',
+        VERSION:     '3.9',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,15 +27,15 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/cloud.js"></script>
-    <link rel="top" title="python-hpilo 3.8 documentation" href="index.html" />
+    <link rel="top" title="python-hpilo 3.9 documentation" href="index.html" />
     <link rel="next" title="Authentication settings" href="authentication.html" />
     <link rel="prev" title="Network settings" href="networksettings.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
-  <body>
+  <body role="document">
     <div class="relbar-top">
         
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -50,7 +50,7 @@
         <li class="right" >
           <a href="networksettings.html" title="Network settings"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">python-hpilo 3.8 documentation</a> &raquo;</li>
+    <li><a href="index.html">python-hpilo 3.9 documentation</a> &raquo;</li>
  
       </ul>
     </div>
@@ -60,7 +60,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="ilo-licensing">
 <h1>iLO licensing<a class="headerlink" href="#ilo-licensing" title="Permalink to this headline">¶</a></h1>
@@ -69,10 +69,10 @@ These functions can tell you whether such a license has been activated and
 allow you to activate one.</p>
 <dl class="class">
 <dt>
-<em class="property">class </em><tt class="descclassname">hpilo.</tt><tt class="descname">Ilo</tt></dt>
+<em class="property">class </em><code class="descclassname">hpilo.</code><code class="descname">Ilo</code></dt>
 <dd><dl class="method">
 <dt id="hpilo.Ilo.get_all_licenses">
-<tt class="descname">get_all_licenses</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_all_licenses" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_all_licenses</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.get_all_licenses" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a list of all license types and licenses</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_all_licenses</span><span class="p">()</span>
 <span class="go">[{&#39;license_class&#39;: &#39;FQL&#39;,</span>
@@ -85,7 +85,7 @@ allow you to activate one.</p>
 
 <dl class="method">
 <dt id="hpilo.Ilo.activate_license">
-<tt class="descname">activate_license</tt><big>(</big><em>key</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.activate_license" title="Permalink to this definition">¶</a></dt>
+<code class="descname">activate_license</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.activate_license" title="Permalink to this definition">¶</a></dt>
 <dd><p>Activate an iLO advanced license</p>
 </dd></dl>
 
@@ -97,7 +97,7 @@ allow you to activate one.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
         <p class="logo"><a href="index.html" title="index">
           <img class="logo" src="_static/python-hpilo.png" alt="Logo"/>
@@ -112,7 +112,7 @@ allow you to activate one.</p>
     <p class="topless"><a href="authentication.html"
                           title="Next page">&rarr; Authentication settings</a></p>
   </div>
-<div id="searchbox" style="display: none">
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -131,7 +131,7 @@ allow you to activate one.</p>
     </div>
     <div class="relbar-bottom">
         
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -146,13 +146,13 @@ allow you to activate one.</p>
         <li class="right" >
           <a href="networksettings.html" title="Network settings"
              >previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">python-hpilo 3.8 documentation</a> &raquo;</li>
+    <li><a href="index.html">python-hpilo 3.9 documentation</a> &raquo;</li>
  
       </ul>
     </div>
     </div>
 
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2011-2016, Dennis Kaarsemaker.
     </div>
     <!-- cloud_sptheme 1.4 -->

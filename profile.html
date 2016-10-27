@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Deployment profiles &mdash; python-hpilo 3.8 documentation</title>
+    <title>Deployment profiles &mdash; python-hpilo 3.9 documentation</title>
     
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '3.8',
+        VERSION:     '3.9',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,15 +27,15 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/cloud.js"></script>
-    <link rel="top" title="python-hpilo 3.8 documentation" href="index.html" />
+    <link rel="top" title="python-hpilo 3.9 documentation" href="index.html" />
     <link rel="next" title="Managing SSL certificates" href="ca.html" />
     <link rel="prev" title="Active Health System and Insight Remote Support" href="ahs.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
-  <body>
+  <body role="document">
     <div class="relbar-top">
         
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -50,7 +50,7 @@
         <li class="right" >
           <a href="ahs.html" title="Active Health System and Insight Remote Support"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">python-hpilo 3.8 documentation</a> &raquo;</li>
+    <li><a href="index.html">python-hpilo 3.9 documentation</a> &raquo;</li>
  
       </ul>
     </div>
@@ -60,7 +60,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="deployment-profiles">
 <h1>Deployment profiles<a class="headerlink" href="#deployment-profiles" title="Permalink to this headline">¶</a></h1>
@@ -68,34 +68,34 @@
 the following methods you can manage and apply such profiles.</p>
 <dl class="class">
 <dt>
-<em class="property">class </em><tt class="descclassname">hpilo.</tt><tt class="descname">Ilo</tt></dt>
+<em class="property">class </em><code class="descclassname">hpilo.</code><code class="descname">Ilo</code></dt>
 <dd><dl class="method">
 <dt id="hpilo.Ilo.profile_desc_download">
-<tt class="descname">profile_desc_download</tt><big>(</big><em>desc_name</em>, <em>name</em>, <em>description</em>, <em>blob_namespace=None</em>, <em>blob_name=None</em>, <em>url=None</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.profile_desc_download" title="Permalink to this definition">¶</a></dt>
+<code class="descname">profile_desc_download</code><span class="sig-paren">(</span><em>desc_name</em>, <em>name</em>, <em>description</em>, <em>blob_namespace=None</em>, <em>blob_name=None</em>, <em>url=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.profile_desc_download" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make the iLO download a blob and create a deployment profile</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hpilo.Ilo.profile_list">
-<tt class="descname">profile_list</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.profile_list" title="Permalink to this definition">¶</a></dt>
+<code class="descname">profile_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.profile_list" title="Permalink to this definition">¶</a></dt>
 <dd><p>List all profile descriptors</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hpilo.Ilo.profile_delete">
-<tt class="descname">profile_delete</tt><big>(</big><em>desc_name</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.profile_delete" title="Permalink to this definition">¶</a></dt>
+<code class="descname">profile_delete</code><span class="sig-paren">(</span><em>desc_name</em><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.profile_delete" title="Permalink to this definition">¶</a></dt>
 <dd><p>Delet the specified deployment profile</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hpilo.Ilo.profile_apply">
-<tt class="descname">profile_apply</tt><big>(</big><em>desc_name</em>, <em>action</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.profile_apply" title="Permalink to this definition">¶</a></dt>
+<code class="descname">profile_apply</code><span class="sig-paren">(</span><em>desc_name</em>, <em>action</em><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.profile_apply" title="Permalink to this definition">¶</a></dt>
 <dd><p>Apply a deployment profile</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hpilo.Ilo.profile_apply_get_results">
-<tt class="descname">profile_apply_get_results</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.profile_apply_get_results" title="Permalink to this definition">¶</a></dt>
+<code class="descname">profile_apply_get_results</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.profile_apply_get_results" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieve the results of the last profile_apply</p>
 </dd></dl>
 
@@ -107,7 +107,7 @@ the following methods you can manage and apply such profiles.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
         <p class="logo"><a href="index.html" title="index">
           <img class="logo" src="_static/python-hpilo.png" alt="Logo"/>
@@ -122,7 +122,7 @@ the following methods you can manage and apply such profiles.</p>
     <p class="topless"><a href="ca.html"
                           title="Next page">&rarr; Managing SSL certificates</a></p>
   </div>
-<div id="searchbox" style="display: none">
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -141,7 +141,7 @@ the following methods you can manage and apply such profiles.</p>
     </div>
     <div class="relbar-bottom">
         
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -156,13 +156,13 @@ the following methods you can manage and apply such profiles.</p>
         <li class="right" >
           <a href="ahs.html" title="Active Health System and Insight Remote Support"
              >previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">python-hpilo 3.8 documentation</a> &raquo;</li>
+    <li><a href="index.html">python-hpilo 3.9 documentation</a> &raquo;</li>
  
       </ul>
     </div>
     </div>
 
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2011-2016, Dennis Kaarsemaker.
     </div>
     <!-- cloud_sptheme 1.4 -->

@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Access from the shell &mdash; python-hpilo 3.8 documentation</title>
+    <title>Access from the shell &mdash; python-hpilo 3.9 documentation</title>
     
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '3.8',
+        VERSION:     '3.9',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,15 +27,15 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/cloud.js"></script>
-    <link rel="top" title="python-hpilo 3.8 documentation" href="index.html" />
+    <link rel="top" title="python-hpilo 3.9 documentation" href="index.html" />
     <link rel="next" title="General server and iLO information" href="info.html" />
     <link rel="prev" title="Access from Python" href="python.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
-  <body>
+  <body role="document">
     <div class="relbar-top">
         
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -50,7 +50,7 @@
         <li class="right" >
           <a href="python.html" title="Access from Python"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">python-hpilo 3.8 documentation</a> &raquo;</li>
+    <li><a href="index.html">python-hpilo 3.9 documentation</a> &raquo;</li>
  
       </ul>
     </div>
@@ -60,7 +60,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="access-from-the-shell">
 <h1>Access from the shell<a class="headerlink" href="#access-from-the-shell" title="Permalink to this headline">¶</a></h1>
@@ -68,7 +68,7 @@
 your shell or scripts written in another language than python. It supports all
 methods that the library has.</p>
 <div class="section" id="hpilo-cli-usage">
-<h2><tt class="docutils literal"><span class="pre">hpilo_cli</span></tt> usage<a class="headerlink" href="#hpilo-cli-usage" title="Permalink to this headline">¶</a></h2>
+<h2><code class="docutils literal"><span class="pre">hpilo_cli</span></code> usage<a class="headerlink" href="#hpilo-cli-usage" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-console"><div class="highlight"><pre><span class="go">hpilo_cli [options] hostname method [args...] [ + method [args...]...]</span>
 <span class="go">hpilo_cli download_rib_firmware ilotype version [version...]</span>
 </pre></div>
@@ -134,7 +134,7 @@ specified.</td></tr>
 </table>
 </dd>
 </dl>
-<p><strong class="program">hpilo_cli</strong> will read a config file (by default <tt class="file docutils literal"><span class="pre">~/.ilo.conf</span></tt>)
+<p><strong class="program">hpilo_cli</strong> will read a config file (by default <code class="file docutils literal"><span class="pre">~/.ilo.conf</span></code>)
 to find login information and any other variable you wish to set. This config
 file is a simple ini file that should look like this</p>
 <div class="highlight-ini"><div class="highlight"><pre><span class="k">[ilo]</span>
@@ -145,11 +145,11 @@ file is a simple ini file that should look like this</p>
 <p>Using such a file is recommended over using the login/password commandline
 arguments.</p>
 <p>Many methods that can be called requier arguments. These arguments must be
-specified as <tt class="xref py py-data docutils literal"><span class="pre">key=value</span></tt> pairs on the command-line. These parameters can
+specified as <code class="xref py py-data docutils literal"><span class="pre">key=value</span></code> pairs on the command-line. These parameters can
 also point to arbitrary configuration variables using the
-<tt class="xref py py-attr docutils literal"><span class="pre">key='$section.option'</span></tt> syntax.</p>
-<p>Finally, you can also call multiple methds at once by separating them with a
-<tt class="xref py py-data docutils literal"><span class="pre">+</span></tt></p>
+<code class="xref py py-attr docutils literal"><span class="pre">key='$section.option'</span></code> syntax.</p>
+<p>Finally, you can also call multiple methods at once by separating them with a
+<code class="xref py py-data docutils literal"><span class="pre">+</span></code></p>
 </div>
 <div class="section" id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
@@ -170,7 +170,7 @@ examples will make it clearer how to use this application properly.</p>
 <div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> hpilo_cli example-server.int.kaarsemaker.net set_server_name <span class="nv">name</span><span class="o">=</span>example-server
 </pre></div>
 </div>
-<p>Displaying help for the <tt class="xref py py-func docutils literal"><span class="pre">get_host_data()</span></tt> method:</p>
+<p>Displaying help for the <code class="xref py py-func docutils literal"><span class="pre">get_host_data()</span></code> method:</p>
 <div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> hpilo_cli --help get_host_data
 <span class="go">Ilo.get_host_data [decoded_only=True]:</span>
 <span class="go">Get SMBIOS records that describe the host. By default only the ones</span>
@@ -178,8 +178,8 @@ examples will make it clearer how to use this application properly.</p>
 <span class="go">all records pass decoded_only=False</span>
 </pre></div>
 </div>
-<p>Methods like <tt class="xref py py-func docutils literal"><span class="pre">mod_network_data()</span></tt> method require dicts for some arguments
-(e.g. <tt class="xref py py-data docutils literal"><span class="pre">static_route_</span></tt>), you can use the following syntax:</p>
+<p>Methods like <code class="xref py py-func docutils literal"><span class="pre">mod_network_data()</span></code> method require dicts for some arguments
+(e.g. <code class="xref py py-data docutils literal"><span class="pre">static_route_</span></code>), you can use the following syntax:</p>
 <div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> hpilo_cli example-server.int.kaarsemaker.net mod_network_settings static_route_1.dest<span class="o">=</span>1.2.3.4 static_route_1.gateway<span class="o">=</span>10.10.10.254
 </pre></div>
 </div>
@@ -205,15 +205,15 @@ examples will make it clearer how to use this application properly.</p>
 </pre></div>
 </div>
 <p>Using hponcfg to talk to the local iLO device to reset the password without knowing it:</p>
-<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> hpilo_cli -P <span class="nb">local </span>localhost mod_user <span class="nv">user_login</span><span class="o">=</span>Administrator <span class="nv">password</span><span class="o">=</span>NewPassword
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> hpilo_cli -P <span class="nb">local</span> localhost mod_user <span class="nv">user_login</span><span class="o">=</span>Administrator <span class="nv">password</span><span class="o">=</span>NewPassword
 </pre></div>
 </div>
-<p><tt class="docutils literal"><span class="pre">-P</span> <span class="pre">local</span></tt> is optional when specifying localhost as hostname, so this works too:</p>
+<p><code class="docutils literal"><span class="pre">-P</span> <span class="pre">local</span></code> is optional when specifying localhost as hostname, so this works too:</p>
 <div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> hpilo_cli localhost mod_user <span class="nv">user_login</span><span class="o">=</span>Administrator <span class="nv">password</span><span class="o">=</span>NewPassword
 </pre></div>
 </div>
-<p>If hponcfg is not in the default install location and not in your <tt class="xref py py-data docutils literal"><span class="pre">$PATH</span></tt>
-or <tt class="xref py py-data docutils literal"><span class="pre">%PATH%</span></tt>, you can set an alternative path in the configuration file.</p>
+<p>If hponcfg is not in the default install location and not in your <code class="xref py py-data docutils literal"><span class="pre">$PATH</span></code>
+or <code class="xref py py-data docutils literal"><span class="pre">%PATH%</span></code>, you can set an alternative path in the configuration file.</p>
 <div class="highlight-ini"><div class="highlight"><pre><span class="k">[ilo]</span>
 <span class="na">hponcfg</span> <span class="o">=</span> <span class="s">/usr/local/bin/hponcfg</span>
 </pre></div>
@@ -231,7 +231,7 @@ scripting guide</a> published by HP.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
         <p class="logo"><a href="index.html" title="index">
           <img class="logo" src="_static/python-hpilo.png" alt="Logo"/>
@@ -239,7 +239,7 @@ scripting guide</a> published by HP.</p>
     <h3><a href="index.html">Page contents</a></h3>
     <ul>
 <li><a class="reference internal" href="#">Access from the shell</a><ul>
-<li><a class="reference internal" href="#hpilo-cli-usage"><tt class="docutils literal"><span class="pre">hpilo_cli</span></tt> usage</a></li>
+<li><a class="reference internal" href="#hpilo-cli-usage"><code class="docutils literal"><span class="pre">hpilo_cli</span></code> usage</a></li>
 <li><a class="reference internal" href="#examples">Examples</a></li>
 <li><a class="reference internal" href="#available-methods">Available methods</a></li>
 </ul>
@@ -257,7 +257,7 @@ scripting guide</a> published by HP.</p>
     <p class="topless"><a href="info.html"
                           title="Next page">&rarr; General server and iLO information</a></p>
   </div>
-<div id="searchbox" style="display: none">
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -276,7 +276,7 @@ scripting guide</a> published by HP.</p>
     </div>
     <div class="relbar-bottom">
         
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -291,13 +291,13 @@ scripting guide</a> published by HP.</p>
         <li class="right" >
           <a href="python.html" title="Access from Python"
              >previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">python-hpilo 3.8 documentation</a> &raquo;</li>
+    <li><a href="index.html">python-hpilo 3.9 documentation</a> &raquo;</li>
  
       </ul>
     </div>
     </div>
 
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2011-2016, Dennis Kaarsemaker.
     </div>
     <!-- cloud_sptheme 1.4 -->

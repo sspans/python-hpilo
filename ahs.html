@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Active Health System and Insight Remote Support &mdash; python-hpilo 3.8 documentation</title>
+    <title>Active Health System and Insight Remote Support &mdash; python-hpilo 3.9 documentation</title>
     
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '3.8',
+        VERSION:     '3.9',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,15 +27,15 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/cloud.js"></script>
-    <link rel="top" title="python-hpilo 3.8 documentation" href="index.html" />
+    <link rel="top" title="python-hpilo 3.9 documentation" href="index.html" />
     <link rel="next" title="Deployment profiles" href="profile.html" />
     <link rel="prev" title="Federation groups" href="federation.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
-  <body>
+  <body role="document">
     <div class="relbar-top">
         
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -50,7 +50,7 @@
         <li class="right" >
           <a href="federation.html" title="Federation groups"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">python-hpilo 3.8 documentation</a> &raquo;</li>
+    <li><a href="index.html">python-hpilo 3.9 documentation</a> &raquo;</li>
  
       </ul>
     </div>
@@ -60,7 +60,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="active-health-system-and-insight-remote-support">
 <h1>Active Health System and Insight Remote Support<a class="headerlink" href="#active-health-system-and-insight-remote-support" title="Permalink to this headline">¶</a></h1>
@@ -69,10 +69,10 @@ information about your server environment in a central place. These functions
 let you inspect and manipulate the AHS and ERS configuration and submit data.</p>
 <dl class="class">
 <dt>
-<em class="property">class </em><tt class="descclassname">hpilo.</tt><tt class="descname">Ilo</tt></dt>
+<em class="property">class </em><code class="descclassname">hpilo.</code><code class="descname">Ilo</code></dt>
 <dd><dl class="method">
 <dt id="hpilo.Ilo.get_ahs_status">
-<tt class="descname">get_ahs_status</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_ahs_status" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_ahs_status</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.get_ahs_status" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get active health system logging status</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_ahs_status</span><span class="p">()</span>
 <span class="go">{&#39;ahs_hardware_status&#39;: &#39;ENABLED&#39;,</span>
@@ -84,19 +84,19 @@ let you inspect and manipulate the AHS and ERS configuration and submit data.</p
 
 <dl class="method">
 <dt id="hpilo.Ilo.set_ahs_status">
-<tt class="descname">set_ahs_status</tt><big>(</big><em>status</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.set_ahs_status" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_ahs_status</code><span class="sig-paren">(</span><em>status</em><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.set_ahs_status" title="Permalink to this definition">¶</a></dt>
 <dd><p>Enable or disable AHS logging</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hpilo.Ilo.ahs_clear_data">
-<tt class="descname">ahs_clear_data</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.ahs_clear_data" title="Permalink to this definition">¶</a></dt>
+<code class="descname">ahs_clear_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.ahs_clear_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Clears Active Health System information log</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hpilo.Ilo.get_ers_settings">
-<tt class="descname">get_ers_settings</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.get_ers_settings" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_ers_settings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.get_ers_settings" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the ERS Insight Remote Support settings</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ilo</span><span class="o">.</span><span class="n">get_ers_settings</span><span class="p">()</span>
 <span class="go">{&#39;ers_agent&#39;: &#39;&#39;,</span>
@@ -117,52 +117,52 @@ let you inspect and manipulate the AHS and ERS configuration and submit data.</p
 
 <dl class="method">
 <dt id="hpilo.Ilo.set_ers_irs_connect">
-<tt class="descname">set_ers_irs_connect</tt><big>(</big><em>ers_destination_url</em>, <em>ers_destination_port</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.set_ers_irs_connect" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_ers_irs_connect</code><span class="sig-paren">(</span><em>ers_destination_url</em>, <em>ers_destination_port</em><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.set_ers_irs_connect" title="Permalink to this definition">¶</a></dt>
 <dd><p>Connect to an Insight Remote Support server</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hpilo.Ilo.set_ers_direct_connect">
-<tt class="descname">set_ers_direct_connect</tt><big>(</big><em>user_id</em>, <em>password</em>, <em>proxy_host=None</em>, <em>proxy_port=None</em>, <em>proxy_username=None</em>, <em>proxy_password=None</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.set_ers_direct_connect" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_ers_direct_connect</code><span class="sig-paren">(</span><em>user_id</em>, <em>password</em>, <em>proxy_host=None</em>, <em>proxy_port=None</em>, <em>proxy_username=None</em>, <em>proxy_password=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.set_ers_direct_connect" title="Permalink to this definition">¶</a></dt>
 <dd><p>Register your iLO with HP Insigt Online using Direct Connect. Note
 that you must also call dc_registration_complete</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hpilo.Ilo.dc_registration_complete">
-<tt class="descname">dc_registration_complete</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.dc_registration_complete" title="Permalink to this definition">¶</a></dt>
+<code class="descname">dc_registration_complete</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.dc_registration_complete" title="Permalink to this definition">¶</a></dt>
 <dd><p>Complete the ERS registration of your device after calling
 set_ers_direct_connect</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hpilo.Ilo.set_ers_web_proxy">
-<tt class="descname">set_ers_web_proxy</tt><big>(</big><em>proxy_host</em>, <em>proxy_port</em>, <em>proxy_username=None</em>, <em>proxy_password=None</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.set_ers_web_proxy" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_ers_web_proxy</code><span class="sig-paren">(</span><em>proxy_host</em>, <em>proxy_port</em>, <em>proxy_username=None</em>, <em>proxy_password=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.set_ers_web_proxy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Register your iLO with HP Insigt Online using Direct Connect. Note
 that you must also call dc_registration_complete</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hpilo.Ilo.ers_ahs_submit">
-<tt class="descname">ers_ahs_submit</tt><big>(</big><em>message_id</em>, <em>bb_days</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.ers_ahs_submit" title="Permalink to this definition">¶</a></dt>
+<code class="descname">ers_ahs_submit</code><span class="sig-paren">(</span><em>message_id</em>, <em>bb_days</em><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.ers_ahs_submit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Submity AHS data to the insight remote support server</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hpilo.Ilo.trigger_l2_collection">
-<tt class="descname">trigger_l2_collection</tt><big>(</big><em>message_id</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.trigger_l2_collection" title="Permalink to this definition">¶</a></dt>
+<code class="descname">trigger_l2_collection</code><span class="sig-paren">(</span><em>message_id</em><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.trigger_l2_collection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initiate an L2 data collection submission to the Insight Remote Support server.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hpilo.Ilo.trigger_test_event">
-<tt class="descname">trigger_test_event</tt><big>(</big><em>message_id</em><big>)</big><a class="headerlink" href="#hpilo.Ilo.trigger_test_event" title="Permalink to this definition">¶</a></dt>
+<code class="descname">trigger_test_event</code><span class="sig-paren">(</span><em>message_id</em><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.trigger_test_event" title="Permalink to this definition">¶</a></dt>
 <dd><p>Trigger a test service event submission to the Insight Remote Support server.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hpilo.Ilo.disable_ers">
-<tt class="descname">disable_ers</tt><big>(</big><big>)</big><a class="headerlink" href="#hpilo.Ilo.disable_ers" title="Permalink to this definition">¶</a></dt>
+<code class="descname">disable_ers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpilo.Ilo.disable_ers" title="Permalink to this definition">¶</a></dt>
 <dd><p>Disable Insight Remote Support functionality and unregister the server</p>
 </dd></dl>
 
@@ -174,7 +174,7 @@ that you must also call dc_registration_complete</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
         <p class="logo"><a href="index.html" title="index">
           <img class="logo" src="_static/python-hpilo.png" alt="Logo"/>
@@ -189,7 +189,7 @@ that you must also call dc_registration_complete</p>
     <p class="topless"><a href="profile.html"
                           title="Next page">&rarr; Deployment profiles</a></p>
   </div>
-<div id="searchbox" style="display: none">
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -208,7 +208,7 @@ that you must also call dc_registration_complete</p>
     </div>
     <div class="relbar-bottom">
         
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -223,13 +223,13 @@ that you must also call dc_registration_complete</p>
         <li class="right" >
           <a href="federation.html" title="Federation groups"
              >previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">python-hpilo 3.8 documentation</a> &raquo;</li>
+    <li><a href="index.html">python-hpilo 3.9 documentation</a> &raquo;</li>
  
       </ul>
     </div>
     </div>
 
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2011-2016, Dennis Kaarsemaker.
     </div>
     <!-- cloud_sptheme 1.4 -->
