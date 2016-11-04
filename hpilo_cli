@@ -3,29 +3,23 @@
 # (c) 2011-2016 Dennis Kaarsemaker <dennis@kaarsemaker.net>
 # see COPYING for license details
 
-try:
-    import ConfigParser
-except ImportError:
-    import configparser as ConfigParser
-try:
-    basestring
-except NameError:
-    basestring = str
 import hpilo
 import hpilo_fw
-try:
-    input = raw_input
-except NameError:
-    pass
 import getpass
 import optparse
 import os
 from pprint import pprint
 import sys
-try:
+
+PY3 = sys.version_info[0] >= 3
+if PY3:
+    import configparser as ConfigParser
     from urllib.error import HTTPError
-except ImportError:
+    basestring = str
+else:
+    import ConfigParser
     from urllib2 import HTTPError
+    input = raw_input
 
 ilo_methods = sorted([x for x in dir(hpilo.Ilo) if not x.startswith('_') and x.islower()])
 
@@ -321,9 +315,8 @@ def _download(config, key):
             print("")
         else:
             print("%s firmware version %s was already downloaded" % (key.split()[0], config[key]['version']))
-    except HTTPError:
-        e = sys.exc_info()[1]
-        print("\n%s" % str(e))
+    except HTTPError as exc:
+        print("\n%s" % str(exc))
 
 if __name__ == '__main__':
     main()
